@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>vue.js2.0学习(一)——基础</title>
+    <url>/2019/12/02/Vue-Study1/</url>
+    <content><![CDATA[<p>vue.js是一套构建用户界面的渐进式框架。<br><code>Vue</code>只关注视图层，采用自底向上增量开发的设计。<br><code>Vue</code> 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+<a id="more"></a>
+
+<h1 id="Vue语法格式"><a href="#Vue语法格式" class="headerlink" title="Vue语法格式"></a><code>Vue</code>语法格式</h1><h2 id="基本格式："><a href="#基本格式：" class="headerlink" title="基本格式："></a>基本格式：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var vm &#x3D; new Vue(&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;选项</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
+
+<p>实例:</p>
+<pre><code>&lt;div id=&quot;vue_det&quot;&gt;
+       &lt;h1&gt;site : {{site}}&lt;/h1&gt;
+       &lt;h1&gt;url : {{url}}&lt;/h1&gt;
+       &lt;h1&gt;{{details()}}&lt;/h1&gt;
+   &lt;/div&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+       var vm = new Vue({
+           el: &apos;#vue_det&apos;,
+           data: {
+               site: &quot;菜鸟教程&quot;,
+               url: &quot;www.runoob.com&quot;,
+               alexa: &quot;10000&quot;,
+           },
+           methods: {
+               details: function() {
+                   return  this.site + &quot; - 学的不仅是技术，更是梦想！&quot;;
+               }
+           }
+       })
+   &lt;/script&gt;</code></pre><ol>
+<li><code>el(element)</code>参数是<code>DOM</code>元素中的<code>id</code>。</li>
+<li><code>data</code>用于定义属性(也可以是实例外部方法(函数)的返回值),<code>v-model</code>双向绑定时,<code>data</code>中的属性若为空的话可以用双引号[“”],会根据绑定的数据类型自动转换类型。</li>
+<li><code>methods</code>用于定义函数,通过<code>return</code>来返回函数值。</li>
+</ol>
+<h2 id="设置属性"><a href="#设置属性" class="headerlink" title="设置属性"></a>设置属性</h2><pre><code>var data = { site: &quot;菜鸟教程&quot;, url: &quot;www.runoob.com&quot;, alexa: 10000}
+var vm = new Vue({
+    el: &apos;#vue_det&apos;,
+    data: data
+})</code></pre><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 它们引用相同的对象！</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(vm.site === data.site) <span class="comment">// true</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">// 设置属性也会影响到原始数据</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">vm.site = <span class="string">"Runoob"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(data.site + <span class="string">"&lt;br&gt;"</span>) <span class="comment">// Runoob</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">// ……反之亦然</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">data.alexa = <span class="number">1234</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(vm.alexa) <span class="comment">// 1234</span></span></pre></td></tr></table></figure>
+
+
+
+<p><code>vue</code>实例还提供了一些有用的实例属性与方法.它们都有前缀$.以便与用户定义的属性区分开来</p>
+<p>例如:</p>
+<pre><code>//我们的数据对象
+var data = { site: &quot;菜鸟教程&quot;, url: &quot;www.runoob.com&quot;, alexa: 10000}
+var vm = new Vue({
+    el: &apos;#vue_det&apos;,
+    data: data
+})
+
+document.write(vm.$data === data) // true
+document.write(&quot;&lt;br&gt;&quot;) // true
+document.write(vm.$el === document.getElementById(&apos;vue_det&apos;)) // true</code></pre><h1 id="Vue-js模板语法"><a href="#Vue-js模板语法" class="headerlink" title="Vue.js模板语法"></a>Vue.js模板语法</h1><h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><ul>
+<li>文本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;app&quot;&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;p&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">var vm &#x3D; new Vue(&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	el:#app,</span></pre></td></tr><tr><td class="code"><pre><span class="line">	data:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		message:&quot;hello world!&quot;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
+
+
+
+
+
+
+<pre><code>     使用这种方法可能会出现闪烁问题,即页面中的DOM和数据还没有加载完成,页面上会显示出大括号
+解决:</code></pre><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-attr">[v-cloak]</span> &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  <span class="attribute">display</span>:none;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>在使用了双大括号语法的标签里使用v-cloak</p>
+<p>扩展: v-text<br>文本插值,其等同于Mustache语法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;p v-text&#x3D;&quot;msg&quot;&gt;&lt;&#x2F;p&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&lt;!--和下面的一样--&gt;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&lt;p&gt;&lt;&#123;&#123;msg&#125;&#125;&#x2F;p&gt;</span></pre></td></tr></table></figure>
+
+
+<p>​<br> 2.  使用<code>v-once</code>指令,可以一次性的插值,当数据改变时,插值处的内容不会更新</p>
+<ul>
+<li>Html</li>
+</ul>
+<p>使用v-html指令用于输出html代码</p>
+<pre><code> &lt;div id=&quot;app&quot;&gt;
+    &lt;div v-html=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    new Vue({
+        el: &apos;#app&apos;,
+        data: {
+            message: &apos;&lt;h1&gt;菜鸟教程&lt;/h1&gt;&apos;
+        }
+    })
+&lt;/script&gt;</code></pre><ul>
+<li><p>属性</p>
+<p>HTML属性中的值应使用v-bind指令(双大括号不能作用在HTML特性上)</p>
+<p><code>&lt;button v-bind:disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;</code>    </p>
+<p>在布尔特性的情况下,它们的存在即暗示为true,  如果 <code>isButtonDisabled</code> 的值为 null ,<br><code>underfined</code>或 false,则disable的特性不会被包含在渲染出来的<code>&lt;button&gt;</code>元素中<br>(即不加载这个特性)</p>
+</li>
+<li><p>使用JavaScript表达式</p>
+<p>vue.js支持JavaScript表达式(每个绑定都只能包含单个表达式)</p>
+<p>JS表达式: 是由运算元和运算符(可选)构成，并产生运算结果的语法结构。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>数学运算:&#123;&#123;x+y&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>三目运算符:&#123;&#123;ok?"yes":"no"&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>方法的调用&#123;&#123;msg.split(""),reverse().join()&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></pre></td></tr></table></figure>
+
+<ul>
+<li>指令</li>
+</ul>
+<p>指令是带有 v-前缀的特殊属性<br>    指令用于在表达式的值改变时,将某些行为应用到DOM上</p>
+<p>例如 v-if v-bind  v-text……</p>
+<ul>
+<li>参数</li>
+</ul>
+<p>参数在指令后以冒号指明.<br>    例如 <code>v-bind:href = &quot;url&quot;</code></p>
+<p>这里的<code>href</code>是参数,告知 <code>v-bind</code>指令该元素的<code>href</code>属性与表达式url的值绑定</p>
+<p>参数除了是HTML元素的属性,也可以是监听的事件名,如<code>:click</code>事件</p>
+<ul>
+<li><p>修饰符</p>
+<p>修饰符是以半角句号 <code>.</code> 指明的特殊后缀,用于指出一个指令应该以特殊方式绑定</p>
+<p>例如: <code>&lt;form v-on:submit.prevent=&quot;onSubmit&quot;&gt;...&lt;/form&gt;</code></p>
+<pre><code>`.prevent` 修饰符告诉 v-on 指令对于触发的事件调用`event.preventDefault()`</code></pre></li>
+<li><p>用户输入</p>
+<pre><code>使用 v-model 指令来实现双向数据绑定</code></pre></li>
+</ul>
+<p>实例:      </p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+       &lt;p&gt;{{ message }}&lt;/p&gt;
+       &lt;input v-model=&quot;message&quot;&gt;
+   &lt;/div&gt;
+   &lt;script&gt;
+    new Vue({
+        el: &apos;#app&apos;,
+       data: {
+         message: &apos;Runoob!&apos;
+       }
+     })
+   &lt;/script&gt;</code></pre><p>按钮的事件可以使用 <code>v-on</code> 监听事件     例如:<code>v-on:click = &quot;click&quot;</code></p>
+]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>vue2.0</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/11/30/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
