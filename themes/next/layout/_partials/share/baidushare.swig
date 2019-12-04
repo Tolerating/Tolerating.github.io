@@ -1,13 +1,13 @@
-{% if theme.baidushare.type === "button" %}
+{% if theme.baidushare.type === "button"%}
   <div class="bdsharebuttonbox">
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš"></a>
-    <a href="#" class="bds_douban" data-cmd="douban" title="åˆ†äº«åˆ°è±†ç“£ç½‘"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="åˆ†äº«åˆ°QQå¥½å‹"></a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="åˆ†äº«åˆ°QQç©ºé—´"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="åˆ†äº«åˆ°å¾®ä¿¡"></a>
-    <a href="#" class="bds_tieba" data-cmd="tieba" title="åˆ†äº«åˆ°ç™¾åº¦è´´å§"></a>
-    <a href="#" class="bds_twi" data-cmd="twi" title="åˆ†äº«åˆ°Twitter"></a>
-    <a href="#" class="bds_fbook" data-cmd="fbook" title="åˆ†äº«åˆ°Facebook"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="·ÖÏíµ½ÐÂÀËÎ¢²©"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="·ÖÏíµ½¶¹°êÍø"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="·ÖÏíµ½QQºÃÓÑ"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="·ÖÏíµ½QQ¿Õ¼ä"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="·ÖÏíµ½Î¢ÐÅ"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="·ÖÏíµ½°Ù¶ÈÌù°É"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="·ÖÏíµ½Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="·ÖÏíµ½Facebook"></a>
     <a href="#" class="bds_more" data-cmd="more"></a>
     <a class="bds_count" data-cmd="count"></a>
   </div>
@@ -25,7 +25,7 @@
       },
       "image": {
         "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "åˆ†äº«åˆ°ï¼š",
+        "viewText": "·ÖÏíµ½£º",
         "viewSize": "16"
       }
     }
@@ -41,7 +41,7 @@
       },
       "image": {
         "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "åˆ†äº«åˆ°ï¼š",
+        "viewText": "·ÖÏíµ½£º",
         "viewSize": "16"
       },
       "slide": {
@@ -53,5 +53,5 @@
   </script>
 {% endif %}
 <script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 </script>

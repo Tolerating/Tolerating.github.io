@@ -40,7 +40,7 @@
       {% for name, path in theme.menu %}
         {% set itemName = name.toLowerCase() %}
         <li class="menu-item menu-item-{{ itemName | replace(' ', '-') }}">
-          <a href="{{ url_for(path.split('||')[0]) | trim }}" rel="section">
+          <a href="{{ url_for(path.split(' || ')[0]) | trim }}" rel="section">
             {% if theme.menu_icons.enable %}
               <i class="menu-item-icon fa fa-fw fa-{{ path.split('||')[1] | trim | default('question-circle') }}"></i> <br />
             {% endif %}
@@ -52,9 +52,9 @@
       {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:void(0);" class="st-search-show-outputs">
           {% elseif theme.local_search.enable || theme.algolia_search.enable %}
-            <a href="javascript:;" class="popup-trigger">
+            <a href="javascript:void(0);" target='' class="popup-trigger">
           {% endif %}
             {% if theme.menu_icons.enable %}
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />

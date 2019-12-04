@@ -3,7 +3,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="{{ theme.android_chrome_color }}">
 
-
 {% if theme.pace %}
   {% set pace_css_uri = url_for(theme.vendors._internal + '/pace/'+ theme.pace_theme +'.min.css?v=1.0.2') %}
   {% set pace_js_uri = url_for(theme.vendors._internal + '/pace/pace.min.js?v=1.0.2') %}
@@ -156,3 +155,18 @@
 {% endif %}
 
 {% include 'head/custom-head.swig' %}
+{% if theme.daovoice %}
+  <script>
+	let win = window.navigator.userAgent.toLowerCase();
+	if(/mobi|android|touch|mini/i.test(win)){
+		console.log(win);
+	}else{
+		(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/50da685b.js","daovoice")
+		daovoice('init', {
+		   app_id: "50da685b"
+		});
+		daovoice('update');
+	}
+  
+  </script>  
+{% endif %}

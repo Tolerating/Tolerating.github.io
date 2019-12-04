@@ -3,17 +3,23 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 友人K
 subtitle: ''
-description: ''
+description: '登高必自卑，行远必自迩。'
 keywords:
-author: John Doe
-language: en
+author: 刘凯
+language: zh-Hans
 timezone: ''
 
+#搜索服务
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://friendk.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -95,4 +101,8 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: git
+  repository: 
+    github: git@github.com:Tolerating/Tolerating.github.io.git
+    coding: git@git.dev.tencent.com:lk121312140101/code_k.me.git
+  branch: master
