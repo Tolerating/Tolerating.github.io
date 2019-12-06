@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vue2.0学习(二)---计算属性和监听属性</title>
+    <url>/2019/12/03/vue2.0/Vue-Study2/</url>
+    <content><![CDATA[<blockquote>
+<p>目录</p>
+</blockquote>
+<p>[TOC]</p>
+<h1 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性(computed)"></a>计算属性(computed)</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Orginal message:"&#123;&#123;message&#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message:"&#123;&#123;reversedMessage&#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var vm &#x3D; new Vue(&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	el:&quot;#example&quot;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">	data:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		message:&quot;hello&quot;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	&#125;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">	computed:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		reversedMessage:function()&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">			&#x2F;&#x2F;&#39;this&#39;指向vm实例</span></pre></td></tr><tr><td class="code"><pre><span class="line">			return this.message.split(&#39;&#39;),reverse().join();</span></pre></td></tr><tr><td class="code"><pre><span class="line">			</span></pre></td></tr><tr><td class="code"><pre><span class="line">			&#x2F;&#x2F;该方法的执行依赖于this.message的值是否发生改版,这里不能设置message的值,</span></pre></td></tr><tr><td class="code"><pre><span class="line">			&#x2F;&#x2F;例如:this.message&#x3D;&quot;改变了&quot;</span></pre></td></tr><tr><td class="code"><pre><span class="line">			&#x2F;&#x2F;但是获得message的值并进行一些操作</span></pre></td></tr><tr><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;data中的message的值一旦发生改变,计算属性(computed)中的reversedMessage方法就会执行</span></pre></td></tr></table></figure>
+
+
+
+<h2 id="计算属性与方法"><a href="#计算属性与方法" class="headerlink" title="计算属性与方法"></a>计算属性与方法</h2><ol>
+<li><p>计算属性是基于他们的依赖关系进行缓存的,只有在依赖关系发生改变时他们才能更新变化。这意味着只要message没有发生变化,多次访问reverseMessage计算属性会立即返回之前的缓存结果，而不必再次执行函数,但是计算属性在页面渲染后就会执行一次</p>
+</li>
+<li><p>方法总会在每次触发重新渲染时调用函数</p>
+</li>
+</ol>
+<h2 id="计算属性的-setter"><a href="#计算属性的-setter" class="headerlink" title="计算属性的 setter"></a>计算属性的 setter</h2><p>computed 属性默认只有get,不过在需要是也可以提供一个set<br>博主个人理解:计算属性可以有多个依赖属性</p>
+<ul>
+<li>get: 获取依赖的属性值</li>
+<li>set:设置依赖的属性值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;部分代码</span></pre></td></tr><tr><td class="code"><pre><span class="line">computed:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	num2:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		get:function()&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">			return this.num-1;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		&#125;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">		set:function(val)&#123;		&#x2F;&#x2F;接收设置的值,这里的val是一个形参,可以自己设置成别的</span></pre></td></tr><tr><td class="code"><pre><span class="line">			this.num &#x3D; val;</span></pre></td></tr><tr><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vm.num &#x3D; 111;          &#x2F;&#x2F;这里会先执行set函数进行赋值,然后再执行get函数,结果为110</span></pre></td></tr><tr><td class="code"><pre><span class="line">注意:set函数肯定是给其依赖的属性赋值</span></pre></td></tr></table></figure>
+
+
+<h1 id="侦听属性-watch"><a href="#侦听属性-watch" class="headerlink" title="侦听属性(watch)"></a>侦听属性(watch)</h1><p>通过watch来响应数据的变化,适用于异步加载数据或开销较大的操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var vm &#x3D; new Vue(&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  el:&quot;#test&quot;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">  data:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">   name:&quot;lk&quot;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">   user:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">      id:1001,</span></pre></td></tr><tr><td class="code"><pre><span class="line">      name:&quot;刘凯&quot;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">      age:23,</span></pre></td></tr><tr><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">  watch:&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">     name:function(newValue,oldValue)&#123;              &#x2F;&#x2F;监视name属性</span></pre></td></tr><tr><td class="code"><pre><span class="line">        console.log(&quot;修改之前的值:&quot; + newValue,&quot;修改之后的值:&quot; + oldValue);</span></pre></td></tr><tr><td class="code"><pre><span class="line">     &#125;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">     user:&#123;                     &#x2F;&#x2F;监视user对象</span></pre></td></tr><tr><td class="code"><pre><span class="line">      handler:function(newValue,oldValue)&#123;     &#x2F;&#x2F;注意这里的两个参数是对象</span></pre></td></tr><tr><td class="code"><pre><span class="line">		&#x2F;&#x2F;由于user是一个对象,是按引用访问的,所以这里的newValue和oldValue是两个对象</span></pre></td></tr><tr><td class="code"><pre><span class="line">        console.log(&quot;修改之前的值:&quot; + newValue.name,&quot;修改之后的值:&quot; + oldValue.name);</span></pre></td></tr><tr><td class="code"><pre><span class="line">      &#125;,</span></pre></td></tr><tr><td class="code"><pre><span class="line">      deep:true        &#x2F;&#x2F;用来检测对象内部的属性变化,如果不加就是监测对象引用地址的改变</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"> &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;注意:此用法不能监视对象里具体的一个属性</span></pre></td></tr><tr><td class="code"><pre><span class="line">	&#x2F;&#x2F;如果监视的是一个对象的话,那么回调函数里的参数就是监视的对象了</span></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端开发</category>
+      </categories>
+      <tags>
+        <tag>vue2.0</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue.js2.0学习(一)——基础</title>
     <url>/2019/12/02/vue2.0/Vue-Study1/</url>
     <content><![CDATA[<p>vue.js是一套构建用户界面的渐进式框架。<br><code>Vue</code>只关注视图层，采用自底向上增量开发的设计。<br><code>Vue</code> 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
