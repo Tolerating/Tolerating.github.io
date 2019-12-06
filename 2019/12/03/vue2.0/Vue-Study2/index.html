@@ -85,13 +85,13 @@
 
 
 
-<meta name="description" content="目录  [TOC] 计算属性(computed)1&amp;lt;div id&#x3D;&quot;example&quot;&amp;gt;2	&amp;lt;p&amp;gt;Orginal message:&quot;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&quot;&amp;lt;&#x2F;p&amp;gt;3	&amp;lt;p&amp;gt;Computed reversed message:&quot;&amp;#123;&amp;#123;reversedMessage&amp;#125;&amp;#125;&quot;&amp;l">
+<meta name="description" content="两者都用来相应数据变化 计算属性适合于一些简单的运算 监听属性适用于异步加载数据或开销较大的操作">
 <meta name="keywords" content="vue2.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue2.0学习(二)---计算属性和监听属性">
 <meta property="og:url" content="http:&#x2F;&#x2F;friendk.cn&#x2F;2019&#x2F;12&#x2F;03&#x2F;vue2.0&#x2F;Vue-Study2&#x2F;index.html">
 <meta property="og:site_name" content="友人K">
-<meta property="og:description" content="目录  [TOC] 计算属性(computed)1&amp;lt;div id&#x3D;&quot;example&quot;&amp;gt;2	&amp;lt;p&amp;gt;Orginal message:&quot;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&quot;&amp;lt;&#x2F;p&amp;gt;3	&amp;lt;p&amp;gt;Computed reversed message:&quot;&amp;#123;&amp;#123;reversedMessage&amp;#125;&amp;#125;&quot;&amp;l">
+<meta property="og:description" content="两者都用来相应数据变化 计算属性适合于一些简单的运算 监听属性适用于异步加载数据或开销较大的操作">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-12-05T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  779
+                  822
                 </span>
               
 
@@ -443,9 +443,12 @@
 
       
         <blockquote>
-<p>目录</p>
+<p>两者都用来相应数据变化</p>
+<p>计算属性适合于一些简单的运算</p>
+<p>监听属性适用于异步加载数据或开销较大的操作</p>
 </blockquote>
-<p>[TOC]</p>
+<a id="more"></a>
+
 <h1 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性(computed)"></a>计算属性(computed)</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Orginal message:"&#123;&#123;message&#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message:"&#123;&#123;reversedMessage&#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var vm &#x3D; new Vue(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	el:&quot;#example&quot;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	data:&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">		message:&quot;hello&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	computed:&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		reversedMessage:function()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">			&#x2F;&#x2F;&#39;this&#39;指向vm实例</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">			return this.message.split(&#39;&#39;),reverse().join();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">			</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">			&#x2F;&#x2F;该方法的执行依赖于this.message的值是否发生改版,这里不能设置message的值,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">			&#x2F;&#x2F;例如:this.message&#x3D;&quot;改变了&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">			&#x2F;&#x2F;但是获得message的值并进行一些操作</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">		&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;data中的message的值一旦发生改变,计算属性(computed)中的reversedMessage方法就会执行</span></pre></td></tr></table></figure>
