@@ -56,18 +56,6 @@
       </tags>
   </entry>
   <entry>
-    <title>typescript -- 声明文件</title>
-    <url>/2019/12/21/TypeScript/7%E3%80%81%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>typescript</category>
-      </categories>
-      <tags>
-        <tag>typescript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>typescript -- 泛型</title>
     <url>/2019/12/20/TypeScript/6%E3%80%81%E6%B3%9B%E5%9E%8B/</url>
     <content><![CDATA[<p>软件工程中，我们不仅要创建一致的定义良好的API，同时也要考虑可重用性。 组件不仅能够支持当前的数据类型，同时也能支持未来的数据类型，这在创建大型系统时为你提供了十分灵活的功能。                 </p>
