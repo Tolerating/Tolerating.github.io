@@ -4500,6 +4500,76 @@
       </tags>
   </entry>
   <entry>
+    <title>配置DaoVoice</title>
+    <url>/2019/10/13/hexo/%E9%85%8D%E7%BD%AEDaoVoice/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="配置DaoVoice"><a href="#配置DaoVoice" class="headerlink" title="配置DaoVoice"></a>配置DaoVoice</h1><p>next主题:<code>next/layout/_partials/head.swig</code></p>
+<p>配置了客户端的检测,电脑端加载DaoVice,手机不加载(加快访问速度)</p>
+<h2 id="注册登录DaoVoice"><a href="#注册登录DaoVoice" class="headerlink" title="注册登录DaoVoice"></a>注册登录DaoVoice</h2><p><a href="https://account.daocloud.io/signup" target="_blank" rel="noopener">注册地址</a></p>
+<p>修改的hexo的文件路径如下: 博客<code>/themes/next/layout/_partials/head.swig</code> 末尾添加下面的代码:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">&#123;% if theme.daovoice %&#125;</span></code><br><code class="highlight plain"><span class="line">&lt;script&gt;</span></code><br><code class="highlight plain"><span class="line">	let win &#x3D; window.navigator.userAgent.toLowerCase();</span></code><br><code class="highlight plain"><span class="line">	if(&#x2F;mobi|android|touch|mini&#x2F;i.test(win))&#123;</span></code><br><code class="highlight plain"><span class="line">		console.log(win);</span></code><br><code class="highlight plain"><span class="line">	&#125;else&#123;</span></code><br><code class="highlight plain"><span class="line">		(function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]&#x3D;r;i[r]&#x3D;i[r]||function()&#123;(i[r].q&#x3D;i[r].q||[]).push(arguments)&#125;,i[r].l&#x3D;1*new Date();a&#x3D;s.createElement(o),m&#x3D;s.getElementsByTagName(o)[0];a.async&#x3D;1;a.src&#x3D;g;a.charset&#x3D;&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&#39;https:&#39; &#x3D;&#x3D; document.location.protocol ? &#39;https:&#39; : &#39;http:&#39;) + &quot;&#x2F;&#x2F;widget.daovoice.io&#x2F;widget&#x2F;50da685b.js&quot;,&quot;daovoice&quot;)</span></code><br><code class="highlight plain"><span class="line">		daovoice(&#39;init&#39;, &#123;</span></code><br><code class="highlight plain"><span class="line">		   app_id: &quot;50da685b&quot;</span></code><br><code class="highlight plain"><span class="line">		&#125;);</span></code><br><code class="highlight plain"><span class="line">		daovoice(&#39;update&#39;);</span></code><br><code class="highlight plain"><span class="line">	&#125;</span></code><br><code class="highlight plain"><span class="line">  </span></code><br><code class="highlight plain"><span class="line">  &lt;&#x2F;script&gt;</span></code><br><code class="highlight plain"><span class="line">&#123;% endif %&#125;</span></code><br></pre></td></tr></table></figure>
+
+<p>用户ID需要自行填写，查找的的位置在下图片中显示出来了<br><img src="http://www.friendk.cn:8787/hexo/hexo-DaoVoice.png" alt="1578380330606"></p>
+<h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>在Next主题的配置文件<code>博客/themes/next/_config.yml</code>末尾中添加用户ID:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">daovoice: true</span></code><br><code class="highlight plain"><span class="line">daovoice_app_id: 用户ID</span></code><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next主题分页图标不显示</title>
+    <url>/2019/10/13/hexo/next%E4%B8%BB%E9%A2%98%E5%88%86%E9%A1%B5%E5%9B%BE%E6%A0%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="解决next主题文章分页图标不显示问题："><a href="#解决next主题文章分页图标不显示问题：" class="headerlink" title="解决next主题文章分页图标不显示问题："></a>解决next主题文章分页图标不显示问题：</h1><p>文章分页的安装见next官网</p>
+<p>问题截图:</p>
+<p><img src="http://www.friendk.cn:8787/hexo/hexo-footer.png" alt="1576209782269"></p>
+<p>解决:</p>
+<p>打开博客根目录下 <code>themes\next\layout\_partials</code> 的<code>pagination.swig</code>,做一下修改:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">&#123;% if page.prev or page.next %&#125;</span></code><br><code class="highlight plain"><span class="line">  &lt;nav class&#x3D;&quot;pagination&quot;&gt;</span></code><br><code class="highlight plain"><span class="line">    &#123;&#123;</span></code><br><code class="highlight plain"><span class="line">      paginator(&#123;</span></code><br><code class="highlight plain"><span class="line">        prev_text: &#39;&lt;&#39;,</span></code><br><code class="highlight plain"><span class="line">        next_text: &#39;&gt;&#39;,</span></code><br><code class="highlight plain"><span class="line">        mid_size: 1</span></code><br><code class="highlight plain"><span class="line">      &#125;)</span></code><br><code class="highlight plain"><span class="line">    &#125;&#125;</span></code><br><code class="highlight plain"><span class="line">  &lt;&#x2F;nav&gt;</span></code><br><code class="highlight plain"><span class="line">&#123;% endif %&#125;</span></code><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>实在解决不了才想出来的蠢办法o(╥﹏╥)o</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码块行间距过大问题解决</title>
+    <url>/2019/10/13/hexo/%E4%BB%A3%E7%A0%81%E5%9D%97%E8%A1%8C%E9%97%B4%E8%B7%9D%E8%BF%87%E5%A4%A7/</url>
+    <content><![CDATA[<h1 id="解决代码块行间距过大的问题"><a href="#解决代码块行间距过大的问题" class="headerlink" title="解决代码块行间距过大的问题"></a>解决代码块行间距过大的问题</h1><p>通过修改hexo源代码来解决</p>
+<p>打开博客根目录 <code>node_modules\hexo-util\lib</code> 下的 <code>highlight.js</code> ,找到下面的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span> : <span class="string">'&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">const</span> after = useHljs ? <span class="string">'&lt;/code&gt;&lt;/pre&gt;'</span> : <span class="string">'&lt;/pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> result = <span class="string">`&lt;figure class="highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">''</span>&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">if</span> (caption) &#123;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">&#125;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">result += <span class="string">'&lt;table&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">const</span> lines = data.value.split(<span class="string">'\n'</span>);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> line = lines[i];</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;tr&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (gutter) &#123;</span></code><br><code class="highlight javascript"><span class="line">    result += <span class="string">`&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">`&lt;td class="code"&gt;<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;/td&gt;&lt;/tr&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">&#125;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">result += <span class="string">'&lt;/table&gt;&lt;/figure&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">return</span> result;</span></code><br></pre></td></tr></table></figure>
+
+<p><strong>修改为:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span> : <span class="string">`&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">const</span> after = useHljs ? <span class="string">'&lt;/code&gt;'</span> : <span class="string">'&lt;/code&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> myCode = <span class="string">'&lt;td class="code"&gt;&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> number = <span class="string">'&lt;td class="gutter"&gt;&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> result = <span class="string">`&lt;figure class="highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">''</span>&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (caption) &#123;</span></code><br><code class="highlight javascript"><span class="line">    result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;table&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">const</span> lines = data.value.split(<span class="string">'\n'</span>);</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;tr&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">let</span> line = lines[i];</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options); </span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">if</span> (gutter) &#123;</span></code><br><code class="highlight javascript"><span class="line">      number += <span class="string">`&lt;span class="line"&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;br&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">    &#125;</span></code><br><code class="highlight javascript"><span class="line">    myCode += <span class="string">`<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;br&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  number += <span class="string">'&lt;/pre&gt;&lt;/td&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  myCode += <span class="string">'&lt;/pre&gt;&lt;/td&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  result += number + myCode + <span class="string">'&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">return</span> result;</span></code><br></pre></td></tr></table></figure>
+
+
+
+<p>修改前的代码块间距:</p>
+<p><img src="http://www.friendk.cn:8787/hexo/hexo-lineheight-1.png" alt="1576209805349"></p>
+<p>修改后的:</p>
+<p><img src="http://www.friendk.cn:8787/hexo/hexo-lineheight-2.png" alt="1576161658151"></p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自动部署博客到服务器上</title>
     <url>/2019/10/13/hexo/%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A/</url>
     <content><![CDATA[<a id="more"></a>
@@ -4586,76 +4656,6 @@
 
 </li>
 </ol>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题分页图标不显示</title>
-    <url>/2019/10/13/hexo/next%E4%B8%BB%E9%A2%98%E5%88%86%E9%A1%B5%E5%9B%BE%E6%A0%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="解决next主题文章分页图标不显示问题："><a href="#解决next主题文章分页图标不显示问题：" class="headerlink" title="解决next主题文章分页图标不显示问题："></a>解决next主题文章分页图标不显示问题：</h1><p>文章分页的安装见next官网</p>
-<p>问题截图:</p>
-<p><img src="http://www.friendk.cn:8787/hexo/hexo-footer.png" alt="1576209782269"></p>
-<p>解决:</p>
-<p>打开博客根目录下 <code>themes\next\layout\_partials</code> 的<code>pagination.swig</code>,做一下修改:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">&#123;% if page.prev or page.next %&#125;</span></code><br><code class="highlight plain"><span class="line">  &lt;nav class&#x3D;&quot;pagination&quot;&gt;</span></code><br><code class="highlight plain"><span class="line">    &#123;&#123;</span></code><br><code class="highlight plain"><span class="line">      paginator(&#123;</span></code><br><code class="highlight plain"><span class="line">        prev_text: &#39;&lt;&#39;,</span></code><br><code class="highlight plain"><span class="line">        next_text: &#39;&gt;&#39;,</span></code><br><code class="highlight plain"><span class="line">        mid_size: 1</span></code><br><code class="highlight plain"><span class="line">      &#125;)</span></code><br><code class="highlight plain"><span class="line">    &#125;&#125;</span></code><br><code class="highlight plain"><span class="line">  &lt;&#x2F;nav&gt;</span></code><br><code class="highlight plain"><span class="line">&#123;% endif %&#125;</span></code><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>实在解决不了才想出来的蠢办法o(╥﹏╥)o</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码块行间距过大问题解决</title>
-    <url>/2019/10/13/hexo/%E4%BB%A3%E7%A0%81%E5%9D%97%E8%A1%8C%E9%97%B4%E8%B7%9D%E8%BF%87%E5%A4%A7/</url>
-    <content><![CDATA[<h1 id="解决代码块行间距过大的问题"><a href="#解决代码块行间距过大的问题" class="headerlink" title="解决代码块行间距过大的问题"></a>解决代码块行间距过大的问题</h1><p>通过修改hexo源代码来解决</p>
-<p>打开博客根目录 <code>node_modules\hexo-util\lib</code> 下的 <code>highlight.js</code> ,找到下面的代码:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span> : <span class="string">'&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">const</span> after = useHljs ? <span class="string">'&lt;/code&gt;&lt;/pre&gt;'</span> : <span class="string">'&lt;/pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> result = <span class="string">`&lt;figure class="highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">''</span>&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">if</span> (caption) &#123;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">&#125;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">result += <span class="string">'&lt;table&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">const</span> lines = data.value.split(<span class="string">'\n'</span>);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> line = lines[i];</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;tr&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (gutter) &#123;</span></code><br><code class="highlight javascript"><span class="line">    result += <span class="string">`&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">`&lt;td class="code"&gt;<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;/td&gt;&lt;/tr&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">&#125;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">result += <span class="string">'&lt;/table&gt;&lt;/figure&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">return</span> result;</span></code><br></pre></td></tr></table></figure>
-
-<p><strong>修改为:</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span> : <span class="string">`&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">const</span> after = useHljs ? <span class="string">'&lt;/code&gt;'</span> : <span class="string">'&lt;/code&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> myCode = <span class="string">'&lt;td class="code"&gt;&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> number = <span class="string">'&lt;td class="gutter"&gt;&lt;pre&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class="<span class="subst">$&#123;classNames&#125;</span>"&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">let</span> result = <span class="string">`&lt;figure class="highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">''</span>&#125;</span>"&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">if</span> (caption) &#123;</span></code><br><code class="highlight javascript"><span class="line">    result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;table&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">const</span> lines = data.value.split(<span class="string">'\n'</span>);</span></code><br><code class="highlight javascript"><span class="line">  result += <span class="string">'&lt;tr&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">let</span> line = lines[i];</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options); </span></code><br><code class="highlight javascript"><span class="line">    <span class="keyword">if</span> (gutter) &#123;</span></code><br><code class="highlight javascript"><span class="line">      number += <span class="string">`&lt;span class="line"&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;br&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">    &#125;</span></code><br><code class="highlight javascript"><span class="line">    myCode += <span class="string">`<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;br&gt;`</span>;</span></code><br><code class="highlight javascript"><span class="line">  &#125;</span></code><br><code class="highlight javascript"><span class="line">  number += <span class="string">'&lt;/pre&gt;&lt;/td&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  myCode += <span class="string">'&lt;/pre&gt;&lt;/td&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  result += number + myCode + <span class="string">'&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;'</span>;</span></code><br><code class="highlight javascript"><span class="line">  <span class="keyword">return</span> result;</span></code><br></pre></td></tr></table></figure>
-
-
-
-<p>修改前的代码块间距:</p>
-<p><img src="http://www.friendk.cn:8787/hexo/hexo-lineheight-1.png" alt="1576209805349"></p>
-<p>修改后的:</p>
-<p><img src="http://www.friendk.cn:8787/hexo/hexo-lineheight-2.png" alt="1576161658151"></p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>配置DaoVoice</title>
-    <url>/2019/10/13/hexo/%E9%85%8D%E7%BD%AEDaoVoice/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="配置DaoVoice"><a href="#配置DaoVoice" class="headerlink" title="配置DaoVoice"></a>配置DaoVoice</h1><p>next主题:<code>next/layout/_partials/head.swig</code></p>
-<p>配置了客户端的检测,电脑端加载DaoVice,手机不加载(加快访问速度)</p>
-<h2 id="注册登录DaoVoice"><a href="#注册登录DaoVoice" class="headerlink" title="注册登录DaoVoice"></a>注册登录DaoVoice</h2><p><a href="https://account.daocloud.io/signup" target="_blank" rel="noopener">注册地址</a></p>
-<p>修改的hexo的文件路径如下: 博客<code>/themes/next/layout/_partials/head.swig</code> 末尾添加下面的代码:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">&#123;% if theme.daovoice %&#125;</span></code><br><code class="highlight plain"><span class="line">&lt;script&gt;</span></code><br><code class="highlight plain"><span class="line">	let win &#x3D; window.navigator.userAgent.toLowerCase();</span></code><br><code class="highlight plain"><span class="line">	if(&#x2F;mobi|android|touch|mini&#x2F;i.test(win))&#123;</span></code><br><code class="highlight plain"><span class="line">		console.log(win);</span></code><br><code class="highlight plain"><span class="line">	&#125;else&#123;</span></code><br><code class="highlight plain"><span class="line">		(function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]&#x3D;r;i[r]&#x3D;i[r]||function()&#123;(i[r].q&#x3D;i[r].q||[]).push(arguments)&#125;,i[r].l&#x3D;1*new Date();a&#x3D;s.createElement(o),m&#x3D;s.getElementsByTagName(o)[0];a.async&#x3D;1;a.src&#x3D;g;a.charset&#x3D;&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&#39;https:&#39; &#x3D;&#x3D; document.location.protocol ? &#39;https:&#39; : &#39;http:&#39;) + &quot;&#x2F;&#x2F;widget.daovoice.io&#x2F;widget&#x2F;50da685b.js&quot;,&quot;daovoice&quot;)</span></code><br><code class="highlight plain"><span class="line">		daovoice(&#39;init&#39;, &#123;</span></code><br><code class="highlight plain"><span class="line">		   app_id: &quot;50da685b&quot;</span></code><br><code class="highlight plain"><span class="line">		&#125;);</span></code><br><code class="highlight plain"><span class="line">		daovoice(&#39;update&#39;);</span></code><br><code class="highlight plain"><span class="line">	&#125;</span></code><br><code class="highlight plain"><span class="line">  </span></code><br><code class="highlight plain"><span class="line">  &lt;&#x2F;script&gt;</span></code><br><code class="highlight plain"><span class="line">&#123;% endif %&#125;</span></code><br></pre></td></tr></table></figure>
-
-<p>用户ID需要自行填写，查找的的位置在下图片中显示出来了<br><img src="http://www.friendk.cn:8787/hexo/hexo-DaoVoice.png" alt="1578380330606"></p>
-<h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>在Next主题的配置文件<code>博客/themes/next/_config.yml</code>末尾中添加用户ID:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">daovoice: true</span></code><br><code class="highlight plain"><span class="line">daovoice_app_id: 用户ID</span></code><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>博客搭建</category>
@@ -4781,6 +4781,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Jenkins自动部署Vue项目</title>
+    <url>/2013/07/13/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<blockquote>
+<p>这是在windows环境下的Jenkins配置</p>
+</blockquote>
+<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><p>新建一个任务,类型为<code>Freestyle project</code></p>
+<p><strong>General</strong>中点击高级，勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
+<p><strong>源码管理</strong>中勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。</p>
+<p><strong>构建触发器</strong>中勾选<em>触发远程构建</em>，输入你自定义的身份验证令牌（<code>webhooks</code>中要用到）</p>
+<p><strong>构建环境</strong>中勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
+<blockquote>
+<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择在本地环境中安装好<code>NodeJS</code>，然后在配置中输入NodeJS的安装位置（注意不要勾选自动安装）</p>
+</blockquote>
+<p><strong>构建</strong>增加构建步骤选择<em>Execute Windows batch command</em><br>输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">npm install</span></code><br></pre></td></tr></table></figure>
+
+<p>再增加一个构建步骤,输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">npm run build</span></code><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+        <category>自动部署</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>持续集成</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows中安装Jenkins</title>
     <url>/2013/07/13/Jenkins/windows%E5%AE%89%E8%A3%85Jenkins/</url>
     <content><![CDATA[<h2 id="windows安装Jenkins"><a href="#windows安装Jenkins" class="headerlink" title="windows安装Jenkins"></a>windows安装Jenkins</h2><h3 id="下载安装Jenkins"><a href="#下载安装Jenkins" class="headerlink" title="下载安装Jenkins"></a>下载安装Jenkins</h3><p><a href="https://jenkins.io/zh/download/" target="_blank" rel="noopener">Jenkins官网</a></p>
@@ -4821,39 +4854,6 @@
       </categories>
       <tags>
         <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins自动部署Vue项目</title>
-    <url>/2013/07/13/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<blockquote>
-<p>这是在windows环境下的Jenkins配置</p>
-</blockquote>
-<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><p>新建一个任务,类型为<code>Freestyle project</code></p>
-<p><strong>General</strong>中点击高级，勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
-<p><strong>源码管理</strong>中勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。</p>
-<p><strong>构建触发器</strong>中勾选<em>触发远程构建</em>，输入你自定义的身份验证令牌（<code>webhooks</code>中要用到）</p>
-<p><strong>构建环境</strong>中勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
-<blockquote>
-<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择在本地环境中安装好<code>NodeJS</code>，然后在配置中输入NodeJS的安装位置（注意不要勾选自动安装）</p>
-</blockquote>
-<p><strong>构建</strong>增加构建步骤选择<em>Execute Windows batch command</em><br>输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">npm install</span></code><br></pre></td></tr></table></figure>
-
-<p>再增加一个构建步骤,输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="highlight plain"><span class="line">npm run build</span></code><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Jenkins</category>
-        <category>自动部署</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>持续集成</tag>
       </tags>
   </entry>
 </search>
