@@ -1,0 +1,323 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta name="baidu-site-verification" content="code-3AeT0sTy6n"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="MongoDB入门,NoSQL,"><meta name="description" content="Mongoose是一个让我们可以通过Node来操作MongoDB的模块。Mongoose是一个对象文档模型（ODM）库，它对Node原生的MongoDB模块进行了进一步的优化封装，并提供了更多的功能。在大多数情况下，它被用来把结构化的模式应用到一个MongoDB集合，并提供了验证和类型转换等好处。"><meta name="keywords" content="MongoDB入门,NoSQL"><meta property="og:type" content="article"><meta property="og:title" content="MongoDB入门 -- MongoDB基本操作"><meta property="og:url" content="http:&#x2F;&#x2F;www.friendk.cn&#x2F;2019&#x2F;12&#x2F;26&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93&#x2F;MangoDB%E5%85%A5%E9%97%A8&#x2F;4%E3%80%81Mongoose&#x2F;index.html"><meta property="og:site_name" content="前端菜鸟"><meta property="og:description" content="Mongoose是一个让我们可以通过Node来操作MongoDB的模块。Mongoose是一个对象文档模型（ODM）库，它对Node原生的MongoDB模块进行了进一步的优化封装，并提供了更多的功能。在大多数情况下，它被用来把结构化的模式应用到一个MongoDB集合，并提供了验证和类型转换等好处。"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2020-09-26T06:26:22.073Z"><meta name="twitter:card" content="summary"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!0,onmobile:!0},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://www.friendk.cn/2019/12/26/数据库/MangoDB入门/4、Mongoose/"><script>let win = window.navigator.userAgent.toLowerCase();
+	if(/mobi|android|touch|mini/i.test(win)){
+		console.log(win);
+	}else{
+		(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/50da685b.js","daovoice")
+		daovoice('init', {
+		   app_id: "50da685b"
+		});
+		daovoice('update');
+	}</script><title>MongoDB入门 -- MongoDB基本操作 | 前端菜鸟</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">前端菜鸟</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle"></p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href="javascript:void(0);" target="" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://www.friendk.cn/2019/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MangoDB%E5%85%A5%E9%97%A8/4%E3%80%81Mongoose/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="刘凯"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="前端菜鸟"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">MongoDB入门 -- MongoDB基本操作</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T20:43:25+08:00">2019-12-26 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span> </a></span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">MongoDB入门</span> </a></span></span><span class="post-meta-divider">|</span> <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i> <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">1.4k </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">5</span></div></div></header><div class="post-body" itemprop="articleBody"><p>Mongoose是一个让我们可以通过Node来操作MongoDB的模块。<br>Mongoose是一个对象文档模型（ODM）库，它对Node原生的MongoDB模块进行了进一步的优化封装，并提供了更多的功能。<br>在大多数情况下，它被用来把结构化的模式应用到一个MongoDB集合，并提供了验证和类型转换等好处。</p><a id="more"></a><h2 id="安装Mongoose"><a href="#安装Mongoose" class="headerlink" title="安装Mongoose"></a>安装Mongoose</h2><p><a href="http://www.mongoosejs.net/docs/index.html" target="_blank" rel="noopener">官方文档</a></p><p>Mongoose并非<code>Nodejs</code>自带的模块,需要我们自行下载。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">npm install mongoose -S</span></code><br></pre></td></tr></table></figure><p>Mongoose的好处:</p><ul><li>可以为文档创建一个模式结构（Schema）</li><li>可以对模型中的对象/文档进行验证。</li><li>数据可以通过类型转换转换为对象模型</li><li>可以使用中间件来应用业务逻辑挂钩</li><li>比Node原生的MongoDB驱动更容易</li></ul><p><code>Mongoose</code>中为我们提供了几个新的对象:</p><ul><li>Schema(模式对象)<br>该对象定义约束了数据库中的文档结构</li><li>Model<br>Model对象作为集合中的所有文档的表示，相当于MongoDB数据库中的集合Collection</li><li>Document<br>Document表示集合中的具体文档，相当于集合中的一个具体的文档。</li></ul><h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><p>安装完<code>Mongoose</code>后<strong>引入</strong>它:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span></code><br></pre></td></tr></table></figure><p><strong>连接数据库:</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">mongoose.connect(<span class="string">'mongodb://数据库的IP地址:端口号/数据库名'</span>)</span></code><br></pre></td></tr></table></figure><p><strong>监听MongoDB数据库的链接状态:</strong><br>在mongoose对象中,有一个属性叫做connection,该对象表示的就是数据库连接。通过监视该对象的状态，可以来监听数据库的链接与断开。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">mongoose.connection.once(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line">    <span class="built_in">console</span>.log(<span class="string">'数据库连接成功~~~'</span>);</span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br><code class="highlight javascript"><span class="line">mongoose.connection.once(<span class="string">'close'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line">    <span class="built_in">console</span>.log(<span class="string">'数据库断开连接~~~'</span>);</span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure><p><strong>断开数据库连接：</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">mongoose.disconnect()</span></code><br></pre></td></tr></table></figure><h2 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h2><p><code>Mongoose</code> 的一切始于 <code>Schema</code>。每个 <code>schema</code> 都会映射到一个 <code>MongoDB collection</code> ，并定义这个<code>collection</code>里的文档的构成。<br><strong>简单来说就是创建一个约束对象,约束文档中属性的类型</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span></code><br><code class="highlight javascript"><span class="line">mongoose.connect(<span class="string">'mongodb://127.0.0.1:27017/test'</span>);</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> Schema = mongoose.Schema;</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span></code><br><code class="highlight javascript"><span class="line">	name:<span class="built_in">String</span>,</span></code><br><code class="highlight javascript"><span class="line">	age:<span class="built_in">Number</span>,</span></code><br><code class="highlight javascript"><span class="line">	gender:&#123;</span></code><br><code class="highlight javascript"><span class="line">		type:<span class="built_in">String</span>,</span></code><br><code class="highlight javascript"><span class="line">		<span class="keyword">default</span>:<span class="string">'男'</span>   <span class="comment">//默认值</span></span></code><br><code class="highlight javascript"><span class="line">	&#125;,</span></code><br><code class="highlight javascript"><span class="line">	address:<span class="built_in">String</span></span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure><blockquote><p><code>name:String</code>表示限定name属性的值只能为文本类型。<br><code>gender:{type:String,default:&#39;男&#39;}</code>表示gender属性的类型为文本类型,默认值为男</p></blockquote><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Models 是从 <code>Schema</code> 编译来的构造函数。 它们的实例就代表着可以从数据库保存和读取的documents。<br><code>Model</code>代表的是数据库中的集合，从数据库创建和读取 document 的所有操作都是通过 model 进行的。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span></code><br><code class="highlight javascript"><span class="line">mongoose.connect(<span class="string">'mongodb://127.0.0.1:27017/test'</span>);</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> Schema = mongoose.Schema;</span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span></code><br><code class="highlight javascript"><span class="line">	name:<span class="built_in">String</span>,</span></code><br><code class="highlight javascript"><span class="line">	age:<span class="built_in">Number</span>,</span></code><br><code class="highlight javascript"><span class="line">	gender:&#123;</span></code><br><code class="highlight javascript"><span class="line">		type:<span class="built_in">String</span>,</span></code><br><code class="highlight javascript"><span class="line">		<span class="keyword">default</span>:<span class="string">'男'</span>   <span class="comment">//默认值</span></span></code><br><code class="highlight javascript"><span class="line">	&#125;,</span></code><br><code class="highlight javascript"><span class="line">	address:<span class="built_in">String</span></span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//创建Model: mongoose.model(modelName,schema);</span></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//modelName就是要映射的集合名,schema就是定义的约束对象</span></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">let</span> StuModel = mongoose.model(<span class="string">'students'</span>,stuSchema);</span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//注意:mongoose会自动将集合名变为复数,student会变为students</span></span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//向数据库中插入一个文档</span></span></code><br><code class="highlight javascript"><span class="line">StuModel.create(&#123;</span></code><br><code class="highlight javascript"><span class="line">    name:<span class="string">'孙悟空'</span>,</span></code><br><code class="highlight javascript"><span class="line">    age:<span class="number">500</span>,</span></code><br><code class="highlight javascript"><span class="line">    gender:<span class="string">'男'</span>,</span></code><br><code class="highlight javascript"><span class="line">    address:<span class="string">'花果山'</span></span></code><br><code class="highlight javascript"><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line"> 	<span class="keyword">if</span>(!err)&#123;</span></code><br><code class="highlight javascript"><span class="line">     	<span class="built_in">console</span>.log(<span class="string">'插入成功'</span>);  </span></code><br><code class="highlight javascript"><span class="line">     &#125;   </span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure><h3 id="Model的方法"><a href="#Model的方法" class="headerlink" title="Model的方法"></a>Model的方法</h3><p>有了Model,我们就可以对数据库进行增删改查的操作了<br><a href="http://www.mongoosejs.net/docs/api.html#Model" target="_blank" rel="noopener">Model所有方法</a></p><p>常用的几个方法:<br><strong>Model.create(doc(s),function(err,candies){})</strong><br>doc(s): 该参数表示可以传一个或多个文档(多个为数组)<br>返回值: Promise对象<br>例子:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">let</span> myModel = mongoose.model(<span class="string">'students'</span>,schema);</span></code><br><code class="highlight javascript"><span class="line">myModel.create([</span></code><br><code class="highlight javascript"><span class="line">	&#123;......&#125;,</span></code><br><code class="highlight javascript"><span class="line">	&#123;......&#125;</span></code><br><code class="highlight javascript"><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;&#125;);</span></code><br></pre></td></tr></table></figure><p><strong>Model.findById(id,[projection],[options],[callback])</strong><br>根据文档的<code>_id</code>属性查询文档,返回的是一个对象</p><p><strong>Model.findOne([conditions],[projection],[options],[callback])</strong><br>查询符合条件的第一个文档,返回的是一个对象</p><p><strong>Model.find([conditions],[projection],[options],callback])</strong><br>查询符合条件的所有文档,返回的是一个数组</p><p>conditions: 查询的条件<br>projection: 投影,可以是一个字符串或对象。<br>例如<code>{name:1,_id:0}</code>,意思是只返回name属性的值<br>‘name age’,意思是只返回name和age属性的值,但是还会额外返回一个<code>_id</code>属性的值,如不想返回<code>_id</code>属性的值,改为:<code>name age -_id</code></p><p>options: 查询选项(skip和limit),例如:<code>{skip:3,limit:4}</code></p><ul><li>skip:跳过前几个数据</li><li>limit:限制返回文档的数量,必须为数字</li></ul><p>callback: 回调函数,查询结果会通过回调函数返回,回调函数必须传</p><ul><li>err参数:错误信息</li><li>docs参数: 返回的文档对象</li></ul><p><strong>Model.update(conditions,doc,[options],[callback])</strong> 已经弃用,推荐使用下面两个<br><em>Model.updateMany(conditions,doc,[options],[callback])<br>Model.updateOne(conditions,doc,[options],[callback])*</em><br>用来修改一个或多个文档<br>conditions: 查询条件<br>doc: 修改后的对象<br>options: 配置参数<br>callback:回调函数</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">let</span> myModel = mongoose.model(<span class="string">'students'</span>,schema);</span></code><br><code class="highlight javascript"><span class="line">StuModel.updateOne(&#123;<span class="attr">name</span>:<span class="string">'孙悟空'</span>&#125;,&#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>:<span class="number">550</span>&#125;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span></span></span></code><br><code class="highlight javascript"><span class="line"><span class="function"><span class="params">    if(!err</span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line">		<span class="built_in">console</span>.log(<span class="string">'更新成功'</span>);</span></code><br><code class="highlight javascript"><span class="line">	&#125;</span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure><p><strong>Model.remove(conditions,[callback])</strong><br><strong>Model.deleteOne(conditions,[callback])</strong><br><strong>Model.deleteMany(conditions,[callback])</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">let</span> myModel = mongoose.model(<span class="string">'students'</span>,schema);</span></code><br><code class="highlight javascript"><span class="line">StuModel.remove(&#123;<span class="attr">name</span>:<span class="string">'孙悟空'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line">	<span class="keyword">if</span>(!err)&#123;</span></code><br><code class="highlight javascript"><span class="line">		<span class="built_in">console</span>.log(<span class="string">'删除成功'</span>);</span></code><br><code class="highlight javascript"><span class="line">	&#125;</span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure><h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><p><code>Document</code>和集合中的文档一一对应,<code>Document</code>是<code>Model</code>的实例,通过<code>Model</code>查询到的结果都是<code>Document</code></p><p><a href="http://www.mongoosejs.net/docs/api.html#Document" target="_blank" rel="noopener">Document所有方法</a></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="keyword">let</span> myModel = mongoose.model(<span class="string">'students'</span>,schema);</span></code><br><code class="highlight javascript"><span class="line">StuModel.findOne(&#123;<span class="attr">name</span>:<span class="string">'孙悟空'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span></code><br><code class="highlight javascript"><span class="line">	<span class="keyword">if</span>(!err)&#123;</span></code><br><code class="highlight javascript"><span class="line">		<span class="comment">// docs.age = 12;</span></span></code><br><code class="highlight javascript"><span class="line">		<span class="comment">// console.log(docs.get("age"));        //获取文档中指定属性的值</span></span></code><br><code class="highlight javascript"><span class="line">		docs.set(<span class="string">"age"</span>,<span class="number">133</span>)        </span></code><br><code class="highlight javascript"><span class="line">        <span class="comment">//设置文档中指定属性的值,作用同docs.age = 133 一样,</span></span></code><br><code class="highlight javascript"><span class="line">        <span class="comment">//如果没有使用save()方法就不会更新到数据库</span></span></code><br><code class="highlight javascript"><span class="line">        </span></code><br><code class="highlight javascript"><span class="line">		docs.save();       <span class="comment">//保存当前文档(会将修改同步到数据库)</span></span></code><br><code class="highlight javascript"><span class="line">	&#125;</span></code><br><code class="highlight javascript"><span class="line">&#125;);</span></code><br></pre></td></tr></table></figure></div><footer class="post-footer"><div class="post-tags"><a href="/tags/MongoDB%E5%85%A5%E9%97%A8/" rel="tag"># MongoDB入门</a> <a href="/tags/NoSQL/" rel="tag"># NoSQL</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/12/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MangoDB%E5%85%A5%E9%97%A8/3%E3%80%81sort%E5%92%8C%E6%8A%95%E5%BD%B1/" rel="next" title="MongoDB入门 -- sort和投影"><i class="fa fa-chevron-left"></i> MongoDB入门 -- sort和投影</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/2020/01/28/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/Sass/1%E3%80%81%E5%AE%89%E8%A3%85Sass%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="Sass --安装Sass及常用命令">Sass --安装Sass及常用命令 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="刘凯"><p class="site-author-name" itemprop="name">刘凯</p><p class="site-description motion-element" itemprop="description">登高必自卑，行远必自迩。</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives"><span class="site-state-item-count">94</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">30</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/Tolerating" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="mailto:354378485@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="https://blog.csdn.net/qq_25405005" target="_blank" title="CSDN"><i class="fa fa-fw fa-contao"></i>CSDN</a> </span><span class="links-of-author-item"><a href="http://www.friendk.cn:8887/" target="_blank" title="微信"><i class="fa fa-fw fa-weixin"></i>微信</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/19496491" target="_blank" title="bilibili"><i class="fa fa-fw fa-link"></i>bilibili</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Mongoose"><span class="nav-number">1.</span> <span class="nav-text">安装Mongoose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本流程"><span class="nav-number">2.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema"><span class="nav-number">3.</span> <span class="nav-text">Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model的方法"><span class="nav-number">4.1.</span> <span class="nav-text">Model的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document"><span class="nav-number">5.</span> <span class="nav-text">Document</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">刘凯</span></div><div><a target="_blank" ref="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33040202000618" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="/images/gongan.png" style="float:left">浙公网安备 33040202000618号 </a>&nbsp;|&nbsp; <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">浙ICP备2020034976号-1</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user">本站访客数</i> <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人次 </span><span class="site-pv"><i class="fa fa-eye">本站总访问量</i> <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js"></script><script type="text/javascript" src="/js/src/motion.js"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">// Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });</script></body></html>
