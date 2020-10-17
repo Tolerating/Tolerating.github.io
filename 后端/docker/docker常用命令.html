@@ -1,0 +1,323 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta name="baidu-site-verification" content="code-3AeT0sTy6n"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="docker,"><meta name="description" content="docker命令参数选项中:“-“开头的 : 参数值跟在参数选项后面(中间要有空格),例如:docker ps -n 5“–”开头的 : 参数跟在等号后面,例如:docker run --net&#x3D;&amp;quot;none&amp;quot; image   virtualBox挂载共享文件夹 虚拟机右键设置–&amp;gt; 共享文件夹 –&amp;gt;选择文件夹位置(自动挂载勾上) 连接虚拟机进行挂载(自动挂载貌似"><meta name="keywords" content="docker"><meta property="og:type" content="article"><meta property="og:title" content="docker常用命令"><meta property="og:url" content="http:&#x2F;&#x2F;www.friendk.cn&#x2F;%E5%90%8E%E7%AB%AF&#x2F;docker&#x2F;docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"><meta property="og:site_name" content="前端菜鸟"><meta property="og:description" content="docker命令参数选项中:“-“开头的 : 参数值跟在参数选项后面(中间要有空格),例如:docker ps -n 5“–”开头的 : 参数跟在等号后面,例如:docker run --net&#x3D;&amp;quot;none&amp;quot; image   virtualBox挂载共享文件夹 虚拟机右键设置–&amp;gt; 共享文件夹 –&amp;gt;选择文件夹位置(自动挂载勾上) 连接虚拟机进行挂载(自动挂载貌似"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;5959832-6f6da734cfba4769.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1200"><meta property="og:updated_time" content="2020-10-17T13:06:42.675Z"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;5959832-6f6da734cfba4769.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1200"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!0,onmobile:!0},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://www.friendk.cn/后端/docker/docker常用命令.html"><script>let win = window.navigator.userAgent.toLowerCase();
+	if(/mobi|android|touch|mini/i.test(win)){
+		console.log(win);
+	}else{
+		(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/50da685b.js","daovoice")
+		daovoice('init', {
+		   app_id: "50da685b"
+		});
+		daovoice('update');
+	}</script><title>docker常用命令 | 前端菜鸟</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">前端菜鸟</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description"></h1></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href="javascript:void(0);" target="" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://www.friendk.cn/%E5%90%8E%E7%AB%AF/docker/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="刘凯"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="前端菜鸟"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">docker常用命令</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-24T16:18:00+08:00">2020-03-24 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">后端学习</span> </a></span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span> </a></span></span><span class="post-meta-divider">|</span> <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i> <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">1.5k </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">6</span></div></div></header><div class="post-body" itemprop="articleBody"><a id="more"></a><blockquote><p>docker命令参数选项中:<br>“-“开头的 : 参数值跟在参数选项后面(中间要有空格),例如:<code>docker ps -n 5</code><br>“–”开头的 : 参数跟在等号后面,例如:<code>docker run --net=&quot;none&quot; image</code></p></blockquote><hr><h2 id="virtualBox挂载共享文件夹"><a href="#virtualBox挂载共享文件夹" class="headerlink" title="virtualBox挂载共享文件夹"></a>virtualBox挂载共享文件夹</h2><ol><li>虚拟机右键设置–&gt; 共享文件夹 –&gt;选择文件夹位置(自动挂载勾上)</li><li>连接虚拟机进行挂载(自动挂载貌似不生效)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">sudo mkdir &#x2F;dockerShare</span></code><br><code class="highlight plain"><span class="line">sudo chmod 777 &#x2F;dockerShare</span></code><br><code class="highlight plain"><span class="line">sudo mount -t vboxsf sharefolder（VB上设置的共享文件夹名称）  &#x2F;mysharefolder（虚拟机下的挂载目录）</span></code><br></pre></td></tr></table></figure></li></ol><h2 id="docker-machine管理主机"><a href="#docker-machine管理主机" class="headerlink" title="docker-machine管理主机"></a>docker-machine管理主机</h2><blockquote><p>Docker Machine 是一种可以让您在虚拟主机上安装 Docker 的工具，并可以使用 docker-machine 命令来管理主机。</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker-machine ls    &#x2F;&#x2F;列出所有可用的主机</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;*创建主机test(并配置了镜像加速)*&#x2F;</span></code><br><code class="highlight plain"><span class="line">docker-machine create --engine-registry-mirror&#x3D;https:&#x2F;&#x2F;4j6g8027.mirror.aliyuncs.com -d virtualbox test</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;查看主机的IP地址</span></code><br><code class="highlight plain"><span class="line">docker-machine ip test</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;启动机器</span></code><br><code class="highlight plain"><span class="line">docker-machine start test</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;停止机器</span></code><br><code class="highlight plain"><span class="line">docker-machine stop test</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;进入机器</span></code><br><code class="highlight plain"><span class="line">docker-machine ssh test</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;删除机器</span></code><br><code class="highlight plain"><span class="line">docker-machine rm test</span></code><br></pre></td></tr></table></figure><hr><h2 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h2><h3 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h3><blockquote><p>login/logout 登录/登出仓库<br><br>pull 从仓库中拉取镜像<br><br>push 上传镜像<br><br>search 从仓库中搜索镜像<br></p></blockquote><hr><h4 id="登录-登出仓库"><a href="#登录-登出仓库" class="headerlink" title="登录/登出仓库"></a>登录/登出仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">&#x2F;*如果未指定仓库地址,则默认为Docker Hub*&#x2F;</span></code><br><code class="highlight plain"><span class="line">docker login -u 用户名 -p 密码 [仓库地址]</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;仓库地址:registry.cn-hangzhou.aliyuncs.com(阿里云)</span></code><br><code class="highlight plain"><span class="line">docker logout</span></code><br></pre></td></tr></table></figure><hr><h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><blockquote><p>需要先登录仓库</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker pull [OPTIONS] [仓库的网络地址]:TAG</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明：</p><ul><li>-a :拉取所有 tagged 镜像</li><li>–disable-content-trust :忽略镜像的校验,默认开启</li></ul><hr><h4 id="上传镜像至仓库"><a href="#上传镜像至仓库" class="headerlink" title="上传镜像至仓库"></a>上传镜像至仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker push [OPTIONS] [仓库的网络地址]:TAG</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明：</p><ul><li>–disable-content-trust :忽略镜像的校验,默认开启</li></ul><hr><h4 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h4><blockquote><p>从DOcker Hub中查找镜像</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker search [OPTIONS] TERM</span></code><br></pre></td></tr></table></figure><blockquote><p>TERM为要查找的镜像名</p></blockquote><p>OPTIONS说明：</p><ul><li>-a :拉取所有 tagged 镜像</li><li>–disable-content-trust :忽略镜像的校验,++默认开启++</li></ul><hr><h3 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h3><h4 id="docker-images-列出本地镜像"><a href="#docker-images-列出本地镜像" class="headerlink" title="docker images:列出本地镜像"></a>docker images:列出本地镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker images [OPTIONS] [镜像名[:TAG]]</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明：</p><ul><li>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</li><li>–digests :显示镜像的摘要信息；</li><li>-f :显示满足条件的镜像；</li><li>–format :指定返回值的模板文件；</li><li>–no-trunc :显示完整的镜像信息；</li><li>-q :只显示镜像ID。</li></ul><hr><h4 id="docker-rmi-删除镜像-一个或多个"><a href="#docker-rmi-删除镜像-一个或多个" class="headerlink" title="docker rmi:删除镜像(一个或多个)"></a>docker rmi:删除镜像(一个或多个)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker rmi [OPTIONS] IMAGE1 IMAGE2...</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明：</p><ul><li>-f :强制删除；</li><li>–no-prune :不移除该镜像的过程镜像，默认移除；</li></ul><hr><h4 id="docker-tag-标记本地镜像-将其归入某一仓库"><a href="#docker-tag-标记本地镜像-将其归入某一仓库" class="headerlink" title="docker tag:标记本地镜像,将其归入某一仓库"></a>docker tag:标记本地镜像,将其归入某一仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker tag [IMAGE:TAG | IMAGEID] [仓库网络地址]:TAG</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;示例</span></code><br><code class="highlight plain"><span class="line">docker tag [IMAGEID] registry.cn-hangzhou.aliyuncs.com&#x2F;qian_duan&#x2F;development_bsd:[镜像版本号]</span></code><br></pre></td></tr></table></figure><hr><h4 id="docker-build-使用Dockerfile创建镜像"><a href="#docker-build-使用Dockerfile创建镜像" class="headerlink" title="docker build:使用Dockerfile创建镜像"></a>docker build:使用Dockerfile创建镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker build [OPTIONS] [PATH | URL]</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;示例</span></code><br><code class="highlight plain"><span class="line">docker build -t mynode:v1 .    &#x2F;&#x2F; &quot;.&quot;表示当前文件夹</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明(常用的几个)：</p><ul><li>-m :设置内存最大值；</li><li>–file :指定要使用的Dockerfile路径(默认是当前路径下)；</li><li>–pull :尝试去更新镜像的新版本；</li><li>-q :安静模式，成功后只输出镜像ID；</li><li>–rm :默认为true,设置镜像成功后删除临时容器(Dockerfile的每一行指令都会创建一个临时的容器)；</li><li>-t: 镜像的名字及tag，通常name:tag或者name格式,例如:<code>-t NAME:TAG</code>；</li></ul><blockquote><p>[PATH | URL]说明:给出命令执行的上下文,上下文可以是构建执行所在的本地路径,也可以是远程URL</p></blockquote><hr><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="容器生命周期命令"><a href="#容器生命周期命令" class="headerlink" title="容器生命周期命令"></a>容器生命周期命令</h3><hr><h4 id="docker-run-创建一个新的容器并执行一个命令"><a href="#docker-run-创建一个新的容器并执行一个命令" class="headerlink" title="docker run:创建一个新的容器并执行一个命令"></a>docker run:创建一个新的容器并执行一个命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker run [OPTIONS] IMAGE [COMMAND]</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;[COMMAND] 表示linux命令</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;比如: &#96;&#x2F;bin&#x2F;bash&#96;,用来解释执行命令</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明(常用的几个)：</p><ul><li>-d: 后台运行容器，并返回容器ID；</li><li>-i: 以交互模式运行容器，通常与 -t 同时使用；</li><li>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</li><li>–name=”nginx-lb”: 为容器指定一个名称；</li><li>–link=[]: 添加链接到另一个容器；</li><li>–expose=[]: 开放一个端口或一组端口；</li><li>-P : 将所有公开的端口发布到随机端口;</li><li>-p : 指定端口或IP进行映射,例如:<code>-p 8080:80</code>;</li><li>-v : 给容器挂载存储卷，挂载到容器的某个目录<blockquote><p>例如:<code>-v /data:/data</code>,将主机的目录/data映射到容器的/data</p></blockquote></li><li>–net : 容器网络设置,<code>--net=&quot;bridge&quot;</code><blockquote><p>bridge 使用docker daemon指定的网桥<br>host //容器使用主机的网络<br>container:NAME_or_ID<br>none 容器使用自己的网络（类似–net=bridge），但是不进行配置</p></blockquote></li><li>-w(–workdir=””) : 指定容器的工作目录,<code>-w /workspace</code></li></ul><hr><h4 id="start-stop-restart命令"><a href="#start-stop-restart命令" class="headerlink" title="start/stop/restart命令"></a>start/stop/restart命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker start&#x2F;stop&#x2F;restart 容器名字</span></code><br></pre></td></tr></table></figure><hr><h4 id="docker-rm-删除一个或少个容器"><a href="#docker-rm-删除一个或少个容器" class="headerlink" title="docker rm : 删除一个或少个容器"></a>docker rm : 删除一个或少个容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker rm [OPTIONS] CONTAINER [CONTAINER...]</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明(常用的几个)：</p><ul><li>-f :通过SIGKILL信号强制删除一个运行中的容器</li><li>-l :移除容器间的网络连接，而非容器本身</li><li>-v :-v 删除与容器关联的卷</li></ul><hr><h3 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h3><h4 id="docker-ps-列出容器"><a href="#docker-ps-列出容器" class="headerlink" title="docker ps : 列出容器"></a>docker ps : 列出容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker ps [OPTIONS]</span></code><br></pre></td></tr></table></figure><p>OPTIONS说明：</p><ul><li>-a :显示所有的容器，包括未运行的。</li><li>-f :根据条件过滤显示的内容。</li><li>–format :指定返回值的模板文件。</li><li>-l :显示最近创建的容器。</li><li>-n :列出最近创建的n个容器。</li><li>–no-trunc :不截断输出。</li><li>-q :静默模式，只显示容器编号。</li><li>-s :显示总的文件大小。</li></ul><hr><h4 id="docker-attach-连接到正在运行中的容器"><a href="#docker-attach-连接到正在运行中的容器" class="headerlink" title="docker attach :连接到正在运行中的容器"></a>docker attach :连接到正在运行中的容器</h4><blockquote><p>要连接的容器必须正在运行</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">docker attach CONTAINER</span></code><br><code class="highlight plain"><span class="line"># Ctrl + D 退出容器(容器会关闭)</span></code><br><code class="highlight plain"><span class="line"></span></code><br><code class="highlight plain"><span class="line">docker exec -it 容器[ID&#x2F;name] &#x2F;bin&#x2F;bash </span></code><br><code class="highlight plain"><span class="line">#exit 退出容器(退出会关闭容器)</span></code><br><code class="highlight plain"><span class="line"># Ctrl + P + Q 正常退出,不关闭容器</span></code><br></pre></td></tr></table></figure><hr><h2 id="docker上传镜像到阿里云"><a href="#docker上传镜像到阿里云" class="headerlink" title="docker上传镜像到阿里云"></a>docker上传镜像到阿里云</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="highlight plain"><span class="line">&#x2F;&#x2F;登录阿里云仓库</span></code><br><code class="highlight plain"><span class="line">sudo docker login --username&#x3D;[阿里云账号] registry.cn-hangzhou.aliyuncs.com</span></code><br><code class="highlight plain"><span class="line">&#x2F;&#x2F;</span></code><br><code class="highlight plain"><span class="line">sudo docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com&#x2F;qian_duan&#x2F;development_bsd:[镜像版本号]</span></code><br><code class="highlight plain"><span class="line">sudo docker push registry.cn-hangzhou.aliyuncs.com&#x2F;qian_duan&#x2F;development_bsd:[镜像版本号]</span></code><br></pre></td></tr></table></figure><p><img src="https://upload-images.jianshu.io/upload_images/5959832-6f6da734cfba4769.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200" alt=""></p><blockquote><p>参考资料:<br><br><a href="https://www.runoob.com/docker/docker-machine.html" target="_blank" rel="noopener">菜鸟教程</a><br><br><a href="https://www.w3cschool.cn/docker/docker-command-manual.html" target="_blank" rel="noopener">w3cschool</a></p></blockquote></div><footer class="post-footer"><div class="post-tags"><a href="/tags/docker/" rel="tag"># docker</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/%E5%89%8D%E7%AB%AF/Webpack4.html" rel="next" title="Webpack4.0学习"><i class="fa fa-chevron-left"></i> Webpack4.0学习</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/%E5%89%8D%E7%AB%AF/vue/vue-cli3%E4%B8%AD%E9%85%8D%E7%BD%AEeslint.html" rel="prev" title="vue-cli3中配置eslint">vue-cli3中配置eslint <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="刘凯"><p class="site-author-name" itemprop="name">刘凯</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives"><span class="site-state-item-count">96</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">32</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/Tolerating" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="mailto:354378485@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="https://blog.csdn.net/qq_25405005" target="_blank" title="CSDN"><i class="fa fa-fw fa-contao"></i>CSDN</a> </span><span class="links-of-author-item"><a href="http://www.friendk.cn:8887/" target="_blank" title="微信"><i class="fa fa-fw fa-weixin"></i>微信</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/19496491" target="_blank" title="bilibili"><i class="fa fa-fw fa-link"></i>bilibili</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualBox挂载共享文件夹"><span class="nav-number">1.</span> <span class="nav-text">virtualBox挂载共享文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-machine管理主机"><span class="nav-number">2.</span> <span class="nav-text">docker-machine管理主机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像操作"><span class="nav-number">3.</span> <span class="nav-text">镜像操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像仓库"><span class="nav-number">3.1.</span> <span class="nav-text">镜像仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#登录-登出仓库"><span class="nav-number">3.1.1.</span> <span class="nav-text">登录/登出仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拉取镜像"><span class="nav-number">3.1.2.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传镜像至仓库"><span class="nav-number">3.1.3.</span> <span class="nav-text">上传镜像至仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索镜像"><span class="nav-number">3.1.4.</span> <span class="nav-text">搜索镜像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地镜像管理"><span class="nav-number">3.2.</span> <span class="nav-text">本地镜像管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-images-列出本地镜像"><span class="nav-number">3.2.1.</span> <span class="nav-text">docker images:列出本地镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-rmi-删除镜像-一个或多个"><span class="nav-number">3.2.2.</span> <span class="nav-text">docker rmi:删除镜像(一个或多个)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-tag-标记本地镜像-将其归入某一仓库"><span class="nav-number">3.2.3.</span> <span class="nav-text">docker tag:标记本地镜像,将其归入某一仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-build-使用Dockerfile创建镜像"><span class="nav-number">3.2.4.</span> <span class="nav-text">docker build:使用Dockerfile创建镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器"><span class="nav-number">4.</span> <span class="nav-text">容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器生命周期命令"><span class="nav-number">4.1.</span> <span class="nav-text">容器生命周期命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-run-创建一个新的容器并执行一个命令"><span class="nav-number">4.1.1.</span> <span class="nav-text">docker run:创建一个新的容器并执行一个命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#start-stop-restart命令"><span class="nav-number">4.1.2.</span> <span class="nav-text">start/stop/restart命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-rm-删除一个或少个容器"><span class="nav-number">4.1.3.</span> <span class="nav-text">docker rm : 删除一个或少个容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器操作"><span class="nav-number">4.2.</span> <span class="nav-text">容器操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-ps-列出容器"><span class="nav-number">4.2.1.</span> <span class="nav-text">docker ps : 列出容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-attach-连接到正在运行中的容器"><span class="nav-number">4.2.2.</span> <span class="nav-text">docker attach :连接到正在运行中的容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker上传镜像到阿里云"><span class="nav-number">5.</span> <span class="nav-text">docker上传镜像到阿里云</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">刘凯</span></div><div><a target="_blank" ref="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33040202000618" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="/images/gongan.png" style="float:left">浙公网安备 33040202000618号 </a>&nbsp;|&nbsp; <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">浙ICP备2020034976号-1</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user">本站访客数</i> <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人次 </span><span class="site-pv"><i class="fa fa-eye">本站总访问量</i> <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js"></script><script type="text/javascript" src="/js/src/motion.js"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">// Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });</script></body></html>

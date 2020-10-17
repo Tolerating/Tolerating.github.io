@@ -1,0 +1,323 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta name="baidu-site-verification" content="code-3AeT0sTy6n"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="chai,"><meta name="description" content="expect(预期)expect属于BDD(行为驱动开发)样式风格 引入expect1234&#x2F;&#x2F;expect是测试输入值的预期结果const expect &#x3D; require(&amp;apos;chai&amp;apos;).expect;&#x2F;&#x2F;基本用法(value为测试值)expect(value)... 语言链 to be been is that : 限定的意思 which and has have with at of"><meta name="keywords" content="chai"><meta property="og:type" content="article"><meta property="og:title" content="chai断言库学习"><meta property="og:url" content="http:&#x2F;&#x2F;www.friendk.cn&#x2F;%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95&#x2F;chai%E6%96%AD%E8%A8%80%E5%BA%93.html"><meta property="og:site_name" content="前端菜鸟"><meta property="og:description" content="expect(预期)expect属于BDD(行为驱动开发)样式风格 引入expect1234&#x2F;&#x2F;expect是测试输入值的预期结果const expect &#x3D; require(&amp;apos;chai&amp;apos;).expect;&#x2F;&#x2F;基本用法(value为测试值)expect(value)... 语言链 to be been is that : 限定的意思 which and has have with at of"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2020-10-17T13:10:14.518Z"><meta name="twitter:card" content="summary"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"5.1.4",sidebar:{position:"left",display:"hide",offset:12,b2t:!1,scrollpercent:!0,onmobile:!0},fancybox:!0,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://www.friendk.cn/前端测试/chai断言库.html"><script>let win = window.navigator.userAgent.toLowerCase();
+	if(/mobi|android|touch|mini/i.test(win)){
+		console.log(win);
+	}else{
+		(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/50da685b.js","daovoice")
+		daovoice('init', {
+		   app_id: "50da685b"
+		});
+		daovoice('update');
+	}</script><title>chai断言库学习 | 前端菜鸟</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">前端菜鸟</span> <span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description"></h1></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i><br>公益404</a></li><li class="menu-item menu-item-search"><a href="javascript:void(0);" target="" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://www.friendk.cn/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95/chai%E6%96%AD%E8%A8%80%E5%BA%93.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="刘凯"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="前端菜鸟"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">chai断言库学习</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-21T14:18:00+08:00">2020-05-21 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">前端学习</span> </a></span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/chai/" itemprop="url" rel="index"><span itemprop="name">chai</span> </a></span></span><span class="post-meta-divider">|</span> <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i> <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次</span><div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">1.4k </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">6</span></div></div></header><div class="post-body" itemprop="articleBody"><a id="more"></a><h2 id="expect-预期"><a href="#expect-预期" class="headerlink" title="expect(预期)"></a>expect(预期)</h2><p>expect属于BDD(行为驱动开发)样式风格</p><h3 id="引入expect"><a href="#引入expect" class="headerlink" title="引入expect"></a>引入expect</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="comment">//expect是测试输入值的预期结果</span></span></code><br><code class="highlight javascript"><span class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'chai'</span>).expect;</span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//基本用法(value为测试值)</span></span></code><br><code class="highlight javascript"><span class="line">expect(value)...</span></code><br></pre></td></tr></table></figure><h3 id="语言链"><a href="#语言链" class="headerlink" title="语言链"></a>语言链</h3><ul><li>to</li><li>be</li><li>been</li><li>is</li><li>that : 限定的意思</li><li>which</li><li>and</li><li>has</li><li>have</li><li>with</li><li>at</li><li>of</li><li>same</li><li>but</li><li>does</li><li>still</li></ul><hr><h3 id="not"><a href="#not" class="headerlink" title=".not"></a>.not</h3><p>否定链中随后的所有断言</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="highlight JavaScript"><span class="line"><span class="comment">//期望函数不会抛出异常</span></span></code><br><code class="highlight JavaScript"><span class="line">expect(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;).to.not.throw();</span></code><br><code class="highlight JavaScript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;).to.not.have.property(<span class="string">'b'</span>);</span></code><br><code class="highlight JavaScript"><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>]).to.be.an(<span class="string">'array'</span>).that.does.not.include(<span class="number">3</span>);</span></code><br></pre></td></tr></table></figure><hr><h3 id="deep"><a href="#deep" class="headerlink" title=".deep"></a>.deep</h3><p>全等，但不同于(==),主要用于对象的比较</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="comment">//预期值全等与'&#123;a:1&#125;',但并不严格相等(引用地址不同)</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;).to.deep.equal(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// Target array deeply (but not strictly) includes `&#123;a: 1&#125;`</span></span></code><br><code class="highlight javascript"><span class="line">expect([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]).to.deep.include(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line">expect([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]).to.not.include(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// Target object deeply (but not strictly) includes `x: &#123;a: 1&#125;`</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;).to.deep.include(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;).to.not.include(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// Target array deeply (but not strictly) has member `&#123;a: 1&#125;`</span></span></code><br><code class="highlight javascript"><span class="line">expect([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]).to.have.deep.members([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]);</span></code><br><code class="highlight javascript"><span class="line">expect([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]).to.not.have.members([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// Target set deeply (but not strictly) has key `&#123;a: 1&#125;`</span></span></code><br><code class="highlight javascript"><span class="line">expect(<span class="keyword">new</span> <span class="built_in">Set</span>([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;])).to.have.deep.keys([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]);</span></code><br><code class="highlight javascript"><span class="line">expect(<span class="keyword">new</span> <span class="built_in">Set</span>([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;])).to.not.have.keys([&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;]);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// Target object deeply (but not strictly) has property `x: &#123;a: 1&#125;`</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;).to.have.deep.property(<span class="string">'x'</span>, &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">x</span>: &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;&#125;).to.not.have.property(<span class="string">'x'</span>, &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br></pre></td></tr></table></figure><hr><h3 id="nested"><a href="#nested" class="headerlink" title=".nested"></a>.nested</h3><p>嵌套.nested (不能和.own一起用)———–在property和include之前</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="comment">//在链中之后的断言将启用点和方括号符号</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: [<span class="string">'x'</span>, <span class="string">'y'</span>]&#125;&#125;).to.have.nested.property(<span class="string">'a.b[1]'</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: [<span class="string">'x'</span>, <span class="string">'y'</span>]&#125;&#125;).to.nested.include(&#123;<span class="string">'a.b[1]'</span>: <span class="string">'y'</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//如果 "."或是[]是属性名称的一部分,则可以通过在其前面添加两个反斜杠对其进行转义</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="string">'.a'</span>: &#123;<span class="string">'[b]'</span>: <span class="string">'x'</span>&#125;&#125;).to.have.nested.property(<span class="string">'\\.a.\\[b\\]'</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="string">'.a'</span>: &#123;<span class="string">'[b]'</span>: <span class="string">'x'</span>&#125;&#125;).to.nested.include(&#123;<span class="string">'\\.a.\\[b\\]'</span>: <span class="string">'x'</span>&#125;);</span></code><br></pre></td></tr></table></figure><hr><h3 id="own"><a href="#own" class="headerlink" title=".own"></a>.own</h3><p>忽略继承的属性(own可理解为自己的)———–在property和include之前</p><blockquote><p>不可以.nested一起用</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="built_in">Object</span>.prototype.b = <span class="number">2</span>;</span></code><br><code class="highlight javascript"><span class="line">expect(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;).to.have.own.property(<span class="string">"a"</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;).to.not.have.own.property(<span class="string">"b"</span>);</span></code><br></pre></td></tr></table></figure><hr><h3 id="ordered"><a href="#ordered" class="headerlink" title=".ordered"></a>.ordered</h3><p>导致链中跟随的所有.members断言要求成员具有相同的顺序。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>]).to.have.ordered.members([<span class="number">1</span>, <span class="number">2</span>])</span></code><br><code class="highlight javascript"><span class="line">  .but.not.have.ordered.members([<span class="number">2</span>, <span class="number">1</span>]);</span></code><br></pre></td></tr></table></figure><hr><h3 id="any"><a href="#any" class="headerlink" title=".any"></a>.any</h3><p>导致链中跟随的所有.keys断言只要求目标具有至少一个给定的键。这与.all相反，.all要求目标具有所有给定的键。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;).to.not.have.any.keys(<span class="string">'c'</span>, <span class="string">'d'</span>);</span></code><br></pre></td></tr></table></figure><blockquote><p>有关何时使用.any或.all的指导，请查看.keys</p></blockquote><hr><h3 id="all"><a href="#all" class="headerlink" title=".all"></a>.all</h3><p>导致链中跟随的所有.keys断言要求目标具有所有给定的键。这与.any正好相反，后者只要求目标至少具有一个给定的键。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;).to.have.all.keys(<span class="string">'a'</span>, <span class="string">'b'</span>);</span></code><br></pre></td></tr></table></figure><blockquote><p>注意，当在链的前面添加.all和.any时，默认情况下使用.all。但是，通常最好还是添加.all，因为它提高了可读性。</p></blockquote><hr><h3 id="a-type-msg"><a href="#a-type-msg" class="headerlink" title=".a(type[,msg])"></a>.a(type[,msg])</h3><p>类型检查: 断言目标的类型等于给定的字符串类型。类型不区分大小写。</p><blockquote><p>type如果是以元音开头的,用.an()。 其他的用.a()</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="string">'foo'</span>).to.be.a(<span class="string">'string'</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;).to.be.an(<span class="string">'object'</span>);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//在对同一目标做出更多断言之前，最好使用.a检查目标的类型。这样，您就可以避免根据目标类型执行不同操作的任何断言出现意外行为。</span></span></code><br><code class="highlight javascript"><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]).to.be.an(<span class="string">"array"</span>).that.includes(<span class="number">2</span>); <span class="comment">//that可理解为限定的意思</span></span></code><br><code class="highlight javascript"><span class="line">expect([]).to.be.an(<span class="string">"array"</span>).that.is.empty;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//也可以这么写，增加可读性</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123; <span class="attr">b</span>: <span class="number">2</span> &#125;).to.have.a.property(<span class="string">"b"</span>);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// 可以加参数，表示断言失败后显示的信息</span></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// expect(2).to.be.a("string", "why fail??");</span></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">// expect(1, "why fail??").to.be.a("string");</span></span></code><br></pre></td></tr></table></figure><hr><h3 id="include-val-msg"><a href="#include-val-msg" class="headerlink" title=".include(val[,msg])"></a>.include(val[,msg])</h3><p>断言目标中是否包含给定的值(默认情况下使用严格相等,但是可以使用.deep)</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="string">'foobar'</span>).to.include(<span class="string">'foo'</span>);</span></code><br><code class="highlight javascript"><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]).to.include(<span class="number">2</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;).to.include(&#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;);</span></code><br></pre></td></tr></table></figure><hr><h3 id="ok"><a href="#ok" class="headerlink" title=".ok"></a>.ok</h3><p>断言目标是一个真实值(在布尔上下文中被认为是真实的)。然而，通常最好断言目标是严格地(===)或完全等于其期望值。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;).to.be.ok;</span></code><br></pre></td></tr></table></figure><hr><h3 id="true"><a href="#true" class="headerlink" title=".true"></a>.true</h3><p>断言目标严格地(===)等于true。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">true</span>).to.be.true;</span></code><br></pre></td></tr></table></figure><hr><h3 id="false"><a href="#false" class="headerlink" title=".false"></a>.false</h3><p>断言目标严格地(===)等于false</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">false</span>).to.be.false;</span></code><br></pre></td></tr></table></figure><h3 id="null"><a href="#null" class="headerlink" title=".null"></a>.null</h3><p>断言目标严格地(===)等于null</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">null</span>).to.be.null;</span></code><br></pre></td></tr></table></figure><hr><h3 id="undefined"><a href="#undefined" class="headerlink" title=".undefined"></a>.undefined</h3><p>断言目标严格地(===)等于undefined</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">undefined</span>).to.be.undefined;</span></code><br></pre></td></tr></table></figure><hr><h3 id="NaN"><a href="#NaN" class="headerlink" title=".NaN"></a>.NaN</h3><p>断言目标严格地(===)等于NaN</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">NaN</span>).to.be.NaN;</span></code><br></pre></td></tr></table></figure><hr><h3 id="exist"><a href="#exist" class="headerlink" title=".exist"></a>.exist</h3><p>断言目标不是严格地(===)等于null或undefined。然而，通常最好是断言目标等于它的期望值。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="literal">null</span>).to.be.null; <span class="comment">// 推荐</span></span></code><br><code class="highlight javascript"><span class="line">expect(<span class="literal">null</span>).to.not.exist; <span class="comment">// 不推荐</span></span></code><br></pre></td></tr></table></figure><hr><h3 id="empty"><a href="#empty" class="headerlink" title=".empty"></a>.empty</h3><p>当目标是一个字符串或数组时，.empty断言目标的length属性严格地(===)等于0。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect([]).to.be.empty;</span></code><br><code class="highlight javascript"><span class="line">expect(<span class="string">''</span>).to.be.empty;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//对象也可以</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;&#125;).to.be.empty;</span></code><br></pre></td></tr></table></figure><hr><h3 id="arguments"><a href="#arguments" class="headerlink" title=".arguments"></a>.arguments</h3><p>断言目标是arguments对象。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params"></span>) </span>&#123;</span></code><br><code class="highlight javascript"><span class="line">  expect(<span class="built_in">arguments</span>).to.be.arguments;</span></code><br><code class="highlight javascript"><span class="line">&#125;</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line">test();</span></code><br></pre></td></tr></table></figure><hr><h3 id="equal-val-msg"><a href="#equal-val-msg" class="headerlink" title=".equal(val[,msg])"></a>.equal(val[,msg])</h3><p>断言目标严格地(===)等于给定的val</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line">expect(<span class="number">1</span>).to.equal(<span class="number">1</span>);</span></code><br><code class="highlight javascript"><span class="line">expect(<span class="string">'foo'</span>).to.equal(<span class="string">'foo'</span>);</span></code><br></pre></td></tr></table></figure><hr><h3 id="eql-obj-msg"><a href="#eql-obj-msg" class="headerlink" title=".eql(obj[,msg])"></a>.eql(obj[,msg])</h3><p>断言目标与给定的obj深度相等。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="highlight javascript"><span class="line"><span class="comment">//目标对象深度(但不严格)等于&#123;a: 1&#125;</span></span></code><br><code class="highlight javascript"><span class="line">expect(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;).to.eql(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;).but.not.equal(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;);</span></code><br><code class="highlight javascript"><span class="line"></span></code><br><code class="highlight javascript"><span class="line"><span class="comment">//目标对象深度(但不严格)等于[1,2]</span></span></code><br><code class="highlight javascript"><span class="line">expect([<span class="number">1</span>, <span class="number">2</span>]).to.eql([<span class="number">1</span>, <span class="number">2</span>]).but.not.equal([<span class="number">1</span>, <span class="number">2</span>]);</span></code><br></pre></td></tr></table></figure></div><footer class="post-footer"><div class="post-tags"><a href="/tags/chai/" rel="tag"># chai</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/%E5%89%8D%E7%AB%AF/vue/vuex/vuex.html" rel="next" title="vuex学习笔记"><i class="fa fa-chevron-left"></i> vuex学习笔记</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/%E5%89%8D%E7%AB%AF/uni-app/%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95.html" rel="prev" title="uni-app 踩坑记录">uni-app 踩坑记录 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="刘凯"><p class="site-author-name" itemprop="name">刘凯</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives"><span class="site-state-item-count">96</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">32</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/Tolerating" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="mailto:354378485@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="https://blog.csdn.net/qq_25405005" target="_blank" title="CSDN"><i class="fa fa-fw fa-contao"></i>CSDN</a> </span><span class="links-of-author-item"><a href="http://www.friendk.cn:8887/" target="_blank" title="微信"><i class="fa fa-fw fa-weixin"></i>微信</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/19496491" target="_blank" title="bilibili"><i class="fa fa-fw fa-link"></i>bilibili</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#expect-预期"><span class="nav-number">1.</span> <span class="nav-text">expect(预期)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入expect"><span class="nav-number">1.1.</span> <span class="nav-text">引入expect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言链"><span class="nav-number">1.2.</span> <span class="nav-text">语言链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not"><span class="nav-number">1.3.</span> <span class="nav-text">.not</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deep"><span class="nav-number">1.4.</span> <span class="nav-text">.deep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nested"><span class="nav-number">1.5.</span> <span class="nav-text">.nested</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#own"><span class="nav-number">1.6.</span> <span class="nav-text">.own</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ordered"><span class="nav-number">1.7.</span> <span class="nav-text">.ordered</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#any"><span class="nav-number">1.8.</span> <span class="nav-text">.any</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">1.9.</span> <span class="nav-text">.all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-type-msg"><span class="nav-number">1.10.</span> <span class="nav-text">.a(type[,msg])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include-val-msg"><span class="nav-number">1.11.</span> <span class="nav-text">.include(val[,msg])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ok"><span class="nav-number">1.12.</span> <span class="nav-text">.ok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#true"><span class="nav-number">1.13.</span> <span class="nav-text">.true</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#false"><span class="nav-number">1.14.</span> <span class="nav-text">.false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.15.</span> <span class="nav-text">.null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.16.</span> <span class="nav-text">.undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NaN"><span class="nav-number">1.17.</span> <span class="nav-text">.NaN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exist"><span class="nav-number">1.18.</span> <span class="nav-text">.exist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#empty"><span class="nav-number">1.19.</span> <span class="nav-text">.empty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arguments"><span class="nav-number">1.20.</span> <span class="nav-text">.arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#equal-val-msg"><span class="nav-number">1.21.</span> <span class="nav-text">.equal(val[,msg])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eql-obj-msg"><span class="nav-number">1.22.</span> <span class="nav-text">.eql(obj[,msg])</span></a></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span> <span class="with-love"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">刘凯</span></div><div><a target="_blank" ref="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33040202000618" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="/images/gongan.png" style="float:left">浙公网安备 33040202000618号 </a>&nbsp;|&nbsp; <a href="http://www.miitbeian.gov.cn/" target="_blank" ref="nofollow">浙ICP备2020034976号-1</a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user">本站访客数</i> <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人次 </span><span class="site-pv"><i class="fa fa-eye">本站总访问量</i> <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js"></script><script type="text/javascript" src="/js/src/motion.js"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script type="text/javascript">// Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });</script></body></html>
