@@ -79,94 +79,6 @@
       </tags>
   </entry>
   <entry>
-    <title>windows中安装Jenkins</title>
-    <url>/Jenkins/windows%E5%AE%89%E8%A3%85Jenkins.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="windows安装Jenkins"><a href="#windows安装Jenkins" class="headerlink" title="windows安装Jenkins"></a>windows安装Jenkins</h2><h3 id="下载安装Jenkins"><a href="#下载安装Jenkins" class="headerlink" title="下载安装Jenkins"></a>下载安装Jenkins</h3><p><a href="https://jenkins.io/zh/download/">Jenkins官网</a></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-1.png" alt="1575638819127"></p>
-<p>我下载的是war包版(需要配置<strong>java环境</strong>),如果没有配置java环境可以下载windows版。</p>
-<blockquote>
-<p>下面主要讲war包版的</p>
-</blockquote>
-<p>war包版的运行起来十分简单:</p>
-<p>在war包所在的目录运行命令窗口</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;8080</span><br></pre></td></tr></table></figure>
-<p>命令行行会有密码,复制改密码然后安装推荐插件</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-2.png" alt="1575639468883"></p>
-<p>可能会有几个安装失败,提醒是否重试,可以点击一下重试,如果还是安装失败就直接忽略继续下一步</p>
-<p>创建完用户后登陆Jenkins</p>
-<h3 id="配置jenkins"><a href="#配置jenkins" class="headerlink" title="配置jenkins"></a>配置jenkins</h3><p>进入下列目录中配置Jenkins Location选项</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-3.png" alt="1575639934705"></p>
-<p><strong>注意:</strong> jenkins URL地址为服务器的内网地址，端口号和启动时的端口号保持一致</p>
-<p><em>修改端口号</em>：<code>java -jar jenkins.war --ajp13Port=-1 --httpPort=6900</code></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-4.png" alt="1575640001501"></p>
-<p>配置好后点击保存。</p>
-<p>点击Manage Jenkins —-&gt; Global Tool Configuration</p>
-<p>查看Git选项是否配置了 <em>安装推荐配置的时候默认是安装Git的,如果安装成功这里是会有配置的</em></p>
-<p>这里我是用了自己安装的Git</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-5.png" alt="1575640310599"></p>
-<p>点击Manage Jenkins —-&gt; Configure Global Security</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-16.png" alt="1575644269904"></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-15.png" alt="1575647778831"></p>
-<p>授权策略中把<strong>匿名用户具有可读权限</strong>勾上，把跨站请求伪造保护的勾去掉</p>
-<blockquote>
-<p>不然github的webhook会报403</p>
-</blockquote>
-<h2 id="安装完成后再次启动Jenkins"><a href="#安装完成后再次启动Jenkins" class="headerlink" title="安装完成后再次启动Jenkins"></a>安装完成后再次启动Jenkins</h2><p>找到<code>jenkins.war</code>所在目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;(jenkins中设置的)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins自动部署Vue项目</title>
-    <url>/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<blockquote>
-<p>这是在windows环境下的Jenkins配置</p>
-</blockquote>
-<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><h3 id="新建一个任务-类型为Freestyle-project"><a href="#新建一个任务-类型为Freestyle-project" class="headerlink" title="新建一个任务,类型为Freestyle project"></a>新建一个任务,类型为<code>Freestyle project</code></h3><h3 id="1-General"><a href="#1-General" class="headerlink" title="1.General"></a>1.General</h3><ul>
-<li><p>勾选github项目，输入项目仓库的url地址</p>
-</li>
-<li><p>点击高级勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
-</li>
-</ul>
-<h3 id="2-源码管理"><a href="#2-源码管理" class="headerlink" title="2.源码管理"></a>2.源码管理</h3><p>勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。<br><img src="http://friendk.cn/jenkins/jenkins-7.png" alt="源码管理"></p>
-<h3 id="3-构建触发器"><a href="#3-构建触发器" class="headerlink" title="3.构建触发器"></a>3.构建触发器</h3><p>勾选<strong>触发远程构建</strong>输入你自定义的身份验证令牌<br><img src="http://friendk.cn/jenkins/jenkins-9.png" alt="构建触发器"></p>
-<blockquote>
-<p>（身份令牌在<code>webhooks</code>中要用到,格式在输入框下方，TOKEN_NAME就是你输入的）</p>
-</blockquote>
-<p><img src="http://friendk.cn/jenkins/jenkins-12.png" alt="WebHooks"></p>
-<blockquote>
-<p>只需在Payload URL中输入，其他默认即可</p>
-</blockquote>
-<h3 id="4-构建环境"><a href="#4-构建环境" class="headerlink" title="4.构建环境"></a>4.构建环境</h3><p>勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
-<blockquote>
-<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择Jenkins插件中提供的NodeJS</p>
-</blockquote>
-<h3 id="5-构建"><a href="#5-构建" class="headerlink" title="5.构建"></a>5.构建</h3><p>增加构建步骤选择<em>Execute Windows batch command</em><br><img src="http://friendk.cn/jenkins/jenkins-10.png" alt="构建"></p>
-<p>输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd C:\nginx\html\LeaveAPP_S</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>再增加一个构建步骤,输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>自动部署</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo博客百度收录</title>
     <url>/hexo/hexo%E5%8D%9A%E5%AE%A2%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -460,6 +372,131 @@
       </tags>
   </entry>
   <entry>
+    <title>windows中安装Jenkins</title>
+    <url>/Jenkins/windows%E5%AE%89%E8%A3%85Jenkins.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="windows安装Jenkins"><a href="#windows安装Jenkins" class="headerlink" title="windows安装Jenkins"></a>windows安装Jenkins</h2><h3 id="下载安装Jenkins"><a href="#下载安装Jenkins" class="headerlink" title="下载安装Jenkins"></a>下载安装Jenkins</h3><p><a href="https://jenkins.io/zh/download/">Jenkins官网</a></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-1.png" alt="1575638819127"></p>
+<p>我下载的是war包版(需要配置<strong>java环境</strong>),如果没有配置java环境可以下载windows版。</p>
+<blockquote>
+<p>下面主要讲war包版的</p>
+</blockquote>
+<p>war包版的运行起来十分简单:</p>
+<p>在war包所在的目录运行命令窗口</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;8080</span><br></pre></td></tr></table></figure>
+<p>命令行行会有密码,复制改密码然后安装推荐插件</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-2.png" alt="1575639468883"></p>
+<p>可能会有几个安装失败,提醒是否重试,可以点击一下重试,如果还是安装失败就直接忽略继续下一步</p>
+<p>创建完用户后登陆Jenkins</p>
+<h3 id="配置jenkins"><a href="#配置jenkins" class="headerlink" title="配置jenkins"></a>配置jenkins</h3><p>进入下列目录中配置Jenkins Location选项</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-3.png" alt="1575639934705"></p>
+<p><strong>注意:</strong> jenkins URL地址为服务器的内网地址，端口号和启动时的端口号保持一致</p>
+<p><em>修改端口号</em>：<code>java -jar jenkins.war --ajp13Port=-1 --httpPort=6900</code></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-4.png" alt="1575640001501"></p>
+<p>配置好后点击保存。</p>
+<p>点击Manage Jenkins —-&gt; Global Tool Configuration</p>
+<p>查看Git选项是否配置了 <em>安装推荐配置的时候默认是安装Git的,如果安装成功这里是会有配置的</em></p>
+<p>这里我是用了自己安装的Git</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-5.png" alt="1575640310599"></p>
+<p>点击Manage Jenkins —-&gt; Configure Global Security</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-16.png" alt="1575644269904"></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-15.png" alt="1575647778831"></p>
+<p>授权策略中把<strong>匿名用户具有可读权限</strong>勾上，把跨站请求伪造保护的勾去掉</p>
+<blockquote>
+<p>不然github的webhook会报403</p>
+</blockquote>
+<h2 id="安装完成后再次启动Jenkins"><a href="#安装完成后再次启动Jenkins" class="headerlink" title="安装完成后再次启动Jenkins"></a>安装完成后再次启动Jenkins</h2><p>找到<code>jenkins.war</code>所在目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;(jenkins中设置的)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins自动部署Vue项目</title>
+    <url>/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<blockquote>
+<p>这是在windows环境下的Jenkins配置</p>
+</blockquote>
+<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><h3 id="新建一个任务-类型为Freestyle-project"><a href="#新建一个任务-类型为Freestyle-project" class="headerlink" title="新建一个任务,类型为Freestyle project"></a>新建一个任务,类型为<code>Freestyle project</code></h3><h3 id="1-General"><a href="#1-General" class="headerlink" title="1.General"></a>1.General</h3><ul>
+<li><p>勾选github项目，输入项目仓库的url地址</p>
+</li>
+<li><p>点击高级勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
+</li>
+</ul>
+<h3 id="2-源码管理"><a href="#2-源码管理" class="headerlink" title="2.源码管理"></a>2.源码管理</h3><p>勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。<br><img src="http://friendk.cn/jenkins/jenkins-7.png" alt="源码管理"></p>
+<h3 id="3-构建触发器"><a href="#3-构建触发器" class="headerlink" title="3.构建触发器"></a>3.构建触发器</h3><p>勾选<strong>触发远程构建</strong>输入你自定义的身份验证令牌<br><img src="http://friendk.cn/jenkins/jenkins-9.png" alt="构建触发器"></p>
+<blockquote>
+<p>（身份令牌在<code>webhooks</code>中要用到,格式在输入框下方，TOKEN_NAME就是你输入的）</p>
+</blockquote>
+<p><img src="http://friendk.cn/jenkins/jenkins-12.png" alt="WebHooks"></p>
+<blockquote>
+<p>只需在Payload URL中输入，其他默认即可</p>
+</blockquote>
+<h3 id="4-构建环境"><a href="#4-构建环境" class="headerlink" title="4.构建环境"></a>4.构建环境</h3><p>勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
+<blockquote>
+<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择Jenkins插件中提供的NodeJS</p>
+</blockquote>
+<h3 id="5-构建"><a href="#5-构建" class="headerlink" title="5.构建"></a>5.构建</h3><p>增加构建步骤选择<em>Execute Windows batch command</em><br><img src="http://friendk.cn/jenkins/jenkins-10.png" alt="构建"></p>
+<p>输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd C:\nginx\html\LeaveAPP_S</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>再增加一个构建步骤,输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>自动部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>socket.io学习</title>
+    <url>/%E5%89%8D%E7%AB%AF/socket.io.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p><a href="https://www.w3cschool.cn/socket/socket-1olq2egc.html">W3Cschool教程</a></p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>使用<code>koa2</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">&quot;koa&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">&quot;koa2-cors&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</span><br><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>).Server(app.callback());</span><br><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&quot;socket.io&quot;</span>)(server);</span><br><span class="line">app.use(cors());</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.emit(<span class="string">&#x27;conned&#x27;</span>,<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用<code>node</code>创建</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>).createServer();</span><br><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&#x27;socket.io&#x27;</span>)(server);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">&#x27;127.0.0.1&#x27;</span>);</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.emit(<span class="string">&#x27;conned&#x27;</span>,<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="热启动"><a href="#热启动" class="headerlink" title="热启动"></a>热启动</h3><p>安装：<code>npm install --global nodemon</code><br>使用：<code>nodemon server.js</code></p>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/socket.io/2.3.0/socket.io.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> socket = io(<span class="string">&quot;ws://localhost:3000&quot;</span>);</span></span><br><span class="line"><span class="javascript">    socket.on(<span class="string">&#x27;conned&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span></span><br><span class="line">        alert(data);</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="服务端API"><a href="#服务端API" class="headerlink" title="服务端API"></a>服务端API</h2><h2 id="客户端API"><a href="#客户端API" class="headerlink" title="客户端API"></a>客户端API</h2><h3 id="socket-id"><a href="#socket-id" class="headerlink" title="socket.id"></a>socket.id</h3><p>套接字会话的唯一标识符。在connect事件触发后设置，并在reconnect事件后更新。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">socket.on(<span class="string">&quot;connect&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//socket.id = &quot;ZLz8um5JA9LFwAoBAAAC&quot;;</span></span><br><span class="line">    <span class="built_in">console</span>.log(socket.id);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以在<code>connect</code>事件中设置上一次连接的套接字会话标识。</p>
+</blockquote>
+<h3 id="socket-send-args-ack"><a href="#socket-send-args-ack" class="headerlink" title="socket.send([,...args][,ack])"></a><code>socket.send([,...args][,ack])</code></h3><p>向服务端发送一个<code>message</code>事件</p>
+<ul>
+<li><code>[...args]</code>: 向服务端发送的数据，如果有多个数据，请发送一个对象</li>
+<li><code>[ack]</code>:回调函数，需要服务端执行才会被调用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!--客户端--&gt;</span><br><span class="line">socket.send(<span class="string">&quot;hello!&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;发送成功的回调&quot;</span>,data); <span class="comment">//hello!</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&lt;!--服务端--&gt;</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 监听服务端的消息</span></span><br><span class="line">  socket.on(<span class="string">&quot;message&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data,fn</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//执行socket.send()的回调。</span></span><br><span class="line">    fn(data);</span><br><span class="line">    <span class="comment">//广播消息</span></span><br><span class="line">    io.sockets.emit(<span class="string">&#x27;broadcast&#x27;</span>,&#123;<span class="attr">data</span>:data&#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="socket-emit-eventName-…args-ack"><a href="#socket-emit-eventName-…args-ack" class="headerlink" title="socket.emit(eventName[, …args][, ack])"></a><code>socket.emit(eventName[, …args][, ack])</code></h3><p>触发服务端监听的事件(<code>socket.on(eventName,function()&#123;&#125;)</code>)</p>
+<ul>
+<li><code>eventName</code>: 事件名称</li>
+<li><code>[,...args]</code>:</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>socket.io</category>
+      </categories>
+      <tags>
+        <tag>socket.io</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>chai断言库学习</title>
     <url>/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95/chai%E6%96%AD%E8%A8%80%E5%BA%93.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -590,43 +627,6 @@
       </categories>
       <tags>
         <tag>Mockjs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>socket.io学习</title>
-    <url>/%E5%89%8D%E7%AB%AF/socket.io.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p><a href="https://www.w3cschool.cn/socket/socket-1olq2egc.html">W3Cschool教程</a></p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>使用<code>koa2</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">&quot;koa&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> cors = <span class="built_in">require</span>(<span class="string">&quot;koa2-cors&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> koa();</span><br><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>).Server(app.callback());</span><br><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&quot;socket.io&quot;</span>)(server);</span><br><span class="line">app.use(cors());</span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.emit(<span class="string">&#x27;conned&#x27;</span>,<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>使用<code>node</code>创建</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>).createServer();</span><br><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&#x27;socket.io&#x27;</span>)(server);</span><br><span class="line">server.listen(<span class="number">3000</span>,<span class="string">&#x27;127.0.0.1&#x27;</span>);</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    socket.emit(<span class="string">&#x27;conned&#x27;</span>,<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="热启动"><a href="#热启动" class="headerlink" title="热启动"></a>热启动</h3><p>安装：<code>npm install --global nodemon</code><br>使用：<code>nodemon server.js</code></p>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/socket.io/2.3.0/socket.io.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> socket = io(<span class="string">&quot;ws://localhost:3000&quot;</span>);</span></span><br><span class="line"><span class="javascript">    socket.on(<span class="string">&#x27;conned&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span></span><br><span class="line">        alert(data);</span><br><span class="line">    &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="服务端API"><a href="#服务端API" class="headerlink" title="服务端API"></a>服务端API</h2><h2 id="客户端API"><a href="#客户端API" class="headerlink" title="客户端API"></a>客户端API</h2><h3 id="socket-id"><a href="#socket-id" class="headerlink" title="socket.id"></a>socket.id</h3><p>套接字会话的唯一标识符。在connect事件触发后设置，并在reconnect事件后更新。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">socket.on(<span class="string">&quot;connect&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//socket.id = &quot;ZLz8um5JA9LFwAoBAAAC&quot;;</span></span><br><span class="line">    <span class="built_in">console</span>.log(socket.id);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>可以在<code>connect</code>事件中设置上一次连接的套接字会话标识。</p>
-</blockquote>
-<h3 id="socket-send-args-ack"><a href="#socket-send-args-ack" class="headerlink" title="socket.send([,...args][,ack])"></a><code>socket.send([,...args][,ack])</code></h3><p>向服务端发送一个<code>message</code>事件</p>
-<ul>
-<li><code>[...args]</code>: 向服务端发送的数据，如果有多个数据，请发送一个对象</li>
-<li><code>[ack]</code>:回调函数，需要服务端执行才会被调用</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!--客户端--&gt;</span><br><span class="line">socket.send(<span class="string">&quot;hello!&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;发送成功的回调&quot;</span>,data); <span class="comment">//hello!</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&lt;!--服务端--&gt;</span><br><span class="line">io.on(<span class="string">&quot;connection&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 监听服务端的消息</span></span><br><span class="line">  socket.on(<span class="string">&quot;message&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data,fn</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//执行socket.send()的回调。</span></span><br><span class="line">    fn(data);</span><br><span class="line">    <span class="comment">//广播消息</span></span><br><span class="line">    io.sockets.emit(<span class="string">&#x27;broadcast&#x27;</span>,&#123;<span class="attr">data</span>:data&#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="socket-emit-eventName-…args-ack"><a href="#socket-emit-eventName-…args-ack" class="headerlink" title="socket.emit(eventName[, …args][, ack])"></a><code>socket.emit(eventName[, …args][, ack])</code></h3><p>触发服务端监听的事件(<code>socket.on(eventName,function()&#123;&#125;)</code>)</p>
-<ul>
-<li><code>eventName</code>: 事件名称</li>
-<li><code>[,...args]</code>:</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>socket.io</category>
-      </categories>
-      <tags>
-        <tag>socket.io</tag>
       </tags>
   </entry>
   <entry>
@@ -5199,6 +5199,38 @@ On Ubuntu `Ctrl + Shift + I`</code></pre></blockquote>
       </tags>
   </entry>
   <entry>
+    <title>vuex开发日记</title>
+    <url>/%E5%89%8D%E7%AB%AF/vue/vuex/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="路由跳转多次的问题"><a href="#路由跳转多次的问题" class="headerlink" title="路由跳转多次的问题"></a>路由跳转多次的问题</h2><p>问题代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-link tag=<span class="string">&quot;li&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in tabList&quot;</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive(item.path)&#125;&quot;</span> :to=<span class="string">&quot;&#123;name:item.path&#125;&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;i @click=<span class="string">&quot;deleteItem(item)&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    &lt;em&gt;&lt;/em&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------deleteItem方法----------</span></span><br><span class="line"><span class="function"><span class="title">deleteItem</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.dispatch(<span class="string">&#x27;page/delVisitedViews&#x27;</span>,item).then(<span class="function">(<span class="params">index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> tab = <span class="built_in">this</span>.tabList;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.isActive(item.path))&#123;<span class="comment">//只有在关闭当前打开的标签页才会有影响</span></span><br><span class="line">            <span class="keyword">if</span>(tab.length ==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">path</span>:<span class="string">&quot;/&quot;</span>&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[<span class="number">0</span>].path&#125;);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &lt; index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index-<span class="number">1</span>].path&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &gt;= index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index].path&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原因:i标签的点击事件产生了冒泡,触发了router-link的点击事件,所以导致了路由跳转两次的问题</p>
+</blockquote>
+<h2 id="页面刷新vuex状态丢失"><a href="#页面刷新vuex状态丢失" class="headerlink" title="页面刷新vuex状态丢失"></a>页面刷新vuex状态丢失</h2><p>==问题原因:== 因为store里的数据是保存在运行内存中的,当页面刷新时，页面会重新加载vue实例，store里面的数据就会被重新赋值</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>讲state里的数据保存一份到本地存储(localStorage,sessionStorage,cookie)中</p>
+<p>==本地存储的选择:==</p>
+<ol>
+<li><code>localStorage</code>是永久存储在本地(除非手动删除)</li>
+<li><code>sessionStorage</code>是存储到当前页面关闭为止</li>
+<li><code>cookie</code>则根据你设置的有效时间存储(不能存储大数据且不易读取)</li>
+</ol>
+<h3 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h3><p>由于<code>state</code>里的数据是响应式的,所以<code>sessionStorage</code>存储也要跟随变化。我们可以在<code>mutation</code>修改<code>state</code>的同时修改<code>sessionStorage</code>对应的存储</p>
+<blockquote>
+<p>该方案存在一定的缺点,我们每次提交<code>mutation</code>的时候都要修改<code>sessionStorage</code>的值,但是我们只想在页面刷新前去存储,这样做会造成性能浪费</p>
+</blockquote>
+<h3 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h3><p>通过<code>beforeupload</code>事件在页面刷新时先触发,存储vuex的状态</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&#x27;App&#x27;</span>,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="comment">//在页面加载时读取sessionStorage里的状态信息</span></span><br><span class="line">    <span class="keyword">if</span> (sessionStorage.getItem(<span class="string">&quot;store&quot;</span>) ) &#123;</span><br><span class="line">        <span class="built_in">this</span>.$store.replaceState(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.$store.state,<span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">&quot;store&quot;</span>))))</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//在页面刷新时将vuex里的信息保存到sessionStorage里</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;beforeunload&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        sessionStorage.setItem(<span class="string">&quot;store&quot;</span>,<span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.$store.state))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>vuex</category>
+      </categories>
+      <tags>
+        <tag>vuex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vuex学习笔记</title>
     <url>/%E5%89%8D%E7%AB%AF/vue/vuex/vuex.html</url>
     <content><![CDATA[<p>通过props属性和自定义事件实现组件间的通信,但是这样的做的后果就是组件间的通信会非常的混乱且不好管理。</p>
@@ -5238,38 +5270,6 @@ On Ubuntu `Ctrl + Shift + I`</code></pre></blockquote>
 <p>注意，getter 在通过方法访问时，每次都会去进行调用，而不会缓存结果。</p>
 </blockquote>
 ]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>vuex</category>
-      </categories>
-      <tags>
-        <tag>vuex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vuex开发日记</title>
-    <url>/%E5%89%8D%E7%AB%AF/vue/vuex/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="路由跳转多次的问题"><a href="#路由跳转多次的问题" class="headerlink" title="路由跳转多次的问题"></a>路由跳转多次的问题</h2><p>问题代码</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-link tag=<span class="string">&quot;li&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in tabList&quot;</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive(item.path)&#125;&quot;</span> :to=<span class="string">&quot;&#123;name:item.path&#125;&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;i @click=<span class="string">&quot;deleteItem(item)&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    &lt;em&gt;&lt;/em&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------deleteItem方法----------</span></span><br><span class="line"><span class="function"><span class="title">deleteItem</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.dispatch(<span class="string">&#x27;page/delVisitedViews&#x27;</span>,item).then(<span class="function">(<span class="params">index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> tab = <span class="built_in">this</span>.tabList;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.isActive(item.path))&#123;<span class="comment">//只有在关闭当前打开的标签页才会有影响</span></span><br><span class="line">            <span class="keyword">if</span>(tab.length ==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">path</span>:<span class="string">&quot;/&quot;</span>&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[<span class="number">0</span>].path&#125;);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &lt; index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index-<span class="number">1</span>].path&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &gt;= index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index].path&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>原因:i标签的点击事件产生了冒泡,触发了router-link的点击事件,所以导致了路由跳转两次的问题</p>
-</blockquote>
-<h2 id="页面刷新vuex状态丢失"><a href="#页面刷新vuex状态丢失" class="headerlink" title="页面刷新vuex状态丢失"></a>页面刷新vuex状态丢失</h2><p>==问题原因:== 因为store里的数据是保存在运行内存中的,当页面刷新时，页面会重新加载vue实例，store里面的数据就会被重新赋值</p>
-<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>讲state里的数据保存一份到本地存储(localStorage,sessionStorage,cookie)中</p>
-<p>==本地存储的选择:==</p>
-<ol>
-<li><code>localStorage</code>是永久存储在本地(除非手动删除)</li>
-<li><code>sessionStorage</code>是存储到当前页面关闭为止</li>
-<li><code>cookie</code>则根据你设置的有效时间存储(不能存储大数据且不易读取)</li>
-</ol>
-<h3 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h3><p>由于<code>state</code>里的数据是响应式的,所以<code>sessionStorage</code>存储也要跟随变化。我们可以在<code>mutation</code>修改<code>state</code>的同时修改<code>sessionStorage</code>对应的存储</p>
-<blockquote>
-<p>该方案存在一定的缺点,我们每次提交<code>mutation</code>的时候都要修改<code>sessionStorage</code>的值,但是我们只想在页面刷新前去存储,这样做会造成性能浪费</p>
-</blockquote>
-<h3 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h3><p>通过<code>beforeupload</code>事件在页面刷新时先触发,存储vuex的状态</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&#x27;App&#x27;</span>,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="comment">//在页面加载时读取sessionStorage里的状态信息</span></span><br><span class="line">    <span class="keyword">if</span> (sessionStorage.getItem(<span class="string">&quot;store&quot;</span>) ) &#123;</span><br><span class="line">        <span class="built_in">this</span>.$store.replaceState(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.$store.state,<span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">&quot;store&quot;</span>))))</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//在页面刷新时将vuex里的信息保存到sessionStorage里</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;beforeunload&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        sessionStorage.setItem(<span class="string">&quot;store&quot;</span>,<span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.$store.state))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>前端学习</category>
         <category>vuex</category>
