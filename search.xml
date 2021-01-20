@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>git快速使用</title>
-    <url>/Git/git%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<p><img src="http://friendk.cn/git/git_process.png" alt=""></p>
-<h2 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看git环境的详细配置</span><br><span class="line">git config -l </span><br><span class="line"></span><br><span class="line">#查看系统config</span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line">#查看当前用户（global）配置</span><br><span class="line">git config --global  --list</span><br><span class="line"> </span><br><span class="line">#查看当前仓库配置信息</span><br><span class="line">git config --local  --list</span><br><span class="line"></span><br><span class="line">#不加 --global 默认配置成当前仓库</span><br><span class="line"># --global配置全局,每次的git提交都会用此信息</span><br><span class="line">git config.user &#x3D; &quot;用户名&quot;</span><br><span class="line">git config.email &#x3D; &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="远程仓库-主机-git-remote"><a href="#远程仓库-主机-git-remote" class="headerlink" title="远程仓库(主机) [git remote]"></a>远程仓库(主机) [git remote]</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#列出所有远程主机</span><br><span class="line">git remote</span><br><span class="line"></span><br><span class="line">#参看远程主机的网址</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">#查看该主机的详细信息</span><br><span class="line">git remote show &lt;主机名&gt;</span><br><span class="line"></span><br><span class="line">git remote add &lt;主机名&gt; &lt;网址&gt;</span><br><span class="line"></span><br><span class="line">#删除远程主机</span><br><span class="line">git remote rm &lt;主机名&gt;</span><br><span class="line"></span><br><span class="line">#远程主机的改名</span><br><span class="line">git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><p>拉取远程主机的版本库的更新到本地仓库,==该命令不会对本地的开发代码产生影响==</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#将远程主机的更新,全部取回本地</span><br><span class="line">git fetch &lt;远程主机名&gt;</span><br><span class="line"></span><br><span class="line">#取回特定分支的更新</span><br><span class="line">git fetch &lt;远程主机名&gt; &lt;分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>所取回的更新，在本地主机上要用”远程主机名/分支名”的形式读取。比如origin主机的master，就要用origin/master读取。</p>
-</blockquote>
-<blockquote>
-<p>git branch命令的-r选项，可以用来查看远程分支，-a选项查看所有分支。</p>
-</blockquote>
-<h3 id="合并取回的更新"><a href="#合并取回的更新" class="headerlink" title="合并取回的更新"></a>合并取回的更新</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#在本地分支上合并远程分支。</span><br><span class="line">git merge origin&#x2F;master</span><br><span class="line">#或者</span><br><span class="line">git rebase origin&#x2F;master</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h2><p>取回远程主机某个分支的更新，再与本地的指定分支合并。==会影响开发的代码==</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line"></span><br><span class="line">#取回origin主机的next分支，与本地的master分支合并</span><br><span class="line">git pull origin next:master</span><br><span class="line"></span><br><span class="line">#如果远程分支是与当前分支合并，则冒号后面的部分可以省略。</span><br><span class="line">git pull origin next</span><br><span class="line"></span><br><span class="line">#如果合并需要采用rebase模式，可以使用--rebase选项。</span><br><span class="line">git pull --rebase &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git撤销更新</title>
     <url>/Git/git%E6%92%A4%E9%94%80%E6%9B%B4%E6%96%B0.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -59,6 +31,34 @@
       </tags>
   </entry>
   <entry>
+    <title>git快速使用</title>
+    <url>/Git/git%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p><img src="http://friendk.cn/git/git_process.png" alt=""></p>
+<h2 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看git环境的详细配置</span><br><span class="line">git config -l </span><br><span class="line"></span><br><span class="line">#查看系统config</span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line">#查看当前用户（global）配置</span><br><span class="line">git config --global  --list</span><br><span class="line"> </span><br><span class="line">#查看当前仓库配置信息</span><br><span class="line">git config --local  --list</span><br><span class="line"></span><br><span class="line">#不加 --global 默认配置成当前仓库</span><br><span class="line"># --global配置全局,每次的git提交都会用此信息</span><br><span class="line">git config.user &#x3D; &quot;用户名&quot;</span><br><span class="line">git config.email &#x3D; &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="远程仓库-主机-git-remote"><a href="#远程仓库-主机-git-remote" class="headerlink" title="远程仓库(主机) [git remote]"></a>远程仓库(主机) [git remote]</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#列出所有远程主机</span><br><span class="line">git remote</span><br><span class="line"></span><br><span class="line">#参看远程主机的网址</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">#查看该主机的详细信息</span><br><span class="line">git remote show &lt;主机名&gt;</span><br><span class="line"></span><br><span class="line">git remote add &lt;主机名&gt; &lt;网址&gt;</span><br><span class="line"></span><br><span class="line">#删除远程主机</span><br><span class="line">git remote rm &lt;主机名&gt;</span><br><span class="line"></span><br><span class="line">#远程主机的改名</span><br><span class="line">git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><p>拉取远程主机的版本库的更新到本地仓库,==该命令不会对本地的开发代码产生影响==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#将远程主机的更新,全部取回本地</span><br><span class="line">git fetch &lt;远程主机名&gt;</span><br><span class="line"></span><br><span class="line">#取回特定分支的更新</span><br><span class="line">git fetch &lt;远程主机名&gt; &lt;分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>所取回的更新，在本地主机上要用”远程主机名/分支名”的形式读取。比如origin主机的master，就要用origin/master读取。</p>
+</blockquote>
+<blockquote>
+<p>git branch命令的-r选项，可以用来查看远程分支，-a选项查看所有分支。</p>
+</blockquote>
+<h3 id="合并取回的更新"><a href="#合并取回的更新" class="headerlink" title="合并取回的更新"></a>合并取回的更新</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#在本地分支上合并远程分支。</span><br><span class="line">git merge origin&#x2F;master</span><br><span class="line">#或者</span><br><span class="line">git rebase origin&#x2F;master</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h2><p>取回远程主机某个分支的更新，再与本地的指定分支合并。==会影响开发的代码==</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line"></span><br><span class="line">#取回origin主机的next分支，与本地的master分支合并</span><br><span class="line">git pull origin next:master</span><br><span class="line"></span><br><span class="line">#如果远程分支是与当前分支合并，则冒号后面的部分可以省略。</span><br><span class="line">git pull origin next</span><br><span class="line"></span><br><span class="line">#如果合并需要采用rebase模式，可以使用--rebase选项。</span><br><span class="line">git pull --rebase &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git日志与历史</title>
     <url>/Git/git%E6%97%A5%E5%BF%97%E4%B8%8E%E5%8E%86%E5%8F%B2.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -76,6 +76,118 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows中安装Jenkins</title>
+    <url>/Jenkins/windows%E5%AE%89%E8%A3%85Jenkins.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="windows安装Jenkins"><a href="#windows安装Jenkins" class="headerlink" title="windows安装Jenkins"></a>windows安装Jenkins</h2><h3 id="下载安装Jenkins"><a href="#下载安装Jenkins" class="headerlink" title="下载安装Jenkins"></a>下载安装Jenkins</h3><p><a href="https://jenkins.io/zh/download/">Jenkins官网</a></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-1.png" alt="1575638819127"></p>
+<p>我下载的是war包版(需要配置<strong>java环境</strong>),如果没有配置java环境可以下载windows版。</p>
+<blockquote>
+<p>下面主要讲war包版的</p>
+</blockquote>
+<p>war包版的运行起来十分简单:</p>
+<p>在war包所在的目录运行命令窗口</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;8080</span><br></pre></td></tr></table></figure>
+<p>命令行行会有密码,复制改密码然后安装推荐插件</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-2.png" alt="1575639468883"></p>
+<p>可能会有几个安装失败,提醒是否重试,可以点击一下重试,如果还是安装失败就直接忽略继续下一步</p>
+<p>创建完用户后登陆Jenkins</p>
+<h3 id="配置jenkins"><a href="#配置jenkins" class="headerlink" title="配置jenkins"></a>配置jenkins</h3><p>进入下列目录中配置Jenkins Location选项</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-3.png" alt="1575639934705"></p>
+<p><strong>注意:</strong> jenkins URL地址为服务器的内网地址，端口号和启动时的端口号保持一致</p>
+<p><em>修改端口号</em>：<code>java -jar jenkins.war --ajp13Port=-1 --httpPort=6900</code></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-4.png" alt="1575640001501"></p>
+<p>配置好后点击保存。</p>
+<p>点击Manage Jenkins —-&gt; Global Tool Configuration</p>
+<p>查看Git选项是否配置了 <em>安装推荐配置的时候默认是安装Git的,如果安装成功这里是会有配置的</em></p>
+<p>这里我是用了自己安装的Git</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-5.png" alt="1575640310599"></p>
+<p>点击Manage Jenkins —-&gt; Configure Global Security</p>
+<p><img src="http://friendk.cn/jenkins/jenkins-16.png" alt="1575644269904"></p>
+<p><img src="http://friendk.cn/jenkins/jenkins-15.png" alt="1575647778831"></p>
+<p>授权策略中把<strong>匿名用户具有可读权限</strong>勾上，把跨站请求伪造保护的勾去掉</p>
+<blockquote>
+<p>不然github的webhook会报403</p>
+</blockquote>
+<h2 id="安装完成后再次启动Jenkins"><a href="#安装完成后再次启动Jenkins" class="headerlink" title="安装完成后再次启动Jenkins"></a>安装完成后再次启动Jenkins</h2><p>找到<code>jenkins.war</code>所在目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;(jenkins中设置的)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins自动部署Vue项目</title>
+    <url>/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<blockquote>
+<p>这是在windows环境下的Jenkins配置</p>
+</blockquote>
+<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><h3 id="新建一个任务-类型为Freestyle-project"><a href="#新建一个任务-类型为Freestyle-project" class="headerlink" title="新建一个任务,类型为Freestyle project"></a>新建一个任务,类型为<code>Freestyle project</code></h3><h3 id="1-General"><a href="#1-General" class="headerlink" title="1.General"></a>1.General</h3><ul>
+<li><p>勾选github项目，输入项目仓库的url地址</p>
+</li>
+<li><p>点击高级勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
+</li>
+</ul>
+<h3 id="2-源码管理"><a href="#2-源码管理" class="headerlink" title="2.源码管理"></a>2.源码管理</h3><p>勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。<br><img src="http://friendk.cn/jenkins/jenkins-7.png" alt="源码管理"></p>
+<h3 id="3-构建触发器"><a href="#3-构建触发器" class="headerlink" title="3.构建触发器"></a>3.构建触发器</h3><p>勾选<strong>触发远程构建</strong>输入你自定义的身份验证令牌<br><img src="http://friendk.cn/jenkins/jenkins-9.png" alt="构建触发器"></p>
+<blockquote>
+<p>（身份令牌在<code>webhooks</code>中要用到,格式在输入框下方，TOKEN_NAME就是你输入的）</p>
+</blockquote>
+<p><img src="http://friendk.cn/jenkins/jenkins-12.png" alt="WebHooks"></p>
+<blockquote>
+<p>只需在Payload URL中输入，其他默认即可</p>
+</blockquote>
+<h3 id="4-构建环境"><a href="#4-构建环境" class="headerlink" title="4.构建环境"></a>4.构建环境</h3><p>勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
+<blockquote>
+<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择Jenkins插件中提供的NodeJS</p>
+</blockquote>
+<h3 id="5-构建"><a href="#5-构建" class="headerlink" title="5.构建"></a>5.构建</h3><p>增加构建步骤选择<em>Execute Windows batch command</em><br><img src="http://friendk.cn/jenkins/jenkins-10.png" alt="构建"></p>
+<p>输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd C:\nginx\html\LeaveAPP_S</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>再增加一个构建步骤,输入下列命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Jenkins</category>
+      </categories>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>自动部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next主题代码块行间距过大问题解决</title>
+    <url>/hexo/next%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E8%A1%8C%E9%97%B4%E8%B7%9D%E8%BF%87%E5%A4%A7.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="解决代码块行间距过大的问题"><a href="#解决代码块行间距过大的问题" class="headerlink" title="解决代码块行间距过大的问题"></a>解决代码块行间距过大的问题</h1><p>通过修改hexo源代码来解决</p>
+<p>打开博客根目录 <code>node_modules\hexo-util\lib</code> 下的 <code>highlight.js</code> ,找到下面的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span> : <span class="string">&#x27;&lt;pre&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> after = useHljs ? <span class="string">&#x27;&lt;/code&gt;&lt;/pre&gt;&#x27;</span> : <span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = <span class="string">`&lt;figure class=&quot;highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (caption) &#123;</span><br><span class="line">  result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result += <span class="string">&#x27;&lt;table&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> lines = data.value.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> line = lines[i];</span><br><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">  <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options);</span><br><span class="line"></span><br><span class="line">  result += <span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (gutter) &#123;</span><br><span class="line">    result += <span class="string">`&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">`&lt;td class=&quot;code&quot;&gt;<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;/td&gt;&lt;/tr&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result += <span class="string">&#x27;&lt;/table&gt;&lt;/figure&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<p><strong>修改为:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span> : <span class="string">`&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span>;</span><br><span class="line">  <span class="keyword">const</span> after = useHljs ? <span class="string">&#x27;&lt;/code&gt;&#x27;</span> : <span class="string">&#x27;&lt;/code&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> myCode = <span class="string">&#x27;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> number = <span class="string">&#x27;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">`&lt;figure class=&quot;highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;`</span>;</span><br><span class="line">  <span class="keyword">if</span> (caption) &#123;</span><br><span class="line">    result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">&#x27;&lt;table&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> lines = data.value.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  result += <span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> line = lines[i];</span><br><span class="line">    <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">    <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options); </span><br><span class="line">    <span class="keyword">if</span> (gutter) &#123;</span><br><span class="line">      number += <span class="string">`&lt;span class=&quot;line&quot;&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;br&gt;`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    myCode += <span class="string">`<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;br&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  number += <span class="string">&#x27;&lt;/pre&gt;&lt;/td&gt;&#x27;</span>;</span><br><span class="line">  myCode += <span class="string">&#x27;&lt;/pre&gt;&lt;/td&gt;&#x27;</span>;</span><br><span class="line">  result += number + myCode + <span class="string">&#x27;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+
+<p>修改前的代码块间距:</p>
+<p><img src="http://friendk.cn/hexo/hexo-lineheight-1.png" alt="1576209805349"></p>
+<p>修改后的:</p>
+<p><img src="http://friendk.cn/hexo/hexo-lineheight-2.png" alt="1576161658151"></p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -115,30 +227,6 @@
 </li>
 </ol>
 <p>然后在配置文件中删除对应的配置即可</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题代码块行间距过大问题解决</title>
-    <url>/hexo/next%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E8%A1%8C%E9%97%B4%E8%B7%9D%E8%BF%87%E5%A4%A7.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="解决代码块行间距过大的问题"><a href="#解决代码块行间距过大的问题" class="headerlink" title="解决代码块行间距过大的问题"></a>解决代码块行间距过大的问题</h1><p>通过修改hexo源代码来解决</p>
-<p>打开博客根目录 <code>node_modules\hexo-util\lib</code> 下的 <code>highlight.js</code> ,找到下面的代码:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span> : <span class="string">&#x27;&lt;pre&gt;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> after = useHljs ? <span class="string">&#x27;&lt;/code&gt;&lt;/pre&gt;&#x27;</span> : <span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = <span class="string">`&lt;figure class=&quot;highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (caption) &#123;</span><br><span class="line">  result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result += <span class="string">&#x27;&lt;table&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> lines = data.value.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> line = lines[i];</span><br><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">  <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options);</span><br><span class="line"></span><br><span class="line">  result += <span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (gutter) &#123;</span><br><span class="line">    result += <span class="string">`&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">`&lt;td class=&quot;code&quot;&gt;<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;/td&gt;&lt;/tr&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result += <span class="string">&#x27;&lt;/table&gt;&lt;/figure&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
-<p><strong>修改为:</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> before = useHljs ? <span class="string">`&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span> : <span class="string">`&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;`</span>;</span><br><span class="line">  <span class="keyword">const</span> after = useHljs ? <span class="string">&#x27;&lt;/code&gt;&#x27;</span> : <span class="string">&#x27;&lt;/code&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> myCode = <span class="string">&#x27;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">let</span> number = <span class="string">&#x27;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (!wrap) <span class="keyword">return</span> <span class="string">`&lt;pre&gt;&lt;code class=&quot;<span class="subst">$&#123;classNames&#125;</span>&quot;&gt;<span class="subst">$&#123;data.value&#125;</span>&lt;/code&gt;&lt;/pre&gt;`</span>;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">`&lt;figure class=&quot;highlight<span class="subst">$&#123;data.language ? <span class="string">` <span class="subst">$&#123;data.language&#125;</span>`</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&quot;&gt;`</span>;</span><br><span class="line">  <span class="keyword">if</span> (caption) &#123;</span><br><span class="line">    result += <span class="string">`&lt;figcaption&gt;<span class="subst">$&#123;caption&#125;</span>&lt;/figcaption&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  result += <span class="string">&#x27;&lt;table&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">const</span> lines = data.value.split(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  result += <span class="string">&#x27;&lt;tr&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> line = lines[i];</span><br><span class="line">    <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">    <span class="keyword">let</span> content = formatLine(line, <span class="built_in">Number</span>(firstLine) + i, mark, options); </span><br><span class="line">    <span class="keyword">if</span> (gutter) &#123;</span><br><span class="line">      number += <span class="string">`&lt;span class=&quot;line&quot;&gt;<span class="subst">$&#123;<span class="built_in">Number</span>(firstLine) + i&#125;</span>&lt;/span&gt;&lt;br&gt;`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    myCode += <span class="string">`<span class="subst">$&#123;before&#125;</span><span class="subst">$&#123;content&#125;</span><span class="subst">$&#123;after&#125;</span>&lt;br&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  number += <span class="string">&#x27;&lt;/pre&gt;&lt;/td&gt;&#x27;</span>;</span><br><span class="line">  myCode += <span class="string">&#x27;&lt;/pre&gt;&lt;/td&gt;&#x27;</span>;</span><br><span class="line">  result += number + myCode + <span class="string">&#x27;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&#x27;</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
-
-
-<p>修改前的代码块间距:</p>
-<p><img src="http://friendk.cn/hexo/hexo-lineheight-1.png" alt="1576209805349"></p>
-<p>修改后的:</p>
-<p><img src="http://friendk.cn/hexo/hexo-lineheight-2.png" alt="1576161658151"></p>
 ]]></content>
       <categories>
         <category>博客搭建</category>
@@ -372,94 +460,6 @@
       </tags>
   </entry>
   <entry>
-    <title>windows中安装Jenkins</title>
-    <url>/Jenkins/windows%E5%AE%89%E8%A3%85Jenkins.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="windows安装Jenkins"><a href="#windows安装Jenkins" class="headerlink" title="windows安装Jenkins"></a>windows安装Jenkins</h2><h3 id="下载安装Jenkins"><a href="#下载安装Jenkins" class="headerlink" title="下载安装Jenkins"></a>下载安装Jenkins</h3><p><a href="https://jenkins.io/zh/download/">Jenkins官网</a></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-1.png" alt="1575638819127"></p>
-<p>我下载的是war包版(需要配置<strong>java环境</strong>),如果没有配置java环境可以下载windows版。</p>
-<blockquote>
-<p>下面主要讲war包版的</p>
-</blockquote>
-<p>war包版的运行起来十分简单:</p>
-<p>在war包所在的目录运行命令窗口</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;8080</span><br></pre></td></tr></table></figure>
-<p>命令行行会有密码,复制改密码然后安装推荐插件</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-2.png" alt="1575639468883"></p>
-<p>可能会有几个安装失败,提醒是否重试,可以点击一下重试,如果还是安装失败就直接忽略继续下一步</p>
-<p>创建完用户后登陆Jenkins</p>
-<h3 id="配置jenkins"><a href="#配置jenkins" class="headerlink" title="配置jenkins"></a>配置jenkins</h3><p>进入下列目录中配置Jenkins Location选项</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-3.png" alt="1575639934705"></p>
-<p><strong>注意:</strong> jenkins URL地址为服务器的内网地址，端口号和启动时的端口号保持一致</p>
-<p><em>修改端口号</em>：<code>java -jar jenkins.war --ajp13Port=-1 --httpPort=6900</code></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-4.png" alt="1575640001501"></p>
-<p>配置好后点击保存。</p>
-<p>点击Manage Jenkins —-&gt; Global Tool Configuration</p>
-<p>查看Git选项是否配置了 <em>安装推荐配置的时候默认是安装Git的,如果安装成功这里是会有配置的</em></p>
-<p>这里我是用了自己安装的Git</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-5.png" alt="1575640310599"></p>
-<p>点击Manage Jenkins —-&gt; Configure Global Security</p>
-<p><img src="http://friendk.cn/jenkins/jenkins-16.png" alt="1575644269904"></p>
-<p><img src="http://friendk.cn/jenkins/jenkins-15.png" alt="1575647778831"></p>
-<p>授权策略中把<strong>匿名用户具有可读权限</strong>勾上，把跨站请求伪造保护的勾去掉</p>
-<blockquote>
-<p>不然github的webhook会报403</p>
-</blockquote>
-<h2 id="安装完成后再次启动Jenkins"><a href="#安装完成后再次启动Jenkins" class="headerlink" title="安装完成后再次启动Jenkins"></a>安装完成后再次启动Jenkins</h2><p>找到<code>jenkins.war</code>所在目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort&#x3D;(jenkins中设置的)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins自动部署Vue项目</title>
-    <url>/Jenkins/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Vue%E9%A1%B9%E7%9B%AE.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<blockquote>
-<p>这是在windows环境下的Jenkins配置</p>
-</blockquote>
-<h2 id="使用Jenkins自动部署Vue项目"><a href="#使用Jenkins自动部署Vue项目" class="headerlink" title="使用Jenkins自动部署Vue项目"></a>使用Jenkins自动部署Vue项目</h2><h3 id="新建一个任务-类型为Freestyle-project"><a href="#新建一个任务-类型为Freestyle-project" class="headerlink" title="新建一个任务,类型为Freestyle project"></a>新建一个任务,类型为<code>Freestyle project</code></h3><h3 id="1-General"><a href="#1-General" class="headerlink" title="1.General"></a>1.General</h3><ul>
-<li><p>勾选github项目，输入项目仓库的url地址</p>
-</li>
-<li><p>点击高级勾选<em>使用自定义的工作空间</em>，目录为<code>盘符:\...\nginx\html\myVue</code>(注意设置<code>nginx</code>的配置文件)</p>
-</li>
-</ul>
-<h3 id="2-源码管理"><a href="#2-源码管理" class="headerlink" title="2.源码管理"></a>2.源码管理</h3><p>勾选 <code>Git</code>,然后输入你的仓库地址,选择连接的账户密码。若没有点击添加按钮自行添加。<br><img src="http://friendk.cn/jenkins/jenkins-7.png" alt="源码管理"></p>
-<h3 id="3-构建触发器"><a href="#3-构建触发器" class="headerlink" title="3.构建触发器"></a>3.构建触发器</h3><p>勾选<strong>触发远程构建</strong>输入你自定义的身份验证令牌<br><img src="http://friendk.cn/jenkins/jenkins-9.png" alt="构建触发器"></p>
-<blockquote>
-<p>（身份令牌在<code>webhooks</code>中要用到,格式在输入框下方，TOKEN_NAME就是你输入的）</p>
-</blockquote>
-<p><img src="http://friendk.cn/jenkins/jenkins-12.png" alt="WebHooks"></p>
-<blockquote>
-<p>只需在Payload URL中输入，其他默认即可</p>
-</blockquote>
-<h3 id="4-构建环境"><a href="#4-构建环境" class="headerlink" title="4.构建环境"></a>4.构建环境</h3><p>勾选<code>Provide Node &amp; npm bin/ folder to PATH</code>,即构建环境为<code>NodeJS</code></p>
-<blockquote>
-<p>我本来是在Jenkins中配置自动安装<code>NodeJS</code>的,但是发现每次构建的时候都会卡在下载<code>NodeJS</code>这里，后来实在没有办法只能选择Jenkins插件中提供的NodeJS</p>
-</blockquote>
-<h3 id="5-构建"><a href="#5-构建" class="headerlink" title="5.构建"></a>5.构建</h3><p>增加构建步骤选择<em>Execute Windows batch command</em><br><img src="http://friendk.cn/jenkins/jenkins-10.png" alt="构建"></p>
-<p>输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd C:\nginx\html\LeaveAPP_S</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>再增加一个构建步骤,输入下列命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>两个命令之所以分开是因为发现都放在一个构建步骤里的时候,在安装完包后就结束构建了,并没有执行<code>npm run build</code>命令</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Jenkins</category>
-      </categories>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>自动部署</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>socket.io学习</title>
     <url>/%E5%89%8D%E7%AB%AF/socket.io.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -598,86 +598,6 @@
       </categories>
       <tags>
         <tag>chai</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端数据模拟Mockjs</title>
-    <url>/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95/mockjs.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>npm i mockjs -D</code></p>
-<h2 id="使用mock模拟请求"><a href="#使用mock模拟请求" class="headerlink" title="使用mock模拟请求"></a>使用mock模拟请求</h2><p>格式如下:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Mock.mock(url,type,<span class="function">(<span class="params">opts</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(opts);</span><br><span class="line">    <span class="comment">/*body: null</span></span><br><span class="line"><span class="comment">    type: &quot;GET&quot;</span></span><br><span class="line"><span class="comment">    url: &quot;http://localhost:8080/users?query=&amp;pagenum=1&amp;pagesize=2&quot;*/</span></span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意:<br></p>
-<ol>
-<li>get请求的参数只能从url中获取,post请求的参数可以通过body属性得到</li>
-<li>url最好使用正则表达式,如 <code>new RegExp(url)</code></li>
-</ol>
-</blockquote>
-<p>示例:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Mock.mock(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;/users&quot;</span>),<span class="string">&quot;get&quot;</span>,<span class="function">(<span class="params">opts</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(opts);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;ok&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="快速使用模板"><a href="#快速使用模板" class="headerlink" title="快速使用模板"></a>快速使用模板</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">--common.js--</span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="comment">// 登录后台</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        url: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">        type: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">          <span class="string">&#x27;msg&#x27;</span>: <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;code&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="string">&#x27;expire&#x27;</span>: Mock.Random.natural(<span class="number">60</span> * <span class="number">60</span> * <span class="number">1</span>, <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span>),</span><br><span class="line">          <span class="string">&#x27;token&#x27;</span>: Mock.Random.string(<span class="string">&#x27;abcdefghijklmnopqrstuvwxyz0123456789&#x27;</span>, <span class="number">32</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">---index.js--</span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> common <span class="keyword">from</span> <span class="string">&#x27;./modules/common&#x27;</span></span><br><span class="line">fnCreate(common,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建mock模拟数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>mod 模块</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>isOpen 是否开启?</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnCreate</span> (<span class="params">mod, isOpen = <span class="literal">true</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isOpen) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> mod) &#123;</span><br><span class="line">        (<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.isOpen !== <span class="literal">false</span>) &#123;</span><br><span class="line">            Mock.mock(<span class="keyword">new</span> <span class="built_in">RegExp</span>(res.url), res.type, <span class="function">(<span class="params">opts</span>) =&gt;</span> &#123;</span><br><span class="line">              opts[<span class="string">&#x27;data&#x27;</span>] = opts.body ? <span class="built_in">JSON</span>.parse(opts.body) : <span class="literal">null</span></span><br><span class="line">              <span class="keyword">delete</span> opts.body</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;%cmock拦截, 请求: &#x27;</span>, <span class="string">&#x27;color:blue&#x27;</span>, opts)</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;%cmock拦截, 响应: &#x27;</span>, <span class="string">&#x27;color:blue&#x27;</span>, res.data)</span><br><span class="line">              <span class="keyword">return</span> res.data</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)(mod[key]() || &#123;&#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-<h2 id="常用的随机生成"><a href="#常用的随机生成" class="headerlink" title="常用的随机生成"></a>常用的随机生成</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import Mock from &#39;mockjs&#39;</span><br><span class="line">Mock.mock(&#123;</span><br><span class="line">    &quot;data|100&quot;: [ &#x2F;&#x2F;生成100条数据 数组</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;address&quot;: &quot;@county(true)&quot;, &#x2F;&#x2F;随机生成地址</span><br><span class="line">            &quot;shopMsg&quot;: &quot;@ctitle(10)&quot;,</span><br><span class="line">            &#x2F;&#x2F;生成商品信息，长度为10个汉字</span><br><span class="line">            &quot;shopName&quot;:&quot;@cword(6,10)&quot;, &#x2F;&#x2F;商品名称</span><br><span class="line">            &quot;shopId|+1&quot;: 1,&#x2F;&#x2F;生成商品id，自增1</span><br><span class="line">            &quot;shopTel&quot;: &#x2F;^1(5|3|7|8)[0-9]&#123;9&#125;$&#x2F;,&#x2F;&#x2F;生成随机电话号</span><br><span class="line">            &quot;salesVolume|30-1000&quot;: 30, &#x2F;&#x2F;随机生成商品价格 在30-1000之间</span><br><span class="line">            &quot;time&quot;:&quot;@datetime(),&quot; &#x2F;&#x2F;随机生成时间</span><br><span class="line">            &quot;name&quot;:&quot;@cname&quot;, &#x2F;&#x2F;随机中文名字</span><br><span class="line">            &quot;email&quot;:&quot;@email()&quot;, &#x2F;&#x2F;随机邮箱</span><br><span class="line">            &quot;image&quot;:&quot;@image()&quot;, &#x2F;&#x2F;随机图片</span><br><span class="line">            &quot;price&quot;:&#39;@integer(1000,2000)&#39;, &#x2F;&#x2F;随机价格</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>前端测试</category>
-        <category>Mockjs</category>
-      </categories>
-      <tags>
-        <tag>Mockjs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zookeeper安装</title>
-    <url>/%E5%90%8E%E7%AB%AF/zookeeper%E5%AE%89%E8%A3%85.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="1-下载zookeeper"><a href="#1-下载zookeeper" class="headerlink" title="1.下载zookeeper"></a>1.下载zookeeper</h2><p><a href="https://downloads.apache.org/zookeeper/">地址</a></p>
-<blockquote>
-<p>下载.tar.gz版本的包</p>
-</blockquote>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><blockquote>
-<p>注意：需要安装java环境</p>
-</blockquote>
-<h3 id="2-1解压zookeeper"><a href="#2-1解压zookeeper" class="headerlink" title="2.1解压zookeeper"></a>2.1解压zookeeper</h3><p><code>tar -zxvf zookeeper-3.4.14.tar.gz</code></p>
-<blockquote>
-<p>若没有权限，使用 <code>chmod 777 zookeeper-3.4.14.tar.gz</code></p>
-</blockquote>
-<h3 id="2-2修改配置文件"><a href="#2-2修改配置文件" class="headerlink" title="2.2修改配置文件"></a>2.2修改配置文件</h3><ol>
-<li>进入<code>conf</code>文件夹下</li>
-<li>将<code>zoo_sample.cfg</code>复制一份<blockquote>
-<p>cp zoo_sample.cfg zoo.cfg</p>
-</blockquote>
-</li>
-<li>使用vi命令打开<code>zoo.cfg</code>并修改配置<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dataDir&#x3D;&#x2F;tmp&#x2F;zookeeper</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>将dataDir改为以下新建的目录</p>
-<ol>
-<li>在<code>zookeeper</code>目录下新建data(<code>mkdir data</code>)文件夹</li>
-<li>将dataDir设置为data的路径(例如:<code>/usr/soft/zookeeper-3.4.14/data</code>)</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-<h2 id="3-启动zookeeper"><a href="#3-启动zookeeper" class="headerlink" title="3. 启动zookeeper"></a>3. 启动zookeeper</h2><p>在zookeeper目录下的bin文件夹中，使用以下命令启动zookeeper:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;zkServer.sh start</span><br></pre></td></tr></table></figure>
-<h2 id="5-检查zookeeper启动情况"><a href="#5-检查zookeeper启动情况" class="headerlink" title="5. 检查zookeeper启动情况"></a>5. 检查zookeeper启动情况</h2><p>我们可以使用以下命令查看zookeeper的启动状态：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;zkServer.sh status</span><br></pre></td></tr></table></figure>
-<h2 id="6-设置zookeeper开机启动"><a href="#6-设置zookeeper开机启动" class="headerlink" title="6.设置zookeeper开机启动"></a>6.设置zookeeper开机启动</h2><ol>
-<li>进入<code>/etc/init.d</code>目录</li>
-<li>创建文件<code>zookeeper</code>，并添加脚本：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#chkconfig:2345 20 90</span><br><span class="line">#description:zookeeper</span><br><span class="line">#processname:zookeeper</span><br><span class="line">ZK_PATH&#x3D;&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14</span><br><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;soft&#x2F;jdk1.8.0_202</span><br><span class="line">case $1 in</span><br><span class="line">         start) sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh start;;</span><br><span class="line">         stop)  sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh stop;;</span><br><span class="line">         status) sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh status;;</span><br><span class="line">         restart) sh $ZK_PATH&#x2F;bin&#x2F;zkServer.sh restart;;</span><br><span class="line">         *)  echo &quot;require start|stop|status|restart&quot;  ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></li>
-<li>保存脚本之后，执行以下命令将其注册为服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chkconfig --add zookeeper</span><br></pre></td></tr></table></figure></li>
-<li>测试是否启动<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@centos7 init.d]# service zookeeper start</span><br><span class="line">env: &#x2F;etc&#x2F;init.d&#x2F;zookeeper: 权限不够</span><br><span class="line">[root@centos7 init.d]# chmod +x zookeeper</span><br><span class="line">[root@centos7 init.d]# </span><br><span class="line">[root@centos7 init.d]# service zookeeper start</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br><span class="line">[root@centos7 init.d]# service zookeeper status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">Mode: standalone</span><br><span class="line">[root@centos7 init.d]# ps -ef|grep zookeeper</span><br><span class="line">root       4905      1  1 23:24 pts&#x2F;0    00:00:00 &#x2F;usr&#x2F;soft&#x2F;jdk1.8.0_202&#x2F;bin&#x2F;java -Dzookeeper.log.dir&#x3D;. -Dzookeeper.root.logger&#x3D;INFO,CONSOLE -cp &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;target&#x2F;classes:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;build&#x2F;classes:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;target&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;build&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;slf4j-log4j12-1.7.25.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;slf4j-api-1.7.25.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;netty-3.10.6.Final.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;log4j-1.2.17.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;jline-0.9.94.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;audience-annotations-0.5.0.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-3.4.14.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;src&#x2F;main&#x2F;resources&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only&#x3D;false org.apache.zookeeper.server.quorum.QuorumPeerMain &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">root       4985   4732  0 23:25 pts&#x2F;0    00:00:00 grep --color&#x3D;auto zookeeper</span><br><span class="line">[root@centos7 init.d]# </span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>后端学习</category>
-        <category>zookeeper</category>
-      </categories>
-      <tags>
-        <tag>zookeeper</tag>
       </tags>
   </entry>
   <entry>
@@ -980,6 +900,35 @@
       </categories>
       <tags>
         <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端数据模拟Mockjs</title>
+    <url>/%E5%89%8D%E7%AB%AF%E6%B5%8B%E8%AF%95/mockjs.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>npm i mockjs -D</code></p>
+<h2 id="使用mock模拟请求"><a href="#使用mock模拟请求" class="headerlink" title="使用mock模拟请求"></a>使用mock模拟请求</h2><p>格式如下:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Mock.mock(url,type,<span class="function">(<span class="params">opts</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(opts);</span><br><span class="line">    <span class="comment">/*body: null</span></span><br><span class="line"><span class="comment">    type: &quot;GET&quot;</span></span><br><span class="line"><span class="comment">    url: &quot;http://localhost:8080/users?query=&amp;pagenum=1&amp;pagesize=2&quot;*/</span></span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意:<br></p>
+<ol>
+<li>get请求的参数只能从url中获取,post请求的参数可以通过body属性得到</li>
+<li>url最好使用正则表达式,如 <code>new RegExp(url)</code></li>
+</ol>
+</blockquote>
+<p>示例:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Mock.mock(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;/users&quot;</span>),<span class="string">&quot;get&quot;</span>,<span class="function">(<span class="params">opts</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(opts);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;ok&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="快速使用模板"><a href="#快速使用模板" class="headerlink" title="快速使用模板"></a>快速使用模板</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">--common.js--</span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="comment">// 登录后台</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        url: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">        type: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">          <span class="string">&#x27;msg&#x27;</span>: <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;code&#x27;</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="string">&#x27;expire&#x27;</span>: Mock.Random.natural(<span class="number">60</span> * <span class="number">60</span> * <span class="number">1</span>, <span class="number">60</span> * <span class="number">60</span> * <span class="number">12</span>),</span><br><span class="line">          <span class="string">&#x27;token&#x27;</span>: Mock.Random.string(<span class="string">&#x27;abcdefghijklmnopqrstuvwxyz0123456789&#x27;</span>, <span class="number">32</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">---index.js--</span><br><span class="line"><span class="keyword">import</span> Mock <span class="keyword">from</span> <span class="string">&#x27;mockjs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> common <span class="keyword">from</span> <span class="string">&#x27;./modules/common&#x27;</span></span><br><span class="line">fnCreate(common,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建mock模拟数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>mod 模块</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;*&#125;</span> </span>isOpen 是否开启?</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnCreate</span> (<span class="params">mod, isOpen = <span class="literal">true</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isOpen) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> mod) &#123;</span><br><span class="line">        (<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.isOpen !== <span class="literal">false</span>) &#123;</span><br><span class="line">            Mock.mock(<span class="keyword">new</span> <span class="built_in">RegExp</span>(res.url), res.type, <span class="function">(<span class="params">opts</span>) =&gt;</span> &#123;</span><br><span class="line">              opts[<span class="string">&#x27;data&#x27;</span>] = opts.body ? <span class="built_in">JSON</span>.parse(opts.body) : <span class="literal">null</span></span><br><span class="line">              <span class="keyword">delete</span> opts.body</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;%cmock拦截, 请求: &#x27;</span>, <span class="string">&#x27;color:blue&#x27;</span>, opts)</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">&#x27;%cmock拦截, 响应: &#x27;</span>, <span class="string">&#x27;color:blue&#x27;</span>, res.data)</span><br><span class="line">              <span class="keyword">return</span> res.data</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)(mod[key]() || &#123;&#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="常用的随机生成"><a href="#常用的随机生成" class="headerlink" title="常用的随机生成"></a>常用的随机生成</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import Mock from &#39;mockjs&#39;</span><br><span class="line">Mock.mock(&#123;</span><br><span class="line">    &quot;data|100&quot;: [ &#x2F;&#x2F;生成100条数据 数组</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;address&quot;: &quot;@county(true)&quot;, &#x2F;&#x2F;随机生成地址</span><br><span class="line">            &quot;shopMsg&quot;: &quot;@ctitle(10)&quot;,</span><br><span class="line">            &#x2F;&#x2F;生成商品信息，长度为10个汉字</span><br><span class="line">            &quot;shopName&quot;:&quot;@cword(6,10)&quot;, &#x2F;&#x2F;商品名称</span><br><span class="line">            &quot;shopId|+1&quot;: 1,&#x2F;&#x2F;生成商品id，自增1</span><br><span class="line">            &quot;shopTel&quot;: &#x2F;^1(5|3|7|8)[0-9]&#123;9&#125;$&#x2F;,&#x2F;&#x2F;生成随机电话号</span><br><span class="line">            &quot;salesVolume|30-1000&quot;: 30, &#x2F;&#x2F;随机生成商品价格 在30-1000之间</span><br><span class="line">            &quot;time&quot;:&quot;@datetime(),&quot; &#x2F;&#x2F;随机生成时间</span><br><span class="line">            &quot;name&quot;:&quot;@cname&quot;, &#x2F;&#x2F;随机中文名字</span><br><span class="line">            &quot;email&quot;:&quot;@email()&quot;, &#x2F;&#x2F;随机邮箱</span><br><span class="line">            &quot;image&quot;:&quot;@image()&quot;, &#x2F;&#x2F;随机图片</span><br><span class="line">            &quot;price&quot;:&#39;@integer(1000,2000)&#39;, &#x2F;&#x2F;随机价格</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端测试</category>
+        <category>Mockjs</category>
+      </categories>
+      <tags>
+        <tag>Mockjs</tag>
       </tags>
   </entry>
   <entry>
@@ -1556,6 +1505,57 @@
       </tags>
   </entry>
   <entry>
+    <title>zookeeper安装</title>
+    <url>/%E5%90%8E%E7%AB%AF/zookeeper%E5%AE%89%E8%A3%85.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="1-下载zookeeper"><a href="#1-下载zookeeper" class="headerlink" title="1.下载zookeeper"></a>1.下载zookeeper</h2><p><a href="https://downloads.apache.org/zookeeper/">地址</a></p>
+<blockquote>
+<p>下载.tar.gz版本的包</p>
+</blockquote>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><blockquote>
+<p>注意：需要安装java环境</p>
+</blockquote>
+<h3 id="2-1解压zookeeper"><a href="#2-1解压zookeeper" class="headerlink" title="2.1解压zookeeper"></a>2.1解压zookeeper</h3><p><code>tar -zxvf zookeeper-3.4.14.tar.gz</code></p>
+<blockquote>
+<p>若没有权限，使用 <code>chmod 777 zookeeper-3.4.14.tar.gz</code></p>
+</blockquote>
+<h3 id="2-2修改配置文件"><a href="#2-2修改配置文件" class="headerlink" title="2.2修改配置文件"></a>2.2修改配置文件</h3><ol>
+<li>进入<code>conf</code>文件夹下</li>
+<li>将<code>zoo_sample.cfg</code>复制一份<blockquote>
+<p>cp zoo_sample.cfg zoo.cfg</p>
+</blockquote>
+</li>
+<li>使用vi命令打开<code>zoo.cfg</code>并修改配置<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dataDir&#x3D;&#x2F;tmp&#x2F;zookeeper</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将dataDir改为以下新建的目录</p>
+<ol>
+<li>在<code>zookeeper</code>目录下新建data(<code>mkdir data</code>)文件夹</li>
+<li>将dataDir设置为data的路径(例如:<code>/usr/soft/zookeeper-3.4.14/data</code>)</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h2 id="3-启动zookeeper"><a href="#3-启动zookeeper" class="headerlink" title="3. 启动zookeeper"></a>3. 启动zookeeper</h2><p>在zookeeper目录下的bin文件夹中，使用以下命令启动zookeeper:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;zkServer.sh start</span><br></pre></td></tr></table></figure>
+<h2 id="5-检查zookeeper启动情况"><a href="#5-检查zookeeper启动情况" class="headerlink" title="5. 检查zookeeper启动情况"></a>5. 检查zookeeper启动情况</h2><p>我们可以使用以下命令查看zookeeper的启动状态：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;zkServer.sh status</span><br></pre></td></tr></table></figure>
+<h2 id="6-设置zookeeper开机启动"><a href="#6-设置zookeeper开机启动" class="headerlink" title="6.设置zookeeper开机启动"></a>6.设置zookeeper开机启动</h2><ol>
+<li>进入<code>/etc/init.d</code>目录</li>
+<li>创建文件<code>zookeeper</code>，并添加脚本：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#chkconfig:2345 20 90</span><br><span class="line">#description:zookeeper</span><br><span class="line">#processname:zookeeper</span><br><span class="line">ZK_PATH&#x3D;&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14</span><br><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;soft&#x2F;jdk1.8.0_202</span><br><span class="line">case $1 in</span><br><span class="line">         start) sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh start;;</span><br><span class="line">         stop)  sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh stop;;</span><br><span class="line">         status) sh  $ZK_PATH&#x2F;bin&#x2F;zkServer.sh status;;</span><br><span class="line">         restart) sh $ZK_PATH&#x2F;bin&#x2F;zkServer.sh restart;;</span><br><span class="line">         *)  echo &quot;require start|stop|status|restart&quot;  ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></li>
+<li>保存脚本之后，执行以下命令将其注册为服务<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chkconfig --add zookeeper</span><br></pre></td></tr></table></figure></li>
+<li>测试是否启动<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@centos7 init.d]# service zookeeper start</span><br><span class="line">env: &#x2F;etc&#x2F;init.d&#x2F;zookeeper: 权限不够</span><br><span class="line">[root@centos7 init.d]# chmod +x zookeeper</span><br><span class="line">[root@centos7 init.d]# </span><br><span class="line">[root@centos7 init.d]# service zookeeper start</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br><span class="line">[root@centos7 init.d]# service zookeeper status</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">Mode: standalone</span><br><span class="line">[root@centos7 init.d]# ps -ef|grep zookeeper</span><br><span class="line">root       4905      1  1 23:24 pts&#x2F;0    00:00:00 &#x2F;usr&#x2F;soft&#x2F;jdk1.8.0_202&#x2F;bin&#x2F;java -Dzookeeper.log.dir&#x3D;. -Dzookeeper.root.logger&#x3D;INFO,CONSOLE -cp &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;target&#x2F;classes:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;build&#x2F;classes:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;target&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;build&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;slf4j-log4j12-1.7.25.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;slf4j-api-1.7.25.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;netty-3.10.6.Final.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;log4j-1.2.17.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;jline-0.9.94.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;lib&#x2F;audience-annotations-0.5.0.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-3.4.14.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;zookeeper-server&#x2F;src&#x2F;main&#x2F;resources&#x2F;lib&#x2F;*.jar:&#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only&#x3D;false org.apache.zookeeper.server.quorum.QuorumPeerMain &#x2F;usr&#x2F;soft&#x2F;zookeeper-3.4.14&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg</span><br><span class="line">root       4985   4732  0 23:25 pts&#x2F;0    00:00:00 grep --color&#x3D;auto zookeeper</span><br><span class="line">[root@centos7 init.d]# </span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>后端学习</category>
+        <category>zookeeper</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ECMAScript6--Iterator 和 for...of 循环</title>
     <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/15%E3%80%81Iterator%E5%92%8Cfor...of%E5%BE%AA%E7%8E%AF.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -1653,6 +1653,97 @@
 <p>上面代码演示了如何遍历 Set 结构和 Map 结构。值得注意的地方有两个，首先，遍历的顺序是按照各个成员被添加进数据结构的顺序。其次，Set 结构遍历时，返回的是一个值，而 Map 结构遍历时，返回的是一个数组，该数组的两个成员分别为当前 Map 成员的键名和键值。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>().set(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>).set(<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> pair <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(pair);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// [&#x27;a&#x27;, 1]</span></span><br><span class="line"><span class="comment">// [&#x27;b&#x27;, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key + <span class="string">&#x27; : &#x27;</span> + value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a : 1</span></span><br><span class="line"><span class="comment">// b : 2</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>ECMAScript6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ECMAScript6--Module</title>
+    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/19%E3%80%81Module.html</url>
+    <content><![CDATA[<p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。<code>export</code>命令用于规定模块的对外接口，<code>import</code>命令用于输入其他模块提供的功能。</p>
+<a id="more"></a>
+
+<h1 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h1><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用<code>export</code>关键字输出该变量。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// profile.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstName = <span class="string">&#x27;Michael&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> lastName = <span class="string">&#x27;Jackson&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> year = <span class="number">1958</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用<code>export</code>命令对外部输出了三个变量。</p>
+</blockquote>
+<ul>
+<li><p><code>export</code>的另一种写法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// profile.js</span></span><br><span class="line"><span class="keyword">var</span> firstName = <span class="string">&#x27;Michael&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">&#x27;Jackson&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> year = <span class="number">1958</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; firstName, lastName, year &#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><code>export</code>命令除了输出变量，还可以输出函数和类（class）：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对外输出一个函数<code>multiply</code></p>
+</blockquote>
+</li>
+<li><p><code>export</code>输出的变量就是本来的名字，但是可以使用<code>as</code>关键字重命名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">v1</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">v2</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  v1 <span class="keyword">as</span> streamV1,</span><br><span class="line">  v2 <span class="keyword">as</span> streamV2,</span><br><span class="line">  v2 <span class="keyword">as</span> streamLatestVersion</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">export</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>; </span><br><span class="line"><span class="keyword">export</span> m;   <span class="comment">//通过变量`m`，还是直接输出 1。`1`只是一个值，不是接口。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//正确写法</span></span><br><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法三</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;n <span class="keyword">as</span> m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------------------------------------------------*/</span></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> f;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;f&#125;;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p><strong>注意：</strong><br><code>export</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错（<code>import命令也是如此</code>）。</p>
+<h1 id="import命令"><a href="#import命令" class="headerlink" title="import命令"></a>import命令</h1><p>通过<code>import</code>命令加载其他<code>JS</code>文件中<code>export</code>输出的模块。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; firstName, lastName, year &#125; <span class="keyword">from</span> <span class="string">&#x27;./profile.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">  element.textContent = firstName + <span class="string">&#x27; &#x27;</span> + lastName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p><code>import</code>命令使用<code>as</code>关键字，将输入的变量重命名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; lastName <span class="keyword">as</span> surname &#125; <span class="keyword">from</span> <span class="string">&#x27;./profile.js&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。但是修改对象属性是允许的（不允许在加载模块的脚本里面改写接口）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">&#x27;./xxx.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//报错</span></span><br><span class="line">a = &#123;&#125;; <span class="comment">// Syntax Error : &#x27;a&#x27; is read-only;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>import</code>后面的<code>from</code>指定模块文件的位置，可以是相对路径，也可以是绝对路径，<code>.js</code>后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;myMethod&#125; <span class="keyword">from</span> <span class="string">&#x27;util&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的代码不会报错，因为<code>import</code>的执行早于<code>foo</code>的调用。这种行为的本质是，<code>import</code>命令是编译阶段执行的，在代码运行之前。</p>
+</blockquote>
+</li>
+<li><p><code>import</code>是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="string">&#x27;f&#x27;</span> + <span class="string">&#x27;oo&#x27;</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> <span class="built_in">module</span> = <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="built_in">module</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">if</span> (x === <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;module1&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;module2&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>import</code>语句会执行所加载的模块，因此可以有下面的写法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;lodash&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果多次重复执行同一句<code>import</code>语句，那么只会执行一次，而不会执行多次。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h1><p>除了指定加载某个输出值，还可以使用整体加载，即用星号（<code>*</code>）指定一个对象，所有输出值都加载在这个对象上面。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// circle.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">circumference</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span> * <span class="built_in">Math</span>.PI * radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="comment">//使用星号整体加载</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> circle <span class="keyword">from</span> <span class="string">&#x27;./circle&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;圆面积：&#x27;</span> + circle.area(<span class="number">4</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;圆周长：&#x27;</span> + circle.circumference(<span class="number">14</span>));</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="export-default命令"><a href="#export-default命令" class="headerlink" title="export default命令"></a>export default命令</h1><p>使用该命令为模块指定默认输出。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">&#x27;./export-default&#x27;</span>;</span><br><span class="line">customName(); <span class="comment">// &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>export default</code>命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此<code>export default</code>命令只能使用一次。</p>
+</blockquote>
+<h1 id="export与import的复合写法"><a href="#export与import的复合写法" class="headerlink" title="export与import的复合写法"></a>export与import的复合写法</h1><p>如果在一个模块之中，先输入后输出同一个模块，<code>import</code>语句可以与<code>export</code>语句写在一起。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以简单理解为</span></span><br><span class="line"><span class="keyword">import</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125;;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>export</code>和<code>import</code>语句可以结合在一起，写成一行。但需要注意的是，写成一行以后，<code>foo</code>和<code>bar</code>实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，导致当前模块不能直接使用<code>foo</code>和<code>bar</code>。</p>
+<h1 id="跨模块常量"><a href="#跨模块常量" class="headerlink" title="跨模块常量"></a>跨模块常量</h1><p><code>const</code>声明的常量只在当前代码块有效。如果想设置跨模块的常量（即跨多个文件），或者说一个值要被多个模块共享，可以采用下面的写法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// constants.js 模块</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> B = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> C = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test1.js 模块</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> constants <span class="keyword">from</span> <span class="string">&#x27;./constants&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(constants.A); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(constants.B); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// test2.js 模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;A, B&#125; <span class="keyword">from</span> <span class="string">&#x27;./constants&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(A); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(B); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>如果要使用的常量非常多，可以建一个专门的<code>constants</code>目录，将各种常量写在不同的文件里面，保存在该目录下。</p>
+]]></content>
       <categories>
         <category>前端学习</category>
         <category>ECMAScript6</category>
@@ -1854,163 +1945,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ECMAScript6--Module</title>
-    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/19%E3%80%81Module.html</url>
-    <content><![CDATA[<p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。<code>export</code>命令用于规定模块的对外接口，<code>import</code>命令用于输入其他模块提供的功能。</p>
-<a id="more"></a>
-
-<h1 id="export命令"><a href="#export命令" class="headerlink" title="export命令"></a>export命令</h1><p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用<code>export</code>关键字输出该变量。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// profile.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> firstName = <span class="string">&#x27;Michael&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> lastName = <span class="string">&#x27;Jackson&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> year = <span class="number">1958</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用<code>export</code>命令对外部输出了三个变量。</p>
-</blockquote>
-<ul>
-<li><p><code>export</code>的另一种写法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// profile.js</span></span><br><span class="line"><span class="keyword">var</span> firstName = <span class="string">&#x27;Michael&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> lastName = <span class="string">&#x27;Jackson&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> year = <span class="number">1958</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; firstName, lastName, year &#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><code>export</code>命令除了输出变量，还可以输出函数和类（class）：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>对外输出一个函数<code>multiply</code></p>
-</blockquote>
-</li>
-<li><p><code>export</code>输出的变量就是本来的名字，但是可以使用<code>as</code>关键字重命名。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">v1</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">v2</span>(<span class="params"></span>) </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  v1 <span class="keyword">as</span> streamV1,</span><br><span class="line">  v2 <span class="keyword">as</span> streamV2,</span><br><span class="line">  v2 <span class="keyword">as</span> streamLatestVersion</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li><p><code>export</code>命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">export</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>; </span><br><span class="line"><span class="keyword">export</span> m;   <span class="comment">//通过变量`m`，还是直接输出 1。`1`只是一个值，不是接口。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//正确写法</span></span><br><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法三</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;n <span class="keyword">as</span> m&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------------------------------------------------*/</span></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> f;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;f&#125;;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<p><strong>注意：</strong><br><code>export</code>命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错（<code>import命令也是如此</code>）。</p>
-<h1 id="import命令"><a href="#import命令" class="headerlink" title="import命令"></a>import命令</h1><p>通过<code>import</code>命令加载其他<code>JS</code>文件中<code>export</code>输出的模块。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; firstName, lastName, year &#125; <span class="keyword">from</span> <span class="string">&#x27;./profile.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">  element.textContent = firstName + <span class="string">&#x27; &#x27;</span> + lastName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li><p><code>import</code>命令使用<code>as</code>关键字，将输入的变量重命名。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; lastName <span class="keyword">as</span> surname &#125; <span class="keyword">from</span> <span class="string">&#x27;./profile.js&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>import</code>命令输入的变量都是只读的，因为它的本质是输入接口。但是修改对象属性是允许的（不允许在加载模块的脚本里面改写接口）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;a&#125; <span class="keyword">from</span> <span class="string">&#x27;./xxx.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//报错</span></span><br><span class="line">a = &#123;&#125;; <span class="comment">// Syntax Error : &#x27;a&#x27; is read-only;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>import</code>后面的<code>from</code>指定模块文件的位置，可以是相对路径，也可以是绝对路径，<code>.js</code>后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;myMethod&#125; <span class="keyword">from</span> <span class="string">&#x27;util&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>import</code>命令具有提升效果，会提升到整个模块的头部，首先执行。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上面的代码不会报错，因为<code>import</code>的执行早于<code>foo</code>的调用。这种行为的本质是，<code>import</code>命令是编译阶段执行的，在代码运行之前。</p>
-</blockquote>
-</li>
-<li><p><code>import</code>是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="string">&#x27;f&#x27;</span> + <span class="string">&#x27;oo&#x27;</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> <span class="built_in">module</span> = <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="built_in">module</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">if</span> (x === <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;module1&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; foo &#125; <span class="keyword">from</span> <span class="string">&#x27;module2&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>import</code>语句会执行所加载的模块，因此可以有下面的写法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;lodash&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果多次重复执行同一句<code>import</code>语句，那么只会执行一次，而不会执行多次。</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="模块的整体加载"><a href="#模块的整体加载" class="headerlink" title="模块的整体加载"></a>模块的整体加载</h1><p>除了指定加载某个输出值，还可以使用整体加载，即用星号（<code>*</code>）指定一个对象，所有输出值都加载在这个对象上面。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// circle.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">area</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * radius * radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">circumference</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span> * <span class="built_in">Math</span>.PI * radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="comment">//使用星号整体加载</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> circle <span class="keyword">from</span> <span class="string">&#x27;./circle&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;圆面积：&#x27;</span> + circle.area(<span class="number">4</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;圆周长：&#x27;</span> + circle.circumference(<span class="number">14</span>));</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="export-default命令"><a href="#export-default命令" class="headerlink" title="export default命令"></a>export default命令</h1><p>使用该命令为模块指定默认输出。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// export-default.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// import-default.js</span></span><br><span class="line"><span class="keyword">import</span> customName <span class="keyword">from</span> <span class="string">&#x27;./export-default&#x27;</span>;</span><br><span class="line">customName(); <span class="comment">// &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>export default</code>命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此<code>export default</code>命令只能使用一次。</p>
-</blockquote>
-<h1 id="export与import的复合写法"><a href="#export与import的复合写法" class="headerlink" title="export与import的复合写法"></a>export与import的复合写法</h1><p>如果在一个模块之中，先输入后输出同一个模块，<code>import</code>语句可以与<code>export</code>语句写在一起。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以简单理解为</span></span><br><span class="line"><span class="keyword">import</span> &#123; foo, bar &#125; <span class="keyword">from</span> <span class="string">&#x27;my_module&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; foo, bar &#125;;</span><br></pre></td></tr></table></figure>
-<p>上面代码中，<code>export</code>和<code>import</code>语句可以结合在一起，写成一行。但需要注意的是，写成一行以后，<code>foo</code>和<code>bar</code>实际上并没有被导入当前模块，只是相当于对外转发了这两个接口，导致当前模块不能直接使用<code>foo</code>和<code>bar</code>。</p>
-<h1 id="跨模块常量"><a href="#跨模块常量" class="headerlink" title="跨模块常量"></a>跨模块常量</h1><p><code>const</code>声明的常量只在当前代码块有效。如果想设置跨模块的常量（即跨多个文件），或者说一个值要被多个模块共享，可以采用下面的写法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// constants.js 模块</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> A = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> B = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> C = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test1.js 模块</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> constants <span class="keyword">from</span> <span class="string">&#x27;./constants&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(constants.A); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(constants.B); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// test2.js 模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;A, B&#125; <span class="keyword">from</span> <span class="string">&#x27;./constants&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(A); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(B); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p>如果要使用的常量非常多，可以建一个专门的<code>constants</code>目录，将各种常量写在不同的文件里面，保存在该目录下。</p>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>ECMAScript6</category>
-      </categories>
-      <tags>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ECMAScript6--let和const命令</title>
-    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/1%E3%80%81let&amp;&amp;const.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h1><ul>
-<li>let命令只在所在的代码块内有效</li>
-<li>let命令很适合for循环的计数器</li>
-<li>let命令不存在变量提升,在变量声明前使用会报ReferenceError错误</li>
-<li>let不允许在相同的作用域内,重复声明同一个变量</li>
-</ul>
-<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>ES5只有全局作用域和函数作用域,没有块级作用域,这带来很多不合理场景。<br>第一种场景:内层变量可能会覆盖外层变量。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(tmp);</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">//解释</span></span><br><span class="line"><span class="comment">/*函数内部if代码块外部使用外层的tmp变量,内部使用内层的tmp变量,但是由于存在</span></span><br><span class="line"><span class="comment">*变量提升,内层的tmp覆盖了外层的tmp变量</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-<p>第二种场景:用来计数的循环变量泄露为全局变量</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*循环变量i只用来控制循环,但是循环结束后,他并没有小时,泄露成了全局变量</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="ES6的块级作用域"><a href="#ES6的块级作用域" class="headerlink" title="ES6的块级作用域"></a>ES6的块级作用域</h2><p>let和const为JavaScript提供了块级作用域<br>ES6允许块级作用域的多级嵌套</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;&#123;&#123;</span><br><span class="line">	<span class="keyword">let</span> test = <span class="number">12</span>;</span><br><span class="line">    &#123;<span class="keyword">let</span> text = <span class="number">12</span>;&#125;</span><br><span class="line">&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>块级作用域的出现,使用立即执行函数来防止污染全局变量已经不再必要了</p>
-<h2 id="块级作用域域函数声明"><a href="#块级作用域域函数声明" class="headerlink" title="块级作用域域函数声明"></a>块级作用域域函数声明</h2><p>ES5规定,函数只能在顶层作用域和函数作用域之中声明,不能在块级作用中声明函数,但是浏览器没有遵守这个规定,为了兼容以前的旧代码,还是支持在块级作用域之中声明函数</p>
-<p>例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="comment">// 重复声明一次函数f</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
-<p>在ES5环境中运行,if内声明的函数会被提升到函数头部:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ES5 环境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
-<p>ES6引入块级作用域后,明确允许在块级作用域之中声明函数.函树声明语句的行为类似于let,在块级作用域之外不可引用.<br>但是ES6规定,浏览器的实现可以不遵守上面的规定,有自己的行为方式(为了兼容以前的老代码).</p>
-<ul>
-<li>允许在块级作用域内声明函数</li>
-<li>函数声明类似于var,即会提升到全局作用域或函数作用域的头部。</li>
-<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
-</ul>
-<blockquote>
-<p>注意:上面的三条规则只对ES6的浏览器实现有效,其他浏览器环境的实现不用遵守</p>
-</blockquote>
-<p>上面的例子在ES6环境中运行如下:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 浏览器的 ES6 环境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> f = <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line"><span class="comment">// Uncaught TypeError: f is not a function</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>综上所述,应该避免在块级作用域内声明函数,如果确实需要,也应该写成函数表达式,而不是函数声明语句。<br>注意:ES6块级作用域必须有大括号,如果没有大括号,JavaScript引擎就认为不存在块级作用域</p>
-</blockquote>
-<h1 id="const命令"><a href="#const命令" class="headerlink" title="const命令"></a>const命令</h1><p>const声明一个只读的常量,一旦声明,常量的值就不能改变。<br>const一旦声明了变量,就必须立即初始化,不能留到以后赋值,不然会报错。<br>const声明的变量也是不存在变量提升的,不能重复声明。</p>
-<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>const定义的常量不是变量的值不得改动,而是变量指向的的那个内存地址保存的数据不得改动</p>
-<ul>
-<li>对于简单类型的数据(数值,字符串,布尔值),值就保存在变量指向的那个内存地址,因此等同于常量</li>
-<li>对于复合类型的数据(主要是对象和数组),变量指向的内存地址,保存的只是一个指向实际数据的指针,const只能保证这个指针是固定的,但是它指向的数据结构是不是可变的就不能控制了</li>
-</ul>
-<h1 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h1><p>在ES5中,全局变量就等同于顶层对象(window)的属性,这非常不利于模块化编程,因为顶层对象的属性到处都可以修改。<br>ES6中的let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。</p>
-<h1 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h1><ol>
-<li>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块</li>
-<li>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象，否则会指向当前对象（运行环境）</li>
-</ol>
-<h1 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h1><p>概念:使用let或const命令声明变量之前,该变量都是不可用的,这在语法上,称为”暂时性死区”.<br>暂时性死区意味着typeof不再是一个百分之百安全的操作.</p>
-<p>例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x;       <span class="comment">//ReferenceError</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>ECMAScript6</category>
-      </categories>
-      <tags>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ECMAScript6--变量的解构和赋值</title>
     <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/2%E3%80%81%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E5%92%8C%E8%B5%8B%E5%80%BC.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -2098,6 +2032,72 @@
 <p>7.输入模块的指定方法</p>
 <p>加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; SourceMapConsumer, SourceNode &#125; = <span class="built_in">require</span>(<span class="string">&quot;source-map&quot;</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>ECMAScript6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ECMAScript6--let和const命令</title>
+    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/1%E3%80%81let&amp;&amp;const.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h1><ul>
+<li>let命令只在所在的代码块内有效</li>
+<li>let命令很适合for循环的计数器</li>
+<li>let命令不存在变量提升,在变量声明前使用会报ReferenceError错误</li>
+<li>let不允许在相同的作用域内,重复声明同一个变量</li>
+</ul>
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>ES5只有全局作用域和函数作用域,没有块级作用域,这带来很多不合理场景。<br>第一种场景:内层变量可能会覆盖外层变量。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(tmp);</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">//解释</span></span><br><span class="line"><span class="comment">/*函数内部if代码块外部使用外层的tmp变量,内部使用内层的tmp变量,但是由于存在</span></span><br><span class="line"><span class="comment">*变量提升,内层的tmp覆盖了外层的tmp变量</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+<p>第二种场景:用来计数的循环变量泄露为全局变量</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(s[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*循环变量i只用来控制循环,但是循环结束后,他并没有小时,泄露成了全局变量</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ES6的块级作用域"><a href="#ES6的块级作用域" class="headerlink" title="ES6的块级作用域"></a>ES6的块级作用域</h2><p>let和const为JavaScript提供了块级作用域<br>ES6允许块级作用域的多级嵌套</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;&#123;&#123;</span><br><span class="line">	<span class="keyword">let</span> test = <span class="number">12</span>;</span><br><span class="line">    &#123;<span class="keyword">let</span> text = <span class="number">12</span>;&#125;</span><br><span class="line">&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>块级作用域的出现,使用立即执行函数来防止污染全局变量已经不再必要了</p>
+<h2 id="块级作用域域函数声明"><a href="#块级作用域域函数声明" class="headerlink" title="块级作用域域函数声明"></a>块级作用域域函数声明</h2><p>ES5规定,函数只能在顶层作用域和函数作用域之中声明,不能在块级作用中声明函数,但是浏览器没有遵守这个规定,为了兼容以前的旧代码,还是支持在块级作用域之中声明函数</p>
+<p>例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="comment">// 重复声明一次函数f</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>在ES5环境中运行,if内声明的函数会被提升到函数头部:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ES5 环境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>ES6引入块级作用域后,明确允许在块级作用域之中声明函数.函树声明语句的行为类似于let,在块级作用域之外不可引用.<br>但是ES6规定,浏览器的实现可以不遵守上面的规定,有自己的行为方式(为了兼容以前的老代码).</p>
+<ul>
+<li>允许在块级作用域内声明函数</li>
+<li>函数声明类似于var,即会提升到全局作用域或函数作用域的头部。</li>
+<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
+</ul>
+<blockquote>
+<p>注意:上面的三条规则只对ES6的浏览器实现有效,其他浏览器环境的实现不用遵守</p>
+</blockquote>
+<p>上面的例子在ES6环境中运行如下:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 浏览器的 ES6 环境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am outside!&#x27;</span>); &#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> f = <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;I am inside!&#x27;</span>); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line"><span class="comment">// Uncaught TypeError: f is not a function</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>综上所述,应该避免在块级作用域内声明函数,如果确实需要,也应该写成函数表达式,而不是函数声明语句。<br>注意:ES6块级作用域必须有大括号,如果没有大括号,JavaScript引擎就认为不存在块级作用域</p>
+</blockquote>
+<h1 id="const命令"><a href="#const命令" class="headerlink" title="const命令"></a>const命令</h1><p>const声明一个只读的常量,一旦声明,常量的值就不能改变。<br>const一旦声明了变量,就必须立即初始化,不能留到以后赋值,不然会报错。<br>const声明的变量也是不存在变量提升的,不能重复声明。</p>
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>const定义的常量不是变量的值不得改动,而是变量指向的的那个内存地址保存的数据不得改动</p>
+<ul>
+<li>对于简单类型的数据(数值,字符串,布尔值),值就保存在变量指向的那个内存地址,因此等同于常量</li>
+<li>对于复合类型的数据(主要是对象和数组),变量指向的内存地址,保存的只是一个指向实际数据的指针,const只能保证这个指针是固定的,但是它指向的数据结构是不是可变的就不能控制了</li>
+</ul>
+<h1 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h1><p>在ES5中,全局变量就等同于顶层对象(window)的属性,这非常不利于模块化编程,因为顶层对象的属性到处都可以修改。<br>ES6中的let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。</p>
+<h1 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h1><ol>
+<li>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块</li>
+<li>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象，否则会指向当前对象（运行环境）</li>
+</ol>
+<h1 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h1><p>概念:使用let或const命令声明变量之前,该变量都是不可用的,这在语法上,称为”暂时性死区”.<br>暂时性死区意味着typeof不再是一个百分之百安全的操作.</p>
+<p>例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x;       <span class="comment">//ReferenceError</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
       <categories>
         <category>前端学习</category>
         <category>ECMAScript6</category>
@@ -2363,107 +2363,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ECMAScript6--数值的扩展</title>
-    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/5%E3%80%81%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="二进制和八进制表示法"><a href="#二进制和八进制表示法" class="headerlink" title="二进制和八进制表示法"></a>二进制和八进制表示法</h1><p>ES6提供了新的写法<br>二进制:  前缀使用0b(或0B)表示<br>八进制: 前缀使用0o(或0O)表示</p>
-<h1 id="Number-isFinite-Number-isNaN"><a href="#Number-isFinite-Number-isNaN" class="headerlink" title="Number.isFinite() , Number.isNaN()"></a>Number.isFinite() , Number.isNaN()</h1><h2 id="Number-isFinite"><a href="#Number-isFinite" class="headerlink" title="Number.isFinite()"></a>Number.isFinite()</h2><p>检查一个数值是否有限的(即不是Infinity),如果参数类型不是数值,返回false</p>
-<h2 id="Number-isNaN"><a href="#Number-isNaN" class="headerlink" title="Number.isNaN()"></a>Number.isNaN()</h2><p>检查一个值是否为<code>NaN</code>,如果参数类型不是<code>NaN</code>,<code>Number.isNaN</code>返回<code>false</code><br>与传统的全局方法<code>isFinite()</code>和<code>isNaN()</code>的区别:<br>传统方法先调用Number()将非数值的值转为数值,再进行判断<br><em>而这两个新方法只对数值有效</em></p>
-<h1 id="Number-parseInt-Number-parseFloat"><a href="#Number-parseInt-Number-parseFloat" class="headerlink" title="Number.parseInt() , Number.parseFloat()"></a>Number.parseInt() , Number.parseFloat()</h1><p>ES6将全局方法<code>parseInt()</code>和<code>parseFloat()</code>,移植到Number对象上,行为完全保持不变</p>
-<h1 id="Number-isInteger"><a href="#Number-isInteger" class="headerlink" title="Number.isInteger()"></a>Number.isInteger()</h1><p>判断一个数值是否为整数,如果参数不是数值,该方法返回false</p>
-<p>注意:<br>由于 JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）。如果数值的精度超过这个限度，第54位及后面的位就会被丢弃,这种情况下,<code>Number.isInteger</code>可能会误判</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isInteger(<span class="number">3.0000000000000002</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这个小数的精度达到了小数点后16个十进制位，转成二进制位超过了53个二进制位，</span></span><br><span class="line"><span class="comment">//导致最后的那个2被丢弃了。所以误判为整数</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果对数据精度的要求比较高,不建议使用该方法判断一个数值是否为整数</p>
-</blockquote>
-<h1 id="Number-EPSILON"><a href="#Number-EPSILON" class="headerlink" title="Number.EPSILON"></a>Number.EPSILON</h1><p>ES6新增的一个极小的常量,实际上是JavaScript能够表示的最小精度<br>根据规格,它表示1 与大于 1 的最小浮点数之间的差。<br>对于64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001,小数点后面有连续 51 个零。这个值减去 1 之后，就等于 2 的 -52 次方。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.EPSILON === <span class="built_in">Math</span>.pow(<span class="number">2</span>, -<span class="number">52</span>)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">Number</span>.EPSILON</span><br><span class="line"><span class="comment">// 2.220446049250313e-16</span></span><br><span class="line"><span class="built_in">Number</span>.EPSILON.toFixed(<span class="number">20</span>)</span><br><span class="line"><span class="comment">// &quot;0.00000000000000022204&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 能够用来设置”能够接受的误差范围”(暂时还没有搞懂)</p>
-</blockquote>
-<h1 id="安全整数和Number-isSafeInteger"><a href="#安全整数和Number-isSafeInteger" class="headerlink" title="安全整数和Number.isSafeInteger()"></a>安全整数和Number.isSafeInteger()</h1><p>JavaScript能够准确表示的整数范围在-2^53到2^53之间(不含两个端点),超过这个范围,无法精确表示这个值<br>ES6引入了<code>Number.MAX_SAFE_INTEGER</code>和<code>Number.MIN_SAFE_INTEGER</code>这两个常量,用来表示这个范围的上下限.<br><code>Number.isSafeInteger()</code>用来判断一个整数是否在这个范围内</p>
-<h1 id="Math对象的扩展"><a href="#Math对象的扩展" class="headerlink" title="Math对象的扩展"></a>Math对象的扩展</h1><p>ES6 在 Math 对象上新增了 17 个与数学相关的方法。所有这些方法都是静态方法，只能在 Math 对象上调用。</p>
-<h2 id="Math-trunc"><a href="#Math-trunc" class="headerlink" title="Math.trunc()"></a>Math.trunc()</h2><p>该方法用于去除一个数的小数部分,返回整数部分.<br>规则:<br>对于非数值,<code>Math.trunc</code>内部使用<code>Number</code>方法将其先转为数值<br>对于空值和无法截取整数的值,返回<code>NaN</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.trunc(<span class="number">4.9</span>) <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(-<span class="number">4.1</span>) <span class="comment">// -4</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(-<span class="number">0.1234</span>) <span class="comment">// -0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="string">&#x27;123.456&#x27;</span>) <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">true</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">null</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">NaN</span>);      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="string">&#x27;foo&#x27;</span>);    <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc();         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.trunc = <span class="built_in">Math</span>.trunc  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(x) : <span class="built_in">Math</span>.floor(x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Math-sign"><a href="#Math-sign" class="headerlink" title="Math.sign()"></a>Math.sign()</h2><p>该方法用来判断一个数到底是正数,负数,还是零.  对于非数值,会先将其转换为数值<br>返回值:</p>
-<ul>
-<li>参数为正数,返回+1</li>
-<li>参数为负数,返回-1</li>
-<li>参数为0,返回0</li>
-<li>参数为-0,返回-0</li>
-<li>其他值,返回<code>NaN</code></li>
-</ul>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.sign = <span class="built_in">Math</span>.sign  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x = +x; <span class="comment">// convert to a number</span></span><br><span class="line">  <span class="keyword">if</span> (x === <span class="number">0</span>  <span class="built_in">isNaN</span>(x)) &#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x &gt; <span class="number">0</span> ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Math-cbrt"><a href="#Math-cbrt" class="headerlink" title="Math.cbrt()"></a>Math.cbrt()</h2><p>该方法用于计算一个数的立方根,  对于非数值,会先使用Number方法将其转换为数值<br>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.cbrt = <span class="built_in">Math</span>.cbrt  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.abs(x), <span class="number">1</span>/<span class="number">3</span>);</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? -y : y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Math-clz32"><a href="#Math-clz32" class="headerlink" title="Math.clz32()"></a>Math.clz32()</h2><p>该方法将参数转为32位无符号整数的形式,然后返回这个32位值里面有多少个前导0</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0</span>) <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">1</span>) <span class="comment">// 31</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">1000</span>) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0b01000000000000000000000000000000</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0b00100000000000000000000000000000</span>) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<ul>
-<li>对于小数,Math.clz32方法只考虑整数部分</li>
-<li>对于空值或其他类型的值,<code>Math.clz32</code>方法会将它们先转为数值,然后再计算</li>
-</ul>
-<h2 id="Math-imul"><a href="#Math-imul" class="headerlink" title="Math.imul()"></a>Math.imul()</h2><p>该方法返回两个数以32位带符号整数形式相乘的结果,返回的也是一个32位的带符号整数</p>
-<h2 id="Math-fround"><a href="#Math-fround" class="headerlink" title="Math.fround()"></a>Math.fround()</h2><p>该方法返回一个数的32位单精度浮点数形式<br>对于32位单精度格式来说,数值精度是24个二进制位(1 位隐藏位与 23 位有效位),所以对于 -224 至 224 之间的整数（不含两个端点），返回结果与参数本身一致。超出这个范围的结果便开始丢失精度</p>
-<p>注意:</p>
-<ul>
-<li>对于<code>NaN</code>和<code>Infinity</code>,该方法返回原值</li>
-<li>对于其它类型的非数值,该方法会先将其转为数值,再返回单精度浮点数</li>
-</ul>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.fround = <span class="built_in">Math</span>.fround  <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Float32Array</span>([x])[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Math-hypot"><a href="#Math-hypot" class="headerlink" title="Math.hypot()"></a>Math.hypot()</h2><p>该方法返回所有参数的平方和的平方根</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>);        <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);     <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot();            <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="literal">NaN</span>);         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">&#x27;foo&#x27;</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>);   <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(-<span class="number">3</span>);          <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<ul>
-<li>如果参数不是数值,<code>Math.hypot</code>方法会将其转为数值</li>
-<li>只要有一个参数无法转为数值,就会返回<code>NaN</code></li>
-</ul>
-<h2 id="对数的方法"><a href="#对数的方法" class="headerlink" title="对数的方法"></a><strong>对数的方法</strong></h2><h3 id="Math-expm1"><a href="#Math-expm1" class="headerlink" title="Math.expm1()"></a>Math.expm1()</h3><p>该方法返回 ex - 1,即<code>Math.exp(x) - 1</code><br>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.expm1 = <span class="built_in">Math</span>.expm1  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.exp(x) - <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Math-log1p"><a href="#Math-log1p" class="headerlink" title="Math.log1p()"></a>Math.log1p()</h3><p>该方法返回 1 + x 的自然对数,即Math.log(1+x).  如果x小于 -1 ,返回<code>NaN</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log1p(<span class="number">1</span>)  <span class="comment">// 0.6931471805599453</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(<span class="number">0</span>)  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(-<span class="number">1</span>) <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(-<span class="number">2</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log1p = <span class="built_in">Math</span>.log1p  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(<span class="number">1</span> + x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Math-log10"><a href="#Math-log10" class="headerlink" title="Math.log10()"></a>Math.log10()</h3><p>该方法返回10为底的x的对数,   如果x小于0,则返回<code>NaN</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log10(<span class="number">2</span>)      <span class="comment">// 0.3010299956639812</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">1</span>)      <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">0</span>)      <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log10(-<span class="number">2</span>)     <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">100000</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log10 = <span class="built_in">Math</span>.log10  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN10;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Math-log2"><a href="#Math-log2" class="headerlink" title="Math.log2()"></a>Math.log2()</h3><p>该方法返回以2为底的x的对数,   如果x小于0,则返回<code>NaN</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log2(<span class="number">3</span>)       <span class="comment">// 1.584962500721156</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">2</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1</span>)       <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">0</span>)       <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log2(-<span class="number">2</span>)      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1024</span>)    <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1</span> &lt;&lt; <span class="number">29</span>) <span class="comment">// 29</span></span><br></pre></td></tr></table></figure>
-<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log2 = <span class="built_in">Math</span>.log2  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="双曲函数方法"><a href="#双曲函数方法" class="headerlink" title="双曲函数方法"></a>双曲函数方法</h2><ul>
-<li><code>Math.sinh(x)</code> 返回x的双曲正弦（hyperbolic sine）</li>
-<li><code>Math.cosh(x)</code> 返回x的双曲余弦（hyperbolic cosine）</li>
-<li><code>Math.tanh(x)</code> 返回x的双曲正切（hyperbolic tangent）</li>
-<li><code>Math.asinh(x)</code> 返回x的反双曲正弦（inverse hyperbolic sine）</li>
-<li><code>Math.acosh(x)</code> 返回x的反双曲余弦（inverse hyperbolic cosine）</li>
-<li><code>Math.atanh(x)</code> 返回x的反双曲正切（inverse hyperbolic tangent）</li>
-</ul>
-<h1 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h1><p>指数运算符( ** )</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">2</span> ** <span class="number">2</span> <span class="comment">// 4</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">3</span> <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
-<p>该运算符的特点是左结合,即多个指数运算符连用是,是从最左边开始计算的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 相当于 2 ** (3 ** 2)</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">3</span> ** <span class="number">2</span></span><br><span class="line"><span class="comment">// 512</span></span><br></pre></td></tr></table></figure>
-<p>与等号连用( **= )</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1.5</span>;</span><br><span class="line">a **= <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 等同于 a = a * a;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">4</span>;</span><br><span class="line">b **= <span class="number">3</span>;</span><br><span class="line"><span class="comment">// 等同于 b = b * b * b;</span></span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<p>V8 引擎的指数运算符与<code>Math.pow</code>的实现不相同,对于特别大的运算结果,两者会有细微的差异</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">99</span>, <span class="number">99</span>)</span><br><span class="line"><span class="comment">// 3.697296376497263e+197</span></span><br><span class="line"></span><br><span class="line"><span class="number">99</span> ** <span class="number">99</span></span><br><span class="line"><span class="comment">// 3.697296376497268e+197</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>ECMAScript6</category>
-      </categories>
-      <tags>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ECMAScript6--函数的扩展</title>
     <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/6%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -2598,6 +2497,107 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tco</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value;</span><br><span class="line">  <span class="keyword">var</span> active = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> accumulated = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">accumulator</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    accumulated.push(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">if</span> (!active) &#123;</span><br><span class="line">      active = <span class="literal">true</span>;</span><br><span class="line">      <span class="keyword">while</span> (accumulated.length) &#123;</span><br><span class="line">        value = f.apply(<span class="built_in">this</span>, accumulated.shift());</span><br><span class="line">      &#125;</span><br><span class="line">      active = <span class="literal">false</span>;</span><br><span class="line">      <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = tco(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (y &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> sum(x + <span class="number">1</span>, y - <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">100000</span>)</span><br><span class="line"><span class="comment">// 100001</span></span><br></pre></td></tr></table></figure>
 <p>上面的代码中,<code>tco</code>函数时尾递归优化的实现,它的奥妙就在于状态变量<code>active</code></p>
 <h1 id="函数参数的尾逗号"><a href="#函数参数的尾逗号" class="headerlink" title="函数参数的尾逗号"></a>函数参数的尾逗号</h1><p>以前不允许最后一个参数后面出现逗号,这样对以后的修改很造成麻烦<br>ES2017 允许函数的最后一个参数有尾逗号</p>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>ECMAScript6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ECMAScript6--数值的扩展</title>
+    <url>/%E5%89%8D%E7%AB%AF/Ecmascript6/5%E3%80%81%E6%95%B0%E5%80%BC%E7%9A%84%E6%89%A9%E5%B1%95.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h1 id="二进制和八进制表示法"><a href="#二进制和八进制表示法" class="headerlink" title="二进制和八进制表示法"></a>二进制和八进制表示法</h1><p>ES6提供了新的写法<br>二进制:  前缀使用0b(或0B)表示<br>八进制: 前缀使用0o(或0O)表示</p>
+<h1 id="Number-isFinite-Number-isNaN"><a href="#Number-isFinite-Number-isNaN" class="headerlink" title="Number.isFinite() , Number.isNaN()"></a>Number.isFinite() , Number.isNaN()</h1><h2 id="Number-isFinite"><a href="#Number-isFinite" class="headerlink" title="Number.isFinite()"></a>Number.isFinite()</h2><p>检查一个数值是否有限的(即不是Infinity),如果参数类型不是数值,返回false</p>
+<h2 id="Number-isNaN"><a href="#Number-isNaN" class="headerlink" title="Number.isNaN()"></a>Number.isNaN()</h2><p>检查一个值是否为<code>NaN</code>,如果参数类型不是<code>NaN</code>,<code>Number.isNaN</code>返回<code>false</code><br>与传统的全局方法<code>isFinite()</code>和<code>isNaN()</code>的区别:<br>传统方法先调用Number()将非数值的值转为数值,再进行判断<br><em>而这两个新方法只对数值有效</em></p>
+<h1 id="Number-parseInt-Number-parseFloat"><a href="#Number-parseInt-Number-parseFloat" class="headerlink" title="Number.parseInt() , Number.parseFloat()"></a>Number.parseInt() , Number.parseFloat()</h1><p>ES6将全局方法<code>parseInt()</code>和<code>parseFloat()</code>,移植到Number对象上,行为完全保持不变</p>
+<h1 id="Number-isInteger"><a href="#Number-isInteger" class="headerlink" title="Number.isInteger()"></a>Number.isInteger()</h1><p>判断一个数值是否为整数,如果参数不是数值,该方法返回false</p>
+<p>注意:<br>由于 JavaScript 采用 IEEE 754 标准，数值存储为64位双精度格式，数值精度最多可以达到 53 个二进制位（1 个隐藏位与 52 个有效位）。如果数值的精度超过这个限度，第54位及后面的位就会被丢弃,这种情况下,<code>Number.isInteger</code>可能会误判</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isInteger(<span class="number">3.0000000000000002</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这个小数的精度达到了小数点后16个十进制位，转成二进制位超过了53个二进制位，</span></span><br><span class="line"><span class="comment">//导致最后的那个2被丢弃了。所以误判为整数</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果对数据精度的要求比较高,不建议使用该方法判断一个数值是否为整数</p>
+</blockquote>
+<h1 id="Number-EPSILON"><a href="#Number-EPSILON" class="headerlink" title="Number.EPSILON"></a>Number.EPSILON</h1><p>ES6新增的一个极小的常量,实际上是JavaScript能够表示的最小精度<br>根据规格,它表示1 与大于 1 的最小浮点数之间的差。<br>对于64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001,小数点后面有连续 51 个零。这个值减去 1 之后，就等于 2 的 -52 次方。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.EPSILON === <span class="built_in">Math</span>.pow(<span class="number">2</span>, -<span class="number">52</span>)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">Number</span>.EPSILON</span><br><span class="line"><span class="comment">// 2.220446049250313e-16</span></span><br><span class="line"><span class="built_in">Number</span>.EPSILON.toFixed(<span class="number">20</span>)</span><br><span class="line"><span class="comment">// &quot;0.00000000000000022204&quot;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 能够用来设置”能够接受的误差范围”(暂时还没有搞懂)</p>
+</blockquote>
+<h1 id="安全整数和Number-isSafeInteger"><a href="#安全整数和Number-isSafeInteger" class="headerlink" title="安全整数和Number.isSafeInteger()"></a>安全整数和Number.isSafeInteger()</h1><p>JavaScript能够准确表示的整数范围在-2^53到2^53之间(不含两个端点),超过这个范围,无法精确表示这个值<br>ES6引入了<code>Number.MAX_SAFE_INTEGER</code>和<code>Number.MIN_SAFE_INTEGER</code>这两个常量,用来表示这个范围的上下限.<br><code>Number.isSafeInteger()</code>用来判断一个整数是否在这个范围内</p>
+<h1 id="Math对象的扩展"><a href="#Math对象的扩展" class="headerlink" title="Math对象的扩展"></a>Math对象的扩展</h1><p>ES6 在 Math 对象上新增了 17 个与数学相关的方法。所有这些方法都是静态方法，只能在 Math 对象上调用。</p>
+<h2 id="Math-trunc"><a href="#Math-trunc" class="headerlink" title="Math.trunc()"></a>Math.trunc()</h2><p>该方法用于去除一个数的小数部分,返回整数部分.<br>规则:<br>对于非数值,<code>Math.trunc</code>内部使用<code>Number</code>方法将其先转为数值<br>对于空值和无法截取整数的值,返回<code>NaN</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.trunc(<span class="number">4.9</span>) <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(-<span class="number">4.1</span>) <span class="comment">// -4</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(-<span class="number">0.1234</span>) <span class="comment">// -0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="string">&#x27;123.456&#x27;</span>) <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">true</span>) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">false</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">null</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">NaN</span>);      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="string">&#x27;foo&#x27;</span>);    <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc();         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.trunc(<span class="literal">undefined</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.trunc = <span class="built_in">Math</span>.trunc  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(x) : <span class="built_in">Math</span>.floor(x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Math-sign"><a href="#Math-sign" class="headerlink" title="Math.sign()"></a>Math.sign()</h2><p>该方法用来判断一个数到底是正数,负数,还是零.  对于非数值,会先将其转换为数值<br>返回值:</p>
+<ul>
+<li>参数为正数,返回+1</li>
+<li>参数为负数,返回-1</li>
+<li>参数为0,返回0</li>
+<li>参数为-0,返回-0</li>
+<li>其他值,返回<code>NaN</code></li>
+</ul>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.sign = <span class="built_in">Math</span>.sign  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x = +x; <span class="comment">// convert to a number</span></span><br><span class="line">  <span class="keyword">if</span> (x === <span class="number">0</span>  <span class="built_in">isNaN</span>(x)) &#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x &gt; <span class="number">0</span> ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Math-cbrt"><a href="#Math-cbrt" class="headerlink" title="Math.cbrt()"></a>Math.cbrt()</h2><p>该方法用于计算一个数的立方根,  对于非数值,会先使用Number方法将其转换为数值<br>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.cbrt = <span class="built_in">Math</span>.cbrt  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.abs(x), <span class="number">1</span>/<span class="number">3</span>);</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? -y : y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Math-clz32"><a href="#Math-clz32" class="headerlink" title="Math.clz32()"></a>Math.clz32()</h2><p>该方法将参数转为32位无符号整数的形式,然后返回这个32位值里面有多少个前导0</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0</span>) <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">1</span>) <span class="comment">// 31</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">1000</span>) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0b01000000000000000000000000000000</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Math</span>.clz32(<span class="number">0b00100000000000000000000000000000</span>) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>对于小数,Math.clz32方法只考虑整数部分</li>
+<li>对于空值或其他类型的值,<code>Math.clz32</code>方法会将它们先转为数值,然后再计算</li>
+</ul>
+<h2 id="Math-imul"><a href="#Math-imul" class="headerlink" title="Math.imul()"></a>Math.imul()</h2><p>该方法返回两个数以32位带符号整数形式相乘的结果,返回的也是一个32位的带符号整数</p>
+<h2 id="Math-fround"><a href="#Math-fround" class="headerlink" title="Math.fround()"></a>Math.fround()</h2><p>该方法返回一个数的32位单精度浮点数形式<br>对于32位单精度格式来说,数值精度是24个二进制位(1 位隐藏位与 23 位有效位),所以对于 -224 至 224 之间的整数（不含两个端点），返回结果与参数本身一致。超出这个范围的结果便开始丢失精度</p>
+<p>注意:</p>
+<ul>
+<li>对于<code>NaN</code>和<code>Infinity</code>,该方法返回原值</li>
+<li>对于其它类型的非数值,该方法会先将其转为数值,再返回单精度浮点数</li>
+</ul>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.fround = <span class="built_in">Math</span>.fround  <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Float32Array</span>([x])[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Math-hypot"><a href="#Math-hypot" class="headerlink" title="Math.hypot()"></a>Math.hypot()</h2><p>该方法返回所有参数的平方和的平方根</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>);        <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);     <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot();            <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="literal">NaN</span>);         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">&#x27;foo&#x27;</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>);   <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(-<span class="number">3</span>);          <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<ul>
+<li>如果参数不是数值,<code>Math.hypot</code>方法会将其转为数值</li>
+<li>只要有一个参数无法转为数值,就会返回<code>NaN</code></li>
+</ul>
+<h2 id="对数的方法"><a href="#对数的方法" class="headerlink" title="对数的方法"></a><strong>对数的方法</strong></h2><h3 id="Math-expm1"><a href="#Math-expm1" class="headerlink" title="Math.expm1()"></a>Math.expm1()</h3><p>该方法返回 ex - 1,即<code>Math.exp(x) - 1</code><br>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.expm1 = <span class="built_in">Math</span>.expm1  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.exp(x) - <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Math-log1p"><a href="#Math-log1p" class="headerlink" title="Math.log1p()"></a>Math.log1p()</h3><p>该方法返回 1 + x 的自然对数,即Math.log(1+x).  如果x小于 -1 ,返回<code>NaN</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log1p(<span class="number">1</span>)  <span class="comment">// 0.6931471805599453</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(<span class="number">0</span>)  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(-<span class="number">1</span>) <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log1p(-<span class="number">2</span>) <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log1p = <span class="built_in">Math</span>.log1p  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(<span class="number">1</span> + x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Math-log10"><a href="#Math-log10" class="headerlink" title="Math.log10()"></a>Math.log10()</h3><p>该方法返回10为底的x的对数,   如果x小于0,则返回<code>NaN</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log10(<span class="number">2</span>)      <span class="comment">// 0.3010299956639812</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">1</span>)      <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">0</span>)      <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log10(-<span class="number">2</span>)     <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.log10(<span class="number">100000</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log10 = <span class="built_in">Math</span>.log10  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN10;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Math-log2"><a href="#Math-log2" class="headerlink" title="Math.log2()"></a>Math.log2()</h3><p>该方法返回以2为底的x的对数,   如果x小于0,则返回<code>NaN</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log2(<span class="number">3</span>)       <span class="comment">// 1.584962500721156</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">2</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1</span>)       <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">0</span>)       <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">Math</span>.log2(-<span class="number">2</span>)      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1024</span>)    <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">Math</span>.log2(<span class="number">1</span> &lt;&lt; <span class="number">29</span>) <span class="comment">// 29</span></span><br></pre></td></tr></table></figure>
+<p>对于没有部署这个方法的环境:可以使用下面的代码模拟:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.log2 = <span class="built_in">Math</span>.log2  <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="双曲函数方法"><a href="#双曲函数方法" class="headerlink" title="双曲函数方法"></a>双曲函数方法</h2><ul>
+<li><code>Math.sinh(x)</code> 返回x的双曲正弦（hyperbolic sine）</li>
+<li><code>Math.cosh(x)</code> 返回x的双曲余弦（hyperbolic cosine）</li>
+<li><code>Math.tanh(x)</code> 返回x的双曲正切（hyperbolic tangent）</li>
+<li><code>Math.asinh(x)</code> 返回x的反双曲正弦（inverse hyperbolic sine）</li>
+<li><code>Math.acosh(x)</code> 返回x的反双曲余弦（inverse hyperbolic cosine）</li>
+<li><code>Math.atanh(x)</code> 返回x的反双曲正切（inverse hyperbolic tangent）</li>
+</ul>
+<h1 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h1><p>指数运算符( ** )</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">2</span> ** <span class="number">2</span> <span class="comment">// 4</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">3</span> <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+<p>该运算符的特点是左结合,即多个指数运算符连用是,是从最左边开始计算的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 相当于 2 ** (3 ** 2)</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">3</span> ** <span class="number">2</span></span><br><span class="line"><span class="comment">// 512</span></span><br></pre></td></tr></table></figure>
+<p>与等号连用( **= )</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1.5</span>;</span><br><span class="line">a **= <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 等同于 a = a * a;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">4</span>;</span><br><span class="line">b **= <span class="number">3</span>;</span><br><span class="line"><span class="comment">// 等同于 b = b * b * b;</span></span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<p>V8 引擎的指数运算符与<code>Math.pow</code>的实现不相同,对于特别大的运算结果,两者会有细微的差异</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">99</span>, <span class="number">99</span>)</span><br><span class="line"><span class="comment">// 3.697296376497263e+197</span></span><br><span class="line"></span><br><span class="line"><span class="number">99</span> ** <span class="number">99</span></span><br><span class="line"><span class="comment">// 3.697296376497268e+197</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端学习</category>
@@ -3262,35 +3262,6 @@
       </tags>
   </entry>
   <entry>
-    <title>React -- 事件处理</title>
-    <url>/%E5%89%8D%E7%AB%AF/React%E5%AD%A6%E4%B9%A0/4%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-<p>React 元素的事件处理和 DOM 元素的很相似，但是有一点语法上的不同:</p>
-<ul>
-<li>React 事件的命名采用小驼峰式（camelCase），而不是纯小写。</li>
-<li>使用 JSX 语法时你需要传入一个函数作为事件处理函数，而不是一个字符串。</li>
-</ul>
-<p>React中定义事件：</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>在 React 中另一个不同点是你不能通过返回 <code>false</code> 的方式阻止默认行为。你必须显式的使用 <code>preventDefault</code> 。</p>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ActionLink</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;The link was clicked.&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;a href=<span class="string">&quot;#&quot;</span> onClick=&#123;handleClick&#125;&gt;</span><br><span class="line">      Click me</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>e</code> 是一个合成事件。React 根据 <a href="https://www.w3.org/TR/DOM-Level-3-Events/">W3C 规范</a>来定义这些合成事件，所以你不需要担心跨浏览器的兼容性问题。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>React -- 条件渲染</title>
     <url>/%E5%89%8D%E7%AB%AF/React%E5%AD%A6%E4%B9%A0/5%E3%80%81%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93.html</url>
     <content><![CDATA[<a id="more"></a>
@@ -3372,6 +3343,35 @@
 <h1 id="Hello-World应用"><a href="#Hello-World应用" class="headerlink" title="Hello World应用"></a>Hello World应用</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;bds&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/react@16/umd/react.development.js&quot;</span> <span class="attr">crossorigin</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot;</span> <span class="attr">crossorigin</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/babel&quot;</span>&gt;</span>	</span><br><span class="line"><span class="javascript">	ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">&quot;bds&quot;</span>));</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>上面使用react的方式只适合于学习用</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React -- 事件处理</title>
+    <url>/%E5%89%8D%E7%AB%AF/React%E5%AD%A6%E4%B9%A0/4%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+
+<p>React 元素的事件处理和 DOM 元素的很相似，但是有一点语法上的不同:</p>
+<ul>
+<li>React 事件的命名采用小驼峰式（camelCase），而不是纯小写。</li>
+<li>使用 JSX 语法时你需要传入一个函数作为事件处理函数，而不是一个字符串。</li>
+</ul>
+<p>React中定义事件：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</span><br><span class="line">  Activate Lasers</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>在 React 中另一个不同点是你不能通过返回 <code>false</code> 的方式阻止默认行为。你必须显式的使用 <code>preventDefault</code> 。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ActionLink</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;The link was clicked.&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;a href=<span class="string">&quot;#&quot;</span> onClick=&#123;handleClick&#125;&gt;</span><br><span class="line">      Click me</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>e</code> 是一个合成事件。React 根据 <a href="https://www.w3.org/TR/DOM-Level-3-Events/">W3C 规范</a>来定义这些合成事件，所以你不需要担心跨浏览器的兼容性问题。</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -4883,6 +4883,28 @@
       </tags>
   </entry>
   <entry>
+    <title>MongoDB入门 -- sort和投影</title>
+    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/MangoDB%E5%85%A5%E9%97%A8/3%E3%80%81sort%E5%92%8C%E6%8A%95%E5%BD%B1.html</url>
+    <content><![CDATA[<p>sort用来指定文档的排序的规则,需要传递一个对象指定排序规则<br>投影可以在查询时设置你想要显示的属性列</p>
+<a id="more"></a>
+
+
+
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>查询文档时，默认情况是按照<code>_id</code>的值进行排列(升序)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.emp.find(&#123;&#125;).sort(&#123;<span class="attr">sal</span>:<span class="number">1</span>,<span class="attr">empno</span>:-<span class="number">1</span>&#125;);</span><br><span class="line"><span class="comment">//1 表示升序   -1 表示降序</span></span><br><span class="line"><span class="comment">//sal和empno都是文档中的属性</span></span><br><span class="line"><span class="comment">//上面表示先按照sal排序,如果遇到相同的,再按照empno排序</span></span><br></pre></td></tr></table></figure>
+<h2 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h2><p>在查询时，可以在第二个参数的位置来设置查询结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.emp.find(&#123;&#125;,&#123;ename:1&#125;);        &#x2F;&#x2F;指定了ename属性列显示</span><br><span class="line">&#x2F;&#x2F;1 为显示,  0位不显示(注意_id属性默认是显示的)</span><br><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MongoDB入门</category>
+      </categories>
+      <tags>
+        <tag>MongoDB入门</tag>
+        <tag>NoSQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MongoDB入门 -- MongoDB基本操作</title>
     <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/MangoDB%E5%85%A5%E9%97%A8/2%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<p>三个概念:</p>
@@ -4940,28 +4962,6 @@
 <p><strong>注意:</strong><code>remove()</code>方法如果传一个空对象会删除所有文档</p>
 </blockquote>
 <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="or"><a href="#or" class="headerlink" title="$or"></a>$or</h3><p> 它表示的是模糊搜索的条件</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>MongoDB入门</category>
-      </categories>
-      <tags>
-        <tag>MongoDB入门</tag>
-        <tag>NoSQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MongoDB入门 -- sort和投影</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/MangoDB%E5%85%A5%E9%97%A8/3%E3%80%81sort%E5%92%8C%E6%8A%95%E5%BD%B1.html</url>
-    <content><![CDATA[<p>sort用来指定文档的排序的规则,需要传递一个对象指定排序规则<br>投影可以在查询时设置你想要显示的属性列</p>
-<a id="more"></a>
-
-
-
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>查询文档时，默认情况是按照<code>_id</code>的值进行排列(升序)</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.emp.find(&#123;&#125;).sort(&#123;<span class="attr">sal</span>:<span class="number">1</span>,<span class="attr">empno</span>:-<span class="number">1</span>&#125;);</span><br><span class="line"><span class="comment">//1 表示升序   -1 表示降序</span></span><br><span class="line"><span class="comment">//sal和empno都是文档中的属性</span></span><br><span class="line"><span class="comment">//上面表示先按照sal排序,如果遇到相同的,再按照empno排序</span></span><br></pre></td></tr></table></figure>
-<h2 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h2><p>在查询时，可以在第二个参数的位置来设置查询结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.emp.find(&#123;&#125;,&#123;ename:1&#125;);        &#x2F;&#x2F;指定了ename属性列显示</span><br><span class="line">&#x2F;&#x2F;1 为显示,  0位不显示(注意_id属性默认是显示的)</span><br><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>数据库</category>
@@ -5199,38 +5199,6 @@ On Ubuntu `Ctrl + Shift + I`</code></pre></blockquote>
       </tags>
   </entry>
   <entry>
-    <title>vuex开发日记</title>
-    <url>/%E5%89%8D%E7%AB%AF/vue/vuex/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0.html</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="路由跳转多次的问题"><a href="#路由跳转多次的问题" class="headerlink" title="路由跳转多次的问题"></a>路由跳转多次的问题</h2><p>问题代码</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-link tag=<span class="string">&quot;li&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in tabList&quot;</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive(item.path)&#125;&quot;</span> :to=<span class="string">&quot;&#123;name:item.path&#125;&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;i @click=<span class="string">&quot;deleteItem(item)&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    &lt;em&gt;&lt;/em&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------deleteItem方法----------</span></span><br><span class="line"><span class="function"><span class="title">deleteItem</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.dispatch(<span class="string">&#x27;page/delVisitedViews&#x27;</span>,item).then(<span class="function">(<span class="params">index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> tab = <span class="built_in">this</span>.tabList;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.isActive(item.path))&#123;<span class="comment">//只有在关闭当前打开的标签页才会有影响</span></span><br><span class="line">            <span class="keyword">if</span>(tab.length ==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">path</span>:<span class="string">&quot;/&quot;</span>&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[<span class="number">0</span>].path&#125;);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &lt; index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index-<span class="number">1</span>].path&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &gt;= index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index].path&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>原因:i标签的点击事件产生了冒泡,触发了router-link的点击事件,所以导致了路由跳转两次的问题</p>
-</blockquote>
-<h2 id="页面刷新vuex状态丢失"><a href="#页面刷新vuex状态丢失" class="headerlink" title="页面刷新vuex状态丢失"></a>页面刷新vuex状态丢失</h2><p>==问题原因:== 因为store里的数据是保存在运行内存中的,当页面刷新时，页面会重新加载vue实例，store里面的数据就会被重新赋值</p>
-<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>讲state里的数据保存一份到本地存储(localStorage,sessionStorage,cookie)中</p>
-<p>==本地存储的选择:==</p>
-<ol>
-<li><code>localStorage</code>是永久存储在本地(除非手动删除)</li>
-<li><code>sessionStorage</code>是存储到当前页面关闭为止</li>
-<li><code>cookie</code>则根据你设置的有效时间存储(不能存储大数据且不易读取)</li>
-</ol>
-<h3 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h3><p>由于<code>state</code>里的数据是响应式的,所以<code>sessionStorage</code>存储也要跟随变化。我们可以在<code>mutation</code>修改<code>state</code>的同时修改<code>sessionStorage</code>对应的存储</p>
-<blockquote>
-<p>该方案存在一定的缺点,我们每次提交<code>mutation</code>的时候都要修改<code>sessionStorage</code>的值,但是我们只想在页面刷新前去存储,这样做会造成性能浪费</p>
-</blockquote>
-<h3 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h3><p>通过<code>beforeupload</code>事件在页面刷新时先触发,存储vuex的状态</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&#x27;App&#x27;</span>,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="comment">//在页面加载时读取sessionStorage里的状态信息</span></span><br><span class="line">    <span class="keyword">if</span> (sessionStorage.getItem(<span class="string">&quot;store&quot;</span>) ) &#123;</span><br><span class="line">        <span class="built_in">this</span>.$store.replaceState(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.$store.state,<span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">&quot;store&quot;</span>))))</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//在页面刷新时将vuex里的信息保存到sessionStorage里</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;beforeunload&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        sessionStorage.setItem(<span class="string">&quot;store&quot;</span>,<span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.$store.state))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>前端学习</category>
-        <category>vuex</category>
-      </categories>
-      <tags>
-        <tag>vuex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vuex学习笔记</title>
     <url>/%E5%89%8D%E7%AB%AF/vue/vuex/vuex.html</url>
     <content><![CDATA[<p>通过props属性和自定义事件实现组件间的通信,但是这样的做的后果就是组件间的通信会非常的混乱且不好管理。</p>
@@ -5270,6 +5238,38 @@ On Ubuntu `Ctrl + Shift + I`</code></pre></blockquote>
 <p>注意，getter 在通过方法访问时，每次都会去进行调用，而不会缓存结果。</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>前端学习</category>
+        <category>vuex</category>
+      </categories>
+      <tags>
+        <tag>vuex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vuex开发日记</title>
+    <url>/%E5%89%8D%E7%AB%AF/vue/vuex/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0.html</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h2 id="路由跳转多次的问题"><a href="#路由跳转多次的问题" class="headerlink" title="路由跳转多次的问题"></a>路由跳转多次的问题</h2><p>问题代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-link tag=<span class="string">&quot;li&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;(item,index) in tabList&quot;</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;&#123;active:isActive(item.path)&#125;&quot;</span> :to=<span class="string">&quot;&#123;name:item.path&#125;&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;i @click=<span class="string">&quot;deleteItem(item)&quot;</span>&gt;&lt;/i&gt;</span><br><span class="line">    &lt;em&gt;&lt;/em&gt;</span><br><span class="line">&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------deleteItem方法----------</span></span><br><span class="line"><span class="function"><span class="title">deleteItem</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.dispatch(<span class="string">&#x27;page/delVisitedViews&#x27;</span>,item).then(<span class="function">(<span class="params">index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> tab = <span class="built_in">this</span>.tabList;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.isActive(item.path))&#123;<span class="comment">//只有在关闭当前打开的标签页才会有影响</span></span><br><span class="line">            <span class="keyword">if</span>(tab.length ==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">path</span>:<span class="string">&quot;/&quot;</span>&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[<span class="number">0</span>].path&#125;);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &lt; index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index-<span class="number">1</span>].path&#125;);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tab.length-<span class="number">1</span> &gt;= index)&#123;</span><br><span class="line">                <span class="built_in">this</span>.$router.replace(&#123;<span class="attr">name</span>:tab[index].path&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原因:i标签的点击事件产生了冒泡,触发了router-link的点击事件,所以导致了路由跳转两次的问题</p>
+</blockquote>
+<h2 id="页面刷新vuex状态丢失"><a href="#页面刷新vuex状态丢失" class="headerlink" title="页面刷新vuex状态丢失"></a>页面刷新vuex状态丢失</h2><p>==问题原因:== 因为store里的数据是保存在运行内存中的,当页面刷新时，页面会重新加载vue实例，store里面的数据就会被重新赋值</p>
+<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>讲state里的数据保存一份到本地存储(localStorage,sessionStorage,cookie)中</p>
+<p>==本地存储的选择:==</p>
+<ol>
+<li><code>localStorage</code>是永久存储在本地(除非手动删除)</li>
+<li><code>sessionStorage</code>是存储到当前页面关闭为止</li>
+<li><code>cookie</code>则根据你设置的有效时间存储(不能存储大数据且不易读取)</li>
+</ol>
+<h3 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h3><p>由于<code>state</code>里的数据是响应式的,所以<code>sessionStorage</code>存储也要跟随变化。我们可以在<code>mutation</code>修改<code>state</code>的同时修改<code>sessionStorage</code>对应的存储</p>
+<blockquote>
+<p>该方案存在一定的缺点,我们每次提交<code>mutation</code>的时候都要修改<code>sessionStorage</code>的值,但是我们只想在页面刷新前去存储,这样做会造成性能浪费</p>
+</blockquote>
+<h3 id="解决方案二"><a href="#解决方案二" class="headerlink" title="解决方案二"></a>解决方案二</h3><p>通过<code>beforeupload</code>事件在页面刷新时先触发,存储vuex的状态</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&#x27;App&#x27;</span>,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="comment">//在页面加载时读取sessionStorage里的状态信息</span></span><br><span class="line">    <span class="keyword">if</span> (sessionStorage.getItem(<span class="string">&quot;store&quot;</span>) ) &#123;</span><br><span class="line">        <span class="built_in">this</span>.$store.replaceState(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="built_in">this</span>.$store.state,<span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">&quot;store&quot;</span>))))</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment">//在页面刷新时将vuex里的信息保存到sessionStorage里</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;beforeunload&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        sessionStorage.setItem(<span class="string">&quot;store&quot;</span>,<span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.$store.state))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>前端学习</category>
         <category>vuex</category>
